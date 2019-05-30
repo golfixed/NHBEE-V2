@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
+    "firebase-tools": "^6.10.0",
     "mdbvue": "^5.0.0",
-    "vue-i18n": "^8.7.0"
+    "vue": "^2.5.2",
+    "vue-i18n": "^8.7.0",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

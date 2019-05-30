@@ -1,5 +1,5 @@
 <template>
-  <div class="main-body" id="app" style="font-family: 'Chakra Petch', sans-serif;">
+  <div class="main-body" id="app" style="font-family: 'Sarabun', sans-serif;">
     <component :is="layout">
       <router-view :layout.sync="layout"/>
     </component>

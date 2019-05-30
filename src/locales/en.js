@@ -34,10 +34,11 @@ export default {
         col1: 'Home',
         col2: 'About us',
         col3: 'News',
-        col4: 'Take a survey',
+        col4: 'Survey',
         col5: 'Research',
         col6: 'Contact us',
-        col7: 'Admin LogIn'
+        col7: 'Admin LogIn',
+        menubtn: 'MENU'
       },
       searchbar: 'Search in web',
       quicklink: {

@@ -2,7 +2,7 @@
   <div style="margin: 0px; padding: 0px;">
     <navbar/>
     <slot/>
-    <footerall/>
+    <!-- <footerall/> -->
   </div>
 </template>
 
@@ -19,4 +19,8 @@ export default {
 </script>
 
 <style>
+.nav-searchbar {
+    border: 1px solid grey;
+    padding: 5px;
+}
 </style>

@@ -57,7 +57,7 @@
 <script>
 import { mdbIcon } from "mdbvue";
 export default {
-  name: "footer",
+  name: "nhbeefooter",
   components: {
     mdbIcon
   },
