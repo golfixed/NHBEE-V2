@@ -1,75 +1,83 @@
 <template>
-  <div class="container-fluid navbarbox" style="position: fixed; z-index: 999;padding: 0px;">
+  <div
+    id="navbarbox"
+    class="container-fluid navbarbox"
+    style="position: fixed; z-index: 999;padding:0px;"
+  >
     <div class="header-top-line"></div>
-    <div class="container d-flex align-items-center justify-content-center" style="height: 100%;padding:0px;">
-      <div class="row d-flex align-items-center" style="color: white; width: 100%;">
+    <div
+      class="container d-flex align-items-center justify-content-center"
+      style="height: 100%;padding:0px;"
+    >
+      <div
+        class="row d-flex justify-content-between align-items-center"
+        style="color: white; width: 100%;"
+      >
         <!--LOGO AREA -->
-        <div class="col-2 d-flex justify-content-start logo-col" style="padding: 0px;">
+        <div class="d-flex align-items-center group-left">
           <div class="d-flex flex-row align-items-center align-items-center">
-            <img class="logo" src="/static/img/logo.png">
+            <img id="logo" class="logo" src="/static/img/logo.png">
             <div class="webname">
-              <h1 class="webname-txt">NHBEE KMUTT</h1>
+              <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
+              <h1 id="webname" class="webname-txt2">NHBEE</h1>
             </div>
           </div>
         </div>
-        <!-- MENU ITEMS AREA -->
-        <div class="col-8 d-flex justify-content-center align-items-center" style="padding:0px;">
-          <div class="row navbar-div d-flex justify-content-center">
-            <div class="container d-flex align-items-center justify-content-center">
-              <nav :class="[{'show': hamburger}, 'nav-display ham-page'] ">
-                <ul id="navbar-nav">
-                  <li>
-                    <router-link to="/about">{{ $t("message.navbar.col2") }}</router-link>
-                  </li>
-                  <li>
-                    <router-link to="/news">{{ $t("message.navbar.col3") }}</router-link>
-                  </li>
-                  <li>
-                    <router-link to="/research">{{ $t("message.navbar.col5") }}</router-link>
-                  </li>
-                  <li>
-                    <router-link to="/survey">{{ $t("message.navbar.col4") }}</router-link>
-                  </li>
-                  <li>
-                    <router-link to="/contact">{{ $t("message.navbar.col6") }}</router-link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-        <!-- LNG BTN + SEACH ICON -->
-        <div class="col-2 d-flex justify-content-end align-items-center"  style="padding:0px;">
-          <div style=" border-right: 1px solid rgba(255, 255, 255, 0.253);">
+        <div class="d-flex align-items-center group-right">
+          <div style=" border-right: 1px solid rgba(255, 255, 255, 0.253);  height:30px;">
             <button
-              class="lanbtn d-flex align-items-center"
+              class="lanbtn"
               @click="switchLocal()"
-              style="margin-right: 8px; padding-bottom: 0px; padding-top: 0px;"
+              style=" padding-bottom: 0px; padding-top: 0px; align-items:center;"
             >
-              <mdb-icon icon="globe" style=" font-size: 20px;margin-right: 5px;"/>
+              <i class="fas fa-globe" style=" font-size: 20px;margin-right: 5px;"></i>
               {{ displayLocal }}
             </button>
           </div>
-          <div style="color:#707070; margin: 0px 11px;">
-            <mdb-icon icon="search"/>
+          <div
+            class="d-flex align-items-center justify-content-start"
+            style="color:#707070; height: 30px; padding: 0px 15px; border-right: 1px solid rgba(255, 255, 255, 0.253);"
+          >
+            <input
+              v-if="searchbarShow === true"
+              class="nav-searchbar"
+              style="margin-right:15px;"
+              type="text"
+              placeholder="Search in web"
+            >
+            <div @click="searchbarToggle();">
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+          <div
+            @click="menubarToggle();"
+            class="d-flex flew-row"
+            style="color: white; padding: 0px 0px 0px 15px; align-items:center;"
+          >
+            <i class="fas fa-bars"></i>
+            <p style="padding: 0px 0px 0px 15px;margin:0px;">{{ $t("message.navbar.menubtn") }}</p>
           </div>
         </div>
       </div>
+    </div>
+    <div v-if="menubarShow === true" class="menubar-box">
+      <menubar/>
     </div>
   </div>
 </template>
 
 <script>
-import { mdbIcon } from "mdbvue";
+import menubar from "@/components/layouts/menubar.vue";
 export default {
   name: "navbar",
   components: {
-    mdbIcon
+    menubar
   },
   data() {
     return {
       hamburger: false,
-      msg: "Welcome to Your Vue.js App"
+      menubarShow: false,
+      searchbarShow: false
     };
   },
   methods: {
@@ -79,6 +87,20 @@ export default {
     switchLocal() {
       if (this.$i18n.locale === "th") this.$i18n.locale = "en";
       else this.$i18n.locale = "th";
+    },
+    menubarToggle() {
+      if (this.menubarShow === true) {
+        this.menubarShow = false;
+      } else {
+        this.menubarShow = true;
+      }
+    },
+    searchbarToggle() {
+      if (this.searchbarShow === true) {
+        this.searchbarShow = false;
+      } else {
+        this.searchbarShow = true;
+      }
     }
   },
   computed: {
@@ -89,14 +111,45 @@ export default {
     searchbar: function() {
       return this.$t("message.searchbar");
     }
+  },
+  mounted() {
+    this.$nextTick(function() {
+      window.addEventListener("scroll", function() {
+        var navbar = document.getElementById("navbarbox");
+        var nav_classes = navbar.classList;
+        if (document.documentElement.scrollTop >= 150) {
+          if (nav_classes.contains("shrink") === false) {
+            nav_classes.toggle("shrink");
+          }
+        } else {
+          if (nav_classes.contains("shrink") === true) {
+            nav_classes.toggle("shrink");
+          }
+        }
+      });
+    });
   }
 };
 </script>
 
 <style scoped>
+.menubar-box {
+  height: fit-content;
+  width: 100%;
+  background-color: #27231c;
+  border: solid #e3b800;
+  border-width: 0 0 2px 0;
+  margin-top: -5px;
+}
 .navbarbox {
+  height: 80px;
+  background-color: rgba(0, 0, 0);
+  transition: all 0.3s;
+}
+.navbarbox.shrink {
   height: 50px;
   background-color: rgba(0, 0, 0);
+  transition: all 0.3s;
 }
 .header-top-line {
   background-color: #e3b800;
@@ -104,21 +157,40 @@ export default {
   height: 2px;
 }
 .logo {
+  height: 50px;
+  transition: all 0.3s;
+}
+.shrink .logo {
   height: 30px;
+  transition: all 0.3s;
 }
 .logo-col {
   border-right: 1px solid rgba(255, 255, 255, 0.253);
 }
-.webname-txt {
+.webname-txt2 {
+  display: none;
+}
+.webname-txt,
+.webname-txt2 {
   font-family: "Kanit", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   color: #e5b865;
   padding-bottom: 0px !important;
   margin-bottom: 0px !important;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 10px;
+  transition: all 0.3s;
 }
-
+.shrink .webname-txt {
+  font-size: 1.15rem;
+  transition: all 0.3s;
+}
+.group-right {
+  padding-right: 0px;
+}
+.group-left {
+  padding-left: 0px;
+}
 @media (min-width: 769px) {
   .lanbtn {
     display: inherit !important;
@@ -135,6 +207,18 @@ export default {
     font-size: 20px !important;
     height: 38px !important;
   }
+  .group-right {
+    padding-right: 20px;
+  }
+  .group-left {
+    padding-left: 20px;
+  }
+  .webname-txt {
+    display: none;
+  }
+  .webname-txt2 {
+    display: inherit;
+  }
 }
 .lanbtn {
   border: solid;
@@ -146,6 +230,7 @@ export default {
   width: auto;
   padding-left: 11px;
   padding-right: 11px;
+  height: 30px;
 }
 .hamburger {
   border: solid;
@@ -195,7 +280,7 @@ export default {
 
 #navbar-nav li {
   display: block;
-  width: 120px;
+  width: 100px;
   float: left;
   margin-left: 2px;
   height: 38px;
@@ -205,7 +290,7 @@ export default {
   font-size: 15px;
   text-align: center;
   display: block;
-  padding: 3px;
+  padding: 0px 5px;
   text-decoration: none;
   color: #ffffff;
   /* height: 38px; */
