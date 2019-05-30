@@ -11,7 +11,7 @@
     <div class="container page-start" style="overflow:hidden;border-radius: 5px 5px 0 0;">
       <homeslide/>
     </div>
-    <div>
+    <div style="width: 100vw;">
       <homeabout/>
     </div>
     <div class="container" style="padding:0px;">

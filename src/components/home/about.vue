@@ -3,22 +3,22 @@
     <div class="row">
       <span class="section-text">{{ $t("message.section.about")}}</span>
     </div>
-    <div class="row">
-      <div class="col-lg-4 col-sm-4 col-xs-12 about-box">
+    <div class="row about-bar">
+      <div class="about-box">
         <div class="about-icon-div">
           <i class="fas fa-bullseye about-icon"></i>
         </div>
         <h5 class="abt-topic">{{ $t("message.about.box1.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box1.paragraph")}}</p>
       </div>
-      <div class="col-lg-4 col-sm-4 col-xs-12 about-box">
+      <div class="about-box">
         <div class="about-icon-div">
           <i class="fas fa-flask about-icon"></i>
         </div>
         <h5 class="abt-topic">{{ $t("message.about.box2.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box2.paragraph")}}</p>
       </div>
-      <div class="col-lg-4 col-sm-4 col-xs-12 about-box">
+      <div class="about-box">
         <div class="about-icon-div">
           <i class="fas fa-directions about-icon"></i>
         </div>
@@ -95,17 +95,22 @@ export default {
 
 <style scoped>
 .section-text {
-  color: white;
+  color: #e5b865;
   margin-bottom: 0px;
   font-weight: bold;
-  font-size: 1.5rem;
-  padding: 30px 0 0 30px;
+  font-size: 1.8rem;
+  padding: 30px;
 }
 .about-box {
   color: #ffffff;
-  padding: 30px 15px;
+  padding: 30px;
   display: block;
   text-align: center;
+  width: 33.33%;
+}
+.about-bar {
+  display: flex;
+  overflow-y: scroll;
 }
 .about-icon-div {
   display: flex;
@@ -136,11 +141,22 @@ export default {
   }
   .about-box {
     color: #ffffff;
-    padding: 15px 30px;
+    width: 300px;
+    border: 1px solid #e5b865;
+    border-radius: 5px;
+    flex: 0 0 auto;
+    padding: 20px 20px 5px 20px;
+    margin: 0 15px 0 0;
+  }
+  .about-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 15px 15px 15px;
   }
   .about-icon-div {
-  padding-bottom: 15px;
-}
+    padding-bottom: 15px;
+  }
 }
 
 /*
