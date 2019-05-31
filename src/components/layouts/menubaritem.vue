@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="link">
+  <router-link to="link">
     <div class="menubar-item">{{label}}</div>
   </router-link>
 </template>

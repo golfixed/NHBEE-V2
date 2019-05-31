@@ -2,7 +2,7 @@
   <div style="margin: 0px; padding: 0px;">
     <navbar/>
     <slot/>
-    <!-- <footerall/> -->
+    <footerall style="margin-top: -70px;"/>
   </div>
 </template>
 

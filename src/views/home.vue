@@ -8,7 +8,7 @@
         </div>
       </div>
     </div>
-    <div class="container page-start" style="overflow:hidden;border-radius: 5px 5px 0 0;">
+    <div class="container page-start">
       <homeslide/>
     </div>
     <div style="width: 100vw;">
@@ -17,12 +17,15 @@
     <div class="container" style="padding:0px;">
       <survey/>
     </div>
-    <!-- <div style="padding:0px;">
+    <div class="container" style="padding:0px;display: flex;justify-content: center;">
       <feature/>
     </div>
-    <div style="padding:0px;">
+    <div class="container" style="width:100vw;padding:0;">
       <update/>
-    </div>-->
+    </div>
+    <div class="container" style="padding:0px;">
+      <survey2/>
+    </div>
   </div>
 </template>
 
@@ -31,6 +34,7 @@ import layout_default from "@/layouts/main.vue";
 import homeslide from "@/components/home/slide.vue";
 import homeabout from "@/components/home/about.vue";
 import survey from "@/components/home/survey.vue";
+import survey2 from "@/components/home/survey2.vue";
 import feature from "@/components/home/features.vue";
 import update from "@/components/home/update.vue";
 export default {
@@ -39,6 +43,7 @@ export default {
     homeslide,
     homeabout,
     survey,
+    survey2,
     feature,
     update
   },

@@ -1,3 +1,5 @@
+import { KeyObject } from "crypto";
+
 export default {
   message: {
     pageheader: {
@@ -49,7 +51,7 @@ export default {
     },
     section: {
       about: 'เกี่ยวกับ Native Honeybee Research Laboratory',
-      news: 'ข่าวสารใหม่',
+      news: 'ข่าวสาร - ใหม่ล่าสุด',
       news2: 'เลือกอ่านข่าวสารมาใหม่',
       research: 'งานวิจัยล่าสุด',
       research2: 'สำรวจงานวิจัยล่าสุดของเรา'
@@ -138,6 +140,10 @@ export default {
         link1: 'ติดต่อเรา',
         link2: 'ติดตามเราบน Social Media'
       },
+      group4: {
+        link1: 'เข้าสู่ระบบผู้ดูแลระบบ',
+        link2: 'เปลี่ยนภาษา'
+      },
       col1: 'เกี่ยวกับเรา',
       col2: 'ทีมงาน',
       col3: 'ข่าวใหม่',
@@ -150,6 +156,7 @@ export default {
         aboutus: 'เกี่ยวกับ NHBEE',
         research: 'ข่าวสาร และ งานวิจัย',
         contact: 'ติดต่อเรา',
+        more: 'อื่นๆ'
       }
     },
     about: {
@@ -170,6 +177,15 @@ export default {
       line1: 'ความคิดเห็นของคุณ',
       line2: 'มีส่วนช่วยผลักดันโลกนี้',
       btn: 'ร่วมทำแบบสำรวจ'
+    },
+    survey2: {
+      line1: 'ขอบคุณที่แวะมา',
+      line2: 'บอกเราหน่อยสิ ว่าคุณสนใจอะไร',
+      btn: 'ส่งคำตอบ'
+    },
+    update: {
+      date: '01 พฤษภาคม 2562',
+      topic: 'งานวิจัยใหม่เกี่ยวกับการผสมพันธ์ของผึ้งหลวง สำเร็จแล้ว!'
     }
   }
 }
