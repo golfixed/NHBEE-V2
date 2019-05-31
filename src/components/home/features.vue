@@ -4,9 +4,7 @@
       class="col-lg-4 col-sm-4 col-xs-12 feature f1 d-flex align-items-center justify-content-center flex-column"
     >
       <h4 class="fea-topic d-flex justify-content-center">CONTACT US</h4>
-      <p
-        class="fea-paragraph"
-      >To become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators.</p>
+      <p class="fea-paragraph">To become a center of excellence in oneybees and pollinators.</p>
       <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
         CONTACT PAGE
         <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
@@ -18,7 +16,7 @@
       <h4 class="fea-topic d-flex justify-content-center">RESEARCH</h4>
       <p
         class="fea-paragraph"
-      >To become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators.</p>
+      >To become a center of excellence in research and tive honeybees and pollinators.</p>
       <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
         EXPLORE RESEARCHES
         <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
@@ -30,7 +28,7 @@
       <h4 class="fea-topic d-flex justify-content-center">PRO STAFF</h4>
       <p
         class="fea-paragraph"
-      >To become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators.</p>
+      >To become a center of excellence in reon of native honeybees and pollinators.</p>
       <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
         GET KNOW MORE
         <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
@@ -111,10 +109,11 @@ export default {
   background-color: transparent;
   transition: all 0.4s;
   padding: 40px;
+  height: 300px;
 }
 .feature:hover {
   width: 33.33%;
-  height: auto;
+  max-height: 300px;
   background-color: grey;
   transition: all 0.4s;
   padding: 40px;
@@ -142,7 +141,6 @@ export default {
 }
 .feature:hover > .fea-btn {
   transition: all 0.4s;
-  height: 45px;
-  margin: 20px 0;
+  min-height: 45px;
 }
 </style>

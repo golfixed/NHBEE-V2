@@ -57,6 +57,11 @@ export default {
   display: block;
   text-align: left;
   width: 33.33%;
+  transition: all 0.3s;
+}
+.ud-box:hover {
+  background-color: #292929;
+  transition: all 0.3s;
 }
 .ud-bar {
   display: flex;
