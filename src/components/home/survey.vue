@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid bg d-flex align-items-center justify-content-center flex-column">
-    <div class="d-flex flex-column" style="padding-bottom:20px; text-align:center;">
+    <div class="d-flex flex-column text-box">
       <span class="line1">{{ $t("message.survey.line1")}}</span>
       <span class="line2">{{ $t("message.survey.line2")}}</span>
     </div>
@@ -45,9 +45,22 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
 }
-@media screen and (max-width: 425px){
-  .bg{
+.text-box {
+  padding-bottom: 20px;
+  text-align: center;
+}
+@media screen and (max-width: 425px) {
+  .bg {
     padding: 20px;
+  }
+  .line1 {
+    font-size: 1.5rem;
+  }
+  .line2 {
+    font-size: 2rem;
+  }
+  .text-box {
+    padding-bottom: 0px;
   }
 }
 </style>
