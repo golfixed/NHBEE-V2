@@ -1,5 +1,5 @@
 <template>
-  <div class="main-body" id="app" style="font-family: 'Sarabun', sans-serif;">
+  <div class="main-body" id="app" style="font-family: 'NotoThai', sans-serif;">
     <component :is="layout">
       <router-view :layout.sync="layout"/>
     </component>
@@ -18,7 +18,20 @@ export default {
 </script>
 
 <style>
-li, a {
+@font-face {
+  font-family: "NotoThai";
+  src: url("../static/fonts/NotoSansThai-unhinted/NotoSansThai-Regular.ttf");
+}
+@font-face {
+  font-family: "NotoThai-paragraph";
+  src: url("../static/fonts/NotoSerifThai-unhinted/NotoSerifThai-Regular.ttf");
+}
+li,
+a {
+  color: white;
+}
+li,
+a:hover {
   color: white;
 }
 </style>
