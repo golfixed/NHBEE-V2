@@ -1,10 +1,10 @@
 <template>
   <div class="container maindiv">
     <div class="row">
-      <div class="col-lg-4 col-sm-4 col-xs-12">
+      <div class="col-lg-3 col-sm-3 col-xs-12">
         <megamenu :category="category1" :label1="group1_1" link1="/about" :label2="group1_2" link2="/"/>
       </div>
-      <div class="col-lg-4 col-sm-4 col-xs-12">
+      <div class="col-lg-3 col-sm-3 col-xs-12">
         <megamenu
           :category="category2"
           :label1="group2_1"
@@ -15,8 +15,11 @@
           link3="/"
         />
       </div>
-      <div class="col-lg-4 col-sm-4 col-xs-12">
+      <div class="col-lg-3 col-sm-3 col-xs-12">
         <megamenu :category="category3" :label1="group3_1" link1="/" :label2="group3_2" link2="/"/>
+      </div>
+      <div class="col-lg-3 col-sm-3 col-xs-12">
+        <megamenu :category="category4" :label1="group4_1" link1="/" :label2="group4_2" link2="/"/>
       </div>
     </div>
   </div>
@@ -59,7 +62,16 @@ export default {
     },
     group3_2: function() {
       return this.$t("message.navbar.group3.link2");
-    }
+    },
+    category4: function() {
+      return this.$t("message.navbar.category.more");
+    },
+    group4_1: function() {
+      return this.$t("message.navbar.group4.link1");
+    },
+    group4_2: function() {
+      return this.$t("message.navbar.group4.link2");
+    },
   }
 };
 </script>
