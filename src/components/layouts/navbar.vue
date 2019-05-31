@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <div v-if="menubarShow === true" class="menubar-box">
+    <div class="menubar-box" :class="{show:menubarShow}">
       <menubar/>
     </div>
   </div>
@@ -133,13 +133,19 @@ export default {
 </script>
 
 <style scoped>
-.menubar-box {
-  height: fit-content;
-  width: 100%;
-  background-color: #27231c;
+.show {
+  max-height: 300px !important;
+  transition: all 0.3s;
   border: solid #e3b800;
   border-width: 0 0 2px 0;
+}
+.menubar-box {
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #27231c;
   margin-top: -5px;
+  transition: all 0.3s;
 }
 .navbarbox {
   height: 80px;
@@ -218,6 +224,12 @@ export default {
   }
   .webname-txt2 {
     display: inherit;
+  }
+  .show {
+    max-height: 100vh !important;
+    transition: all 0.3s;
+    border: solid #e3b800;
+    border-width: 0 0 2px 0;
   }
 }
 .lanbtn {
