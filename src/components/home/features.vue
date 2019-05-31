@@ -1,6 +1,8 @@
 <template>
-  <div class="box">
-    <div class="feature f1 d-flex align-items-center justify-content-center flex-column">
+  <div class="box row">
+    <div
+      class="col-lg-4 col-sm-4 col-xs-12 feature f1 d-flex align-items-center justify-content-center flex-column"
+    >
       <h4 class="fea-topic d-flex justify-content-center">CONTACT US</h4>
       <p
         class="fea-paragraph"
@@ -10,7 +12,9 @@
         <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
       </button>
     </div>
-    <div class="feature f2 d-flex align-items-center justify-content-center flex-column">
+    <div
+      class="col-lg-4 col-sm-4 col-xs-12 feature f2 d-flex align-items-center justify-content-center flex-column"
+    >
       <h4 class="fea-topic d-flex justify-content-center">RESEARCH</h4>
       <p
         class="fea-paragraph"
@@ -20,7 +24,9 @@
         <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
       </button>
     </div>
-    <div class="feature f3 d-flex align-items-center justify-content-center flex-column">
+    <div
+      class="col-lg-4 col-sm-4 col-xs-12 feature f3 d-flex align-items-center justify-content-center flex-column"
+    >
       <h4 class="fea-topic d-flex justify-content-center">PRO STAFF</h4>
       <p
         class="fea-paragraph"
@@ -30,7 +36,6 @@
         <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
       </button>
     </div>
-
   </div>
 </template>
 
@@ -57,6 +62,7 @@ export default {
   display: flex;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .f1 {
@@ -102,8 +108,6 @@ export default {
 
 .feature {
   color: white;
-  height: 300px;
-  width: 33.33%;
   background-color: transparent;
   transition: all 0.4s;
   padding: 40px;
