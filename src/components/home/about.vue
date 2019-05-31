@@ -95,7 +95,7 @@ export default {
 
 <style scoped>
 .section-text {
-  color: #e5b865;
+  color: rgb(194, 194, 194);
   margin-bottom: 0px;
   font-weight: bold;
   font-size: 1.8rem;
@@ -107,6 +107,11 @@ export default {
   display: block;
   text-align: center;
   width: 33.33%;
+  transition: all 0.3s;
+}
+.about-box:hover {
+  background-color: #292929;
+  transition: all 0.3s;
 }
 .about-bar {
   display: flex;
@@ -128,9 +133,11 @@ export default {
 .abt-topic {
   color: #e5b865;
   font-weight: bold;
+  font-family: "Chakra Petch";
 }
 .abt-paragraph {
   color: rgb(194, 194, 194);
+  font-family: "NotoThai-paragraph";
 }
 
 @media screen and (max-width: 425px) {
@@ -143,7 +150,7 @@ export default {
     color: #ffffff;
     width: 300px;
     border: 1px solid #e5b865;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     flex: 0 0 auto;
     padding: 20px 20px 5px 20px;
     margin: 0 15px 0 0;
