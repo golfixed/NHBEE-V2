@@ -2,7 +2,13 @@
   <div class="container maindiv">
     <div class="row">
       <div class="col-lg-3 col-sm-3 col-xs-12">
-        <megamenu :category="category1" :label1="group1_1" link1="/about" :label2="group1_2" link2="/"/>
+        <megamenu
+          :category="category1"
+          :label1="group1_1"
+          link1="/about"
+          :label2="group1_2"
+          link2="/team"
+        />
       </div>
       <div class="col-lg-3 col-sm-3 col-xs-12">
         <megamenu
@@ -71,7 +77,7 @@ export default {
     },
     group4_2: function() {
       return this.$t("message.navbar.group4.link2");
-    },
+    }
   }
 };
 </script>

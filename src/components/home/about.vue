@@ -5,23 +5,23 @@
     </div>
     <div class="row about-bar">
       <div class="about-box">
-        <div class="about-icon-div">
+        <!-- <div class="about-icon-div">
           <i class="fas fa-bullseye about-icon"></i>
-        </div>
+        </div>-->
         <h5 class="abt-topic">{{ $t("message.about.box1.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box1.paragraph")}}</p>
       </div>
       <div class="about-box">
-        <div class="about-icon-div">
+        <!-- <div class="about-icon-div">
           <i class="fas fa-flask about-icon"></i>
-        </div>
+        </div>-->
         <h5 class="abt-topic">{{ $t("message.about.box2.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box2.paragraph")}}</p>
       </div>
       <div class="about-box">
-        <div class="about-icon-div">
+        <!-- <div class="about-icon-div">
           <i class="fas fa-directions about-icon"></i>
-        </div>
+        </div>-->
         <h5 class="abt-topic">{{ $t("message.about.box3.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box3.paragraph")}}</p>
       </div>
@@ -103,7 +103,7 @@ export default {
 }
 .about-box {
   color: #ffffff;
-  padding: 30px;
+  padding: 50px 30px;
   display: block;
   text-align: center;
   width: 33.33%;
@@ -137,7 +137,8 @@ export default {
 }
 .abt-paragraph {
   color: rgb(194, 194, 194);
-  font-family: "NotoThai-paragraph";
+  font-family: "Sarabun";
+  font-size: 14px;
 }
 
 @media screen and (max-width: 425px) {

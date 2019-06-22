@@ -14,15 +14,17 @@
         style="color: white; width: 100%;"
       >
         <!--LOGO AREA -->
-        <div class="d-flex align-items-center group-left">
-          <div class="d-flex flex-row align-items-center align-items-center">
-            <img id="logo" class="logo" src="/static/img/logo.png">
-            <div class="webname">
-              <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
-              <h1 id="webname" class="webname-txt2">NHBEE</h1>
+        <router-link to="/">
+          <div class="d-flex align-items-center group-left">
+            <div class="d-flex flex-row align-items-center align-items-center">
+              <img id="logo" class="logo" src="/static/img/logo.png">
+              <div class="webname">
+                <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
+                <h1 id="webname" class="webname-txt2">NHBEE</h1>
+              </div>
             </div>
           </div>
-        </div>
+        </router-link>
         <div class="d-flex align-items-center group-right">
           <div style=" border-right: 1px solid rgba(255, 255, 255, 0.253);  height:30px;">
             <button
@@ -128,6 +130,10 @@ export default {
         }
       });
     });
+    this.$root.$on(""),
+      () => {
+        this.methods();
+      };
   }
 };
 </script>

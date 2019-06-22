@@ -26,11 +26,10 @@ export default {
   font-family: "NotoThai-paragraph";
   src: url("../static/fonts/NotoSerifThai-unhinted/NotoSerifThai-Regular.ttf");
 }
-li,
+
 a {
   color: white;
 }
-li,
 a:hover {
   color: white;
 }

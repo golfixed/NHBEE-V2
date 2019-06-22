@@ -3,7 +3,6 @@ import App from './App'
 import router from './router'
 import VueI18n from 'vue-i18n'
 import messages from './locales'
-import 'mdbvue/build/css/mdb.css'
 
 Vue.config.productionTip = false
 Vue.use(VueI18n)
