@@ -101,13 +101,6 @@ export default {
   border: solid;
   border-width: 0px 0px 0px 3px;
 }
-.about-header-bg {
-  height: 280px;
-  background-image: url("/static/img/about/bg.jpg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .col-style {
   overflow: hidden;
   padding-top: 15px;

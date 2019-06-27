@@ -3,12 +3,13 @@ import App from './App'
 import router from './router'
 import VueI18n from 'vue-i18n'
 import messages from './locales'
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
-  locale: 'th', // set locale
+  locale: 'en', // set locale
   messages // set locale messages
 })
 
@@ -19,5 +20,6 @@ new Vue({
   router,
   components: { App },
   template: '<App/>',
-  render: h => h(App)
+  render: h => h(App),
+  store
 }).$mount('#app')

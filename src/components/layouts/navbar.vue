@@ -62,9 +62,12 @@
         </div>
       </div>
     </div>
-    <div class="menubar-box" :class="{show:menubarShow}">
+    <div class="menubar-box" :class="{show:$store.state.menubarShow}">
       <menubar/>
     </div>
+    <!-- <div class="menubar-box" v-if="$store.state.menubarShow === true">
+      <menubar/>
+    </div> -->
   </div>
 </template>
 
@@ -91,11 +94,7 @@ export default {
       else this.$i18n.locale = "th";
     },
     menubarToggle() {
-      if (this.menubarShow === true) {
-        this.menubarShow = false;
-      } else {
-        this.menubarShow = true;
-      }
+        this.$store.commit("MENU_TOGGLE")
     },
     searchbarToggle() {
       if (this.searchbarShow === true) {

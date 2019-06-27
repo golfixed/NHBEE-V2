@@ -22,7 +22,13 @@
         />
       </div>
       <div class="col-lg-3 col-sm-3 col-xs-12">
-        <megamenu :category="category3" :label1="group3_1" link1="/" :label2="group3_2" link2="/"/>
+        <megamenu
+          :category="category3"
+          :label1="group3_1"
+          link1="/contact"
+          :label2="group3_2"
+          link2="/"
+        />
       </div>
       <div class="col-lg-3 col-sm-3 col-xs-12">
         <megamenu :category="category4" :label1="group4_1" link1="/" :label2="group4_2" link2="/"/>

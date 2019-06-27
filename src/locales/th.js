@@ -27,6 +27,10 @@ export default {
         title: 'ติดต่อเรา',
         subtitle: 'หากสงสัย อย่าลังเลที่จะติดต่อเรา'
       },
+      team: {
+        title: 'ทีมงานคุณภาพ',
+        subtitle: 'ทำความรู้จักทีมงานของเรา'
+      }
     },
     searchbar: 'ค้นหาในเว็บ',
     quicklink: {
