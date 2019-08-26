@@ -17,7 +17,7 @@
         <router-link to="/">
           <div class="d-flex align-items-center group-left">
             <div class="d-flex flex-row align-items-center align-items-center">
-              <img id="logo" class="logo" src="/static/img/logo.png">
+              <img id="logo" class="logo" src="/static/img/logo.png" />
               <div class="webname">
                 <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
                 <h1 id="webname" class="webname-txt2">NHBEE</h1>
@@ -43,10 +43,10 @@
             <input
               v-if="searchbarShow === true"
               class="nav-searchbar"
-              style="margin-right:15px;"
+              style="margin-right:15px;border: 0;border-radius: 5px;padding-left: 15px;"
               type="text"
               placeholder="Search in web"
-            >
+            />
             <div @click="searchbarToggle();">
               <i class="fas fa-search"></i>
             </div>
@@ -63,11 +63,11 @@
       </div>
     </div>
     <div class="menubar-box" :class="{show:$store.state.menubarShow}">
-      <menubar/>
+      <menubar />
     </div>
     <!-- <div class="menubar-box" v-if="$store.state.menubarShow === true">
       <menubar/>
-    </div> -->
+    </div>-->
   </div>
 </template>
 
@@ -94,7 +94,7 @@ export default {
       else this.$i18n.locale = "th";
     },
     menubarToggle() {
-        this.$store.commit("MENU_TOGGLE")
+      this.$store.commit("MENU_TOGGLE");
     },
     searchbarToggle() {
       if (this.searchbarShow === true) {

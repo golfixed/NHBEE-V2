@@ -4,12 +4,14 @@ import router from './router'
 import VueI18n from 'vue-i18n'
 import messages from './locales'
 import store from './store'
+import VueCarousel from '@chenfengyuan/vue-carousel';
 
 Vue.config.productionTip = false
 Vue.use(VueI18n)
+Vue.use(VueCarousel);
 
 const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: 'th', // set locale
   messages // set locale messages
 })
 
@@ -18,7 +20,9 @@ new Vue({
   i18n,
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>',
   render: h => h(App),
   store

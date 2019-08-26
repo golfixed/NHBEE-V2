@@ -1,7 +1,7 @@
 <template>
   <div class="teamcard">
     <div class="profile-img-div">
-      <img class="profile-img" :src="pictureURL" alt="profile-photo">
+      <img class="profile-img" :src="pictureURL" alt="profile-photo" />
       <!-- <div class="hexTop"></div>
       <div class="hexBottom"></div>-->
     </div>
@@ -36,11 +36,11 @@ export default {
   border-radius: 50%;
 }
 .name {
-  color: #ffffff;
+  color: #585858;
   font-weight: bold;
 }
 .position {
-  color: #c7c7c7;
+  color: #868686;
 }
 .name,
 .position {

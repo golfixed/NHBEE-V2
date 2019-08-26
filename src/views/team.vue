@@ -18,7 +18,7 @@
           <h3 class="team-title-sub">The groups as a whole</h3>
           <p class="team-title-para">
             Developing and implementing the integrative and multidiscriplinary approches
-            <br>to realization on native pollinator health and beekeeping industry for ecological and economical services
+            <br />to realization on native pollinator health and beekeeping industry for ecological and economical services
           </p>
         </div>
         <div class="staff-display">
@@ -97,14 +97,14 @@ export default {
   padding-left: 15px;
 }
 .team-title-text {
-  color: #c0c0c0;
+  color: #6b6b6b;
 }
 .team-title-sub {
-  color: #ffffff;
+  color: #3c3c3c;
   font-weight: bold;
 }
 .team-title-para {
-  color: #c0c0c0;
+  color: #6b6b6b;
 }
 .header-bg-about {
   height: 280px;
@@ -144,10 +144,13 @@ export default {
   height: fit-content;
   border-radius: 5px;
   padding: 30px;
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.5)
+    ),
     url("/static/img/team/bodybg.png");
-  -webkit-box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
-  box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0px 2px 10px -1px rgba(255, 255, 255, 0.19);
+  box-shadow: 0px 2px 10px -1px rgba(250, 250, 250, 0.19);
 }
 .staff-display {
   display: grid;

@@ -19,14 +19,14 @@
           </div>
           <div>
             <div class="d-flex flex-row p-2 align-items-center">
-              <mdb-icon icon="building" style="margin-right: 10px;"/>
+              <mdb-icon icon="building" style="margin-right: 10px;" />
               <p
                 style="margin-bottom: 0px; font-weight: bold;"
               >{{ $t("message.page6_contact.address.detail.line1") }}</p>
             </div>
             <div class="d-flex flex-row p-2 align-items-center">
               <div>
-                <mdb-icon icon="map-marker-alt" style="margin-right: 10px;"/>
+                <mdb-icon icon="map-marker-alt" style="margin-right: 10px;" />
               </div>
               <div>
                 <p
@@ -43,11 +43,11 @@
           </div>
           <div d-flex>
             <div class="d-flex flex-row p-2 align-items-center">
-              <mdb-icon icon="phone" style="margin-right: 10px;"/>
+              <mdb-icon icon="phone" style="margin-right: 10px;" />
               <p style="margin-bottom: 0px;">{{ $t("message.page6_contact.contact.detail.line1") }}</p>
             </div>
             <div class="d-flex flex-row p-2 align-items-center">
-              <mdb-icon icon="envelope-open" style="margin-right: 10px;"/>
+              <mdb-icon icon="envelope-open" style="margin-right: 10px;" />
               <p style="margin-bottom: 0px;">{{ $t("message.page6_contact.contact.detail.line2") }}</p>
             </div>
           </div>
@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { mdbIcon } from "mdbvue";
 import teamcard from "@/components/team/teamcard.vue";
 import layout_default from "@/layouts/main.vue";
 export default {
@@ -78,7 +79,8 @@ export default {
     this.$emit(`update:layout`, layout_default);
   },
   components: {
-    teamcard
+    teamcard,
+    mdbIcon
   }
 };
 </script>

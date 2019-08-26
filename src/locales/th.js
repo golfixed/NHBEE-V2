@@ -1,5 +1,3 @@
-import { KeyObject } from "crypto";
-
 export default {
   message: {
     pageheader: {
@@ -30,6 +28,10 @@ export default {
       team: {
         title: 'ทีมงานคุณภาพ',
         subtitle: 'ทำความรู้จักทีมงานของเรา'
+      },
+      social: {
+        title: 'ติดตามเรา',
+        subtitle: 'บน Social Media'
       }
     },
     searchbar: 'ค้นหาในเว็บ',
@@ -70,25 +72,16 @@ export default {
       },
       link: {
         col1: {
-          colname: 'ผังเว็บไซต์',
           item1: 'ผลงานวิจัย',
           item2: 'ข่าวสาร',
           item3: 'บทความ',
           item4: 'ทีมงาน'
         },
         col2: {
-          colname: 'เกี่ยวกับเรา',
-          item1: 'ที่ตั้งของแลป',
-          item2: 'วิสัยทัศน์',
-          item3: 'รายชื่อทีม',
-          item4: 'KMUTT'
-        },
-        col3: {
-          colname: 'การสนับสนุน',
-          item1: 'ศูนย์ช่วยเหลือ',
-          item2: 'ชุมชน',
-          item3: 'ติดต่อเรา',
-          item4: ''
+          item1: 'เกี่ยวกับเรา',
+          item2: 'ติดต่อเรา',
+          item3: 'KMUTT',
+          item4: 'สังคมออนไลน์'
         }
       },
       contact: {
@@ -142,7 +135,7 @@ export default {
       },
       group3: {
         link1: 'ติดต่อเรา',
-        link2: 'ติดตามเราบน Social Media'
+        link2: 'ติดตามเราบนสังคมออนไลน์'
       },
       group4: {
         link1: 'เข้าสู่ระบบผู้ดูแลระบบ',
@@ -185,11 +178,52 @@ export default {
     survey2: {
       line1: 'ขอบคุณที่แวะมา',
       line2: 'บอกเราหน่อยสิ ว่าคุณสนใจอะไร',
-      btn: 'ส่งคำตอบ'
+      btn: 'ส่งคำตอบ',
+      label: {
+        name: 'ชื่อ นามสกุล',
+        country: 'ประเทศ',
+        province: 'เมือง',
+        reason: 'เหตุผลที่เข้าชม'
+      },
+      reason: {
+        research: 'งานวิจัย',
+        beekeep: 'beekeeping training',
+        pollservice: 'pollination service',
+        other: 'อื่นๆ'
+      }
     },
     update: {
       date: '01 พฤษภาคม 2562',
       topic: 'งานวิจัยใหม่เกี่ยวกับการผสมพันธ์ของผึ้งหลวง สำเร็จแล้ว!'
+    },
+    feature: {
+      item1: {
+        title: 'ติดต่อเรา',
+        description: 'กรุณาใส่ข้อความบรรยายข้อมูลของ link นี้ภายในกล่องนี้',
+        btn: 'ไปหน้าติดต่อเรา'
+      },
+      item2: {
+        title: 'งานวิจัย',
+        description: 'To become a center of excellence in oneybees and pollinators.',
+        btn: 'สำรวจงานวิจัย'
+      },
+      item3: {
+        title: 'ทีมงานคุณภาพ',
+        description: 'To become a center of excellence in oneybees and pollinators.',
+        btn: 'ทำความรู้จักทีมงาน'
+      }
+    },
+    socialmedia: {
+      facebook: {
+        title: 'NHBEE Facebook Page',
+        description: 'เพจ Facebook ที่รวบรวมข่าวสารและอัปเดตสดๆร้อนๆจากเราชาว Honeybee',
+        btn: 'ไปที่เพจ Facebook'
+      },
+      line: {
+        title: 'LINE Official Account',
+        description: 'มีคำถามหรือสงสัย อย่าลังเลที่จะติดต่อเรา เพิ่มเราเป็นเพื่อน แล้วทุกอย่างจะง่ายยิ่งขึ้น',
+        btn: 'เพิ่มเพื่อน'
+      }
     }
   }
 }

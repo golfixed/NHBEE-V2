@@ -32,6 +32,10 @@ export default {
       team: {
         title: 'Our Pro Team',
         subtitle: 'Getting know our staffs'
+      },
+      social: {
+        title: 'Follow Us',
+        subtitle: 'on Social Media'
       }
     },
     navbar: {
@@ -46,7 +50,7 @@ export default {
       },
       group3: {
         link1: 'Contact Us',
-        link2: 'Follow us on Social Media'
+        link2: 'Follow Us on Social'
       },
       group4: {
         link1: 'Log in to Admin Mode',
@@ -92,7 +96,8 @@ export default {
       news: 'News and Updates',
       news2: 'Check these news and update out',
       research: 'Recently Researches',
-      research2: 'Explore our recent research'
+      research2: 'Explore our recent research',
+      about: 'About Native Honeybee Research Laboratory',
     },
     btn: {
       readmore: 'Read more'
@@ -104,26 +109,17 @@ export default {
       },
       link: {
         col1: {
-          colname: 'Sitemaps',
           item1: 'Researches',
           item2: 'News',
           item3: 'Articles',
-          item4: 'Staffs'
+          item4: 'Pro Team'
         },
         col2: {
-          colname: 'About Us',
-          item1: 'Lab Location',
-          item2: 'Vision',
-          item3: 'Staff List',
-          item4: 'KMUTT'
+          item1: 'About Us',
+          item2: 'Contact Us',
+          item3: 'KMUTT',
+          item4: 'Social Media'
         },
-        col3: {
-          colname: 'Support',
-          item1: 'Help Centre',
-          item2: 'Community',
-          item3: 'Contact Us',
-          item4: ''
-        }
       },
       contact: {
         email: 'Email: name.sample@mail.kmutt.ac.th',
@@ -188,6 +184,71 @@ export default {
       btn: {
         back: 'Back',
         enter: 'Log In'
+      }
+    },
+    about: {
+      box1: {
+        title: 'NHBEE GOAL',
+        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.'
+      },
+      box2: {
+        title: 'DEEP TECH RESEARCHING',
+        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.'
+      },
+      box3: {
+        title: 'OUR RESEARCH THEME',
+        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.'
+      }
+    },
+    feature: {
+      item1: {
+        title: 'CONTACT US',
+        description: 'To become a center of excellence in oneybees and pollinators.',
+        btn: 'CONTACT PAGE'
+      },
+      item2: {
+        title: 'RESEARCH',
+        description: 'To become a center of excellence in oneybees and pollinators.',
+        btn: 'RESEARCH PAGE'
+      },
+      item3: {
+        title: 'PRO STAFF',
+        description: 'To become a center of excellence in oneybees and pollinators.',
+        btn: 'TEAM PAGE'
+      }
+    },
+    survey: {
+      line1: 'What could change the world',
+      line2: 'is your opinions',
+      btn: 'Take the survey'
+    },
+    survey2: {
+      line1: 'Thank you for coming',
+      line2: 'Tell us, what are you looking for',
+      btn: 'Submit',
+      label: {
+        name: 'Name',
+        country: 'Country',
+        province: 'Province',
+        reason: 'Reason by visiting'
+      },
+      reason: {
+        research: 'researches',
+        beekeep: 'beekeeping training',
+        pollservice: 'pollination service',
+        other: 'others'
+      }
+    },
+    socialmedia: {
+      facebook: {
+        title: 'NHBEE Facebook Page',
+        description: 'A Facebook Page that gathered all news and updates from us and brought to you very fresh.',
+        btn: 'Go to Facebook Page'
+      },
+      line: {
+        title: 'LINE Official Account',
+        description: 'A place where you can ask question about our laboratory or any, add we as your friend and get contacting even easier.',
+        btn: 'Add LINE Friend'
       }
     }
   }

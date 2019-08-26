@@ -9,22 +9,22 @@
       </div>
     </div>
     <div class="container page-start">
-      <homeslide/>
+      <homeslide />
     </div>
     <div style="width: 100vw;">
-      <homeabout/>
+      <homeabout />
     </div>
     <div class="container" style="padding:0px;">
-      <survey/>
+      <survey />
     </div>
     <div class="container" style="padding:0px;display: flex;justify-content: center;">
-      <feature/>
+      <feature />
     </div>
     <div class="container" style="width:100vw;padding:0;">
-      <update/>
+      <update />
     </div>
     <div class="container" style="padding:0px;">
-      <survey2/>
+      <survey2 />
     </div>
   </div>
 </template>
@@ -65,5 +65,21 @@ export default {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media screen and (min-width: 769px) {
+  .res-height {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .res-height {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .res-height {
+    height: 150px;
+  }
 }
 </style>

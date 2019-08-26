@@ -16,39 +16,45 @@
       >
         <form class="form2-display">
           <div class="form-item">
-            <span class="form-item-label">ชื่อ</span>
-            <input class="survey2-input-box" type="text" name="name" placeholder="กมลวรรณ งานดี">
+            <span class="form-item-label">{{ $t("message.survey2.label.name")}}</span>
+            <input class="survey2-input-box" type="text" name="name" placeholder="กมลวรรณ งานดี" />
           </div>
           <div class="form-item">
-            <span class="form-item-label">ประเทศ</span>
-            <select class="survey2-input-box survey2-select-box">
-              <option value="THL">ไทย</option>
-              <option value="LAO">ลาว</option>
-            </select>
+            <span class="form-item-label">{{ $t("message.survey2.label.country")}}</span>
+            <input class="survey2-input-box" type="text" name="country" placeholder="ไทย" />
           </div>
           <div class="form-item">
-            <span class="form-item-label">เมือง</span>
-            <select class="survey2-input-box survey2-select-box">
-              <option value="THL">กรุงเทพฯ</option>
-              <option value="LAO">ชลบุรี</option>
-            </select>
+            <span class="form-item-label">{{ $t("message.survey2.label.province")}}</span>
+            <input
+              class="survey2-input-box"
+              type="text"
+              name="province"
+              placeholder="กรุงเทพมหานครฯ"
+            />
           </div>
           <div class="form-item">
             <div>
-              <span class="form-item-label" style="grid-column: span 2;">เหตุผลที่เข้าชม</span>
+              <span
+                class="form-item-label"
+                style="grid-column: span 2;"
+              >{{ $t("message.survey2.label.reason")}}</span>
             </div>
             <div style="display:block;">
               <div>
-                <input type="checkbox" name="reason" value="research"> งานวิจัย
+                <input type="checkbox" name="reason" value="research" />
+                {{ $t("message.survey2.reason.research")}}
               </div>
               <div>
-                <input type="checkbox" name="reason" value="training"> Beekeeping Training
+                <input type="checkbox" name="reason" value="training" />
+                {{ $t("message.survey2.reason.beekeep")}}
               </div>
               <div>
-                <input type="checkbox" name="reason" value="pollination"> Pollination Services
+                <input type="checkbox" name="reason" value="pollination" />
+                {{ $t("message.survey2.reason.pollservice")}}
               </div>
               <div>
-                <input type="checkbox" name="reason" value="others"> อื่นๆ
+                <input type="checkbox" name="reason" value="others" />
+                {{ $t("message.survey2.reason.other")}}
               </div>
             </div>
           </div>

@@ -21,19 +21,19 @@
               </div>
             </div>
             <div class="col-md-4 d-flex align-items-center justify-content-center">
-              <img class="p-2" src="/static/img/logo.png" style="width: 40%;">
-              <img class="p-2" src="/static/img/logo-kmutt.png" style="width: 40%;">
+              <img class="p-2" src="/static/img/logo.png" style="width: 40%;" />
+              <img class="p-2" src="/static/img/logo-kmutt.png" style="width: 40%;" />
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <img src="/static/img/about/pic2.jpg" class="about-pic">
+              <img src="/static/img/about/pic2.jpg" class="about-pic" />
             </div>
             <div class="col-md-4">
-              <img src="/static/img/about/pic3.jpg" class="about-pic">
+              <img src="/static/img/about/pic3.jpg" class="about-pic" />
             </div>
             <div class="col-md-4">
-              <img src="/static/img/about/pic4.jpg" class="about-pic">
+              <img src="/static/img/about/pic4.jpg" class="about-pic" />
             </div>
           </div>
           <div class="row">
@@ -109,9 +109,10 @@ export default {
 .page-body {
   background-color: white;
   height: fit-content;
-  /* border-radius: 5px; */
+  border-radius: 5px;
   padding: 30px;
-  border: 1px solid #eaeaea;
+  -webkit-box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
 }
 .aboutimg-div {
   border-radius: 5px;

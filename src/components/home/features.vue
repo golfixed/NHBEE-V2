@@ -3,36 +3,38 @@
     <div
       class="col-lg-4 col-sm-4 col-xs-12 feature f1 d-flex align-items-center justify-content-center flex-column"
     >
-      <h4 class="fea-topic d-flex justify-content-center">CONTACT US</h4>
-      <p class="fea-paragraph">To become a center of excellence in oneybees and pollinators.</p>
-      <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
-        CONTACT PAGE
-        <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
-      </button>
+      <h4 class="fea-topic d-flex justify-content-center">{{ $t("message.feature.item1.title") }}</h4>
+      <p class="fea-paragraph">{{ $t("message.feature.item1.description") }}</p>
+      <router-link to="/contact">
+        <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
+          {{ $t("message.feature.item1.btn") }}
+          <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
+        </button>
+      </router-link>
     </div>
     <div
       class="col-lg-4 col-sm-4 col-xs-12 feature f2 d-flex align-items-center justify-content-center flex-column"
     >
-      <h4 class="fea-topic d-flex justify-content-center">RESEARCH</h4>
-      <p
-        class="fea-paragraph"
-      >To become a center of excellence in research and tive honeybees and pollinators.</p>
-      <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
-        EXPLORE RESEARCHES
-        <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
-      </button>
+      <h4 class="fea-topic d-flex justify-content-center">{{ $t("message.feature.item2.title") }}</h4>
+      <p class="fea-paragraph">{{ $t("message.feature.item2.description") }}</p>
+      <router-link to="/research">
+        <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
+          {{ $t("message.feature.item2.btn") }}
+          <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
+        </button>
+      </router-link>
     </div>
     <div
       class="col-lg-4 col-sm-4 col-xs-12 feature f3 d-flex align-items-center justify-content-center flex-column"
     >
-      <h4 class="fea-topic d-flex justify-content-center">PRO STAFF</h4>
-      <p
-        class="fea-paragraph"
-      >To become a center of excellence in reon of native honeybees and pollinators.</p>
-      <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
-        GET KNOW MORE
-        <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
-      </button>
+      <h4 class="fea-topic d-flex justify-content-center">{{ $t("message.feature.item3.title") }}</h4>
+      <p class="fea-paragraph">{{ $t("message.feature.item3.description") }}</p>
+      <router-link to="/team">
+        <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
+          {{ $t("message.feature.item3.btn") }}
+          <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -67,19 +69,16 @@ export default {
   background-image: url("/static/img/home/ql/contact.jpg");
   background-size: cover;
   background-position: center;
-  transition: all 0.4s;
 }
 .f2 {
   background-image: url("/static/img/home/ql/research.jpg");
   background-size: cover;
   background-position: center;
-  transition: all 0.4s;
 }
 .f3 {
   background-image: url("/static/img/home/ql/staff.jpg");
   background-size: cover;
   background-position: center;
-  transition: all 0.4s;
 }
 
 .f1:hover {
@@ -87,27 +86,23 @@ export default {
     url("/static/img/home/ql/contact.jpg");
   background-size: cover;
   background-position: center;
-  transition: all 0.4s;
 }
 .f2:hover {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("/static/img/home/ql/research.jpg");
   background-size: cover;
   background-position: center;
-  transition: all 0.4s;
 }
 .f3:hover {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("/static/img/home/ql/staff.jpg");
   background-size: cover;
   background-position: center;
-  transition: all 0.4s;
 }
 
 .feature {
   color: white;
   background-color: transparent;
-  transition: all 0.4s;
   padding: 40px;
   height: 300px;
 }
@@ -115,7 +110,6 @@ export default {
   width: 33.33%;
   max-height: 300px;
   background-color: grey;
-  transition: all 0.4s;
   padding: 40px;
 }
 
@@ -127,7 +121,6 @@ export default {
   color: white;
   height: 0;
   overflow: hidden;
-  transition: all 0.4s;
 }
 
 /* .feature > .fea-btn {
@@ -136,11 +129,9 @@ export default {
 
 .feature:hover > .fea-paragraph {
   display: inherit !important;
-  transition: all 0.4s;
   height: 100%;
 }
 .feature:hover > .fea-btn {
-  transition: all 0.4s;
   min-height: 45px;
 }
 </style>

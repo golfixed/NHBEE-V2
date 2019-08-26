@@ -4,10 +4,12 @@
       <span class="line1">{{ $t("message.survey.line1")}}</span>
       <span class="line2">{{ $t("message.survey.line2")}}</span>
     </div>
-    <button class="d-flex align-items-center light-btn" style="padding: 0px 20px;">
-      {{ $t("message.survey.btn")}}
-      <mdb-icon style="margin-left: 20px;" icon="arrow-right"/>
-    </button>
+    <router-link to="/survey">
+      <button class="d-flex align-items-center light-btn" style="padding: 0px 20px;">
+        {{ $t("message.survey.btn")}}
+        <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
+      </button>
+    </router-link>
   </div>
 </template>
 

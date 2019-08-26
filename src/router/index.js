@@ -4,13 +4,13 @@ const Home = () => import('@/views/home.vue');
 const About = () => import('@/views/aboutus.vue');
 const Team = () => import('@/views/team.vue');
 const Contact = () => import('@/views/contact.vue');
+const Social = () => import('@/views/social.vue');
 
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'Home',
       component: Home
@@ -30,8 +30,16 @@ export default new Router({
       name: 'Contact',
       component: Contact
     },
+    {
+      path: '/social',
+      name: 'Social Media',
+      component: Social
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 }
+    return {
+      x: 0,
+      y: 0
+    }
   }
 })

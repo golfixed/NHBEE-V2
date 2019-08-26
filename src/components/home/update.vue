@@ -4,33 +4,72 @@
       <span class="section-text">{{ $t("message.section.news")}}</span>
     </div>
     <div class="update-display">
-      <div class="navigate-icon">
-        <i class="fas fa-chevron-left arrow-color"></i>
+      <div class="navigate-icon" @click="prevPage()">
+        <i class="fas fa-chevron-left arrow-color" v-if="onPage != 1"></i>
       </div>
       <div class="row ud-bar">
-        <div class="ud-box">
-          <h5 class="ud-topic">{{ $t("message.update.date")}}</h5>
-          <p class="ud-paragraph">"{{ $t("message.update.topic")}}"</p>
-        </div>
-        <div class="ud-box">
-          <h5 class="ud-topic">{{ $t("message.update.date")}}</h5>
-          <p class="ud-paragraph">"{{ $t("message.update.topic")}}"</p>
-        </div>
-        <div class="ud-box">
-          <h5 class="ud-topic">{{ $t("message.update.date")}}</h5>
-          <p class="ud-paragraph">"{{ $t("message.update.topic")}}"</p>
+        <div class="ud-box" v-for="(item, i) in news_data" :key="i" :value="i">
+          <h5 class="ud-topic">{{item['PublishedDate']}}</h5>
+          <p class="ud-paragraph" v-if=" changeLang === 'th' ">" {{item['Title_TH']}} "</p>
+          <p class="ud-paragraph" v-if=" changeLang === 'en' ">" {{item['Title_EN']}} "</p>
         </div>
       </div>
-      <div class="navigate-icon">
-        <i class="fas fa-chevron-right arrow-color"></i>
+      <div class="navigate-icon" @click="nextPage()">
+        <i class="fas fa-chevron-right arrow-color" v-if="onPage != 3"></i>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "homeupdate"
+  name: "homeupdate",
+  created() {
+    this.fetchNewsList();
+  },
+  data() {
+    return {
+      currentPage: 1,
+      news_data: []
+    };
+  },
+  methods: {
+    fetchNewsList: function() {
+      axios
+        .get("http://5d623ea826d62d0014a38805.mockapi.io/NewsAndUpdate")
+        .then(res => {
+          this.news_data = res.data;
+        });
+    },
+    prevPage: function() {
+      if (this.currentPage <= 1) {
+        this.currentPage = this.currentPage;
+      } else {
+        this.currentPage = this.currentPage - 1;
+      }
+    },
+    nextPage: function() {
+      if (this.currentPage >= 3) {
+        this.currentPage = this.currentPage;
+      } else {
+        this.currentPage = this.currentPage + 1;
+      }
+    }
+  },
+  computed: {
+    changeLang: function() {
+      return this.$i18n.locale;
+    },
+    newsShow: function() {
+      var tmp;
+      tmp = this.events.splice(this.events.indexOf(this.news_data), 2);
+      return tmp;
+    },
+    onPage: function() {
+      return this.currentPage;
+    }
+  }
 };
 </script>
 
@@ -69,6 +108,12 @@ export default {
 }
 .arrow-color {
   color: #e5b865;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.arrow-color:hover {
+  transform: scale(1.5);
+  transition: all 0.2s;
 }
 .bg {
   background-color: #1d1d1d;
