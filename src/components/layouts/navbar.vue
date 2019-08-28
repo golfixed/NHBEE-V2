@@ -16,7 +16,10 @@
         <!--LOGO AREA -->
         <router-link to="/">
           <div class="d-flex align-items-center group-left">
-            <div class="d-flex flex-row align-items-center align-items-center">
+            <div
+              class="d-flex flex-row align-items-center align-items-center"
+              @click="menubarToggle()"
+            >
               <img id="logo" class="logo" src="/static/img/logo.png" />
               <div class="webname">
                 <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
@@ -37,12 +40,11 @@
             </button>
           </div>
           <div
-            class="d-flex align-items-center justify-content-start"
+            class="d-flex align-items-center justify-content-start nav-searchbar2"
             style="color:#707070; height: 30px; padding: 0px 15px; border-right: 1px solid rgba(255, 255, 255, 0.253);"
           >
             <input
               v-if="searchbarShow === true"
-              class="nav-searchbar"
               style="margin-right:15px;border: 0;border-radius: 5px;padding-left: 15px;"
               type="text"
               placeholder="Search in web"
@@ -209,6 +211,9 @@ export default {
 }
 @media (max-width: 425px) {
   .lanbtn {
+    display: none !important;
+  }
+  .nav-searchbar2 {
     display: none !important;
   }
   #navbar-nav li {
