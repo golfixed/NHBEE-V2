@@ -5,6 +5,8 @@ const About = () => import('@/views/aboutus.vue');
 const Team = () => import('@/views/team.vue');
 const Contact = () => import('@/views/contact.vue');
 const Social = () => import('@/views/social.vue');
+const News = () => import('@/views/news.vue');
+const Research = () => import('@/views/research.vue');
 
 
 Vue.use(Router)
@@ -34,6 +36,16 @@ export default new Router({
       path: '/social',
       name: 'Social Media',
       component: Social
+    },
+    {
+      path: '/news',
+      name: 'NEWS',
+      component: News
+    },
+    {
+      path: '/research',
+      name: 'Research',
+      component: Research
     },
   ],
   scrollBehavior(to, from, savedPosition) {

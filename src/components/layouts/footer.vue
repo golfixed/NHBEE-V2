@@ -87,9 +87,6 @@
                         <router-link to="/news">{{ $t("message.footer.link.col1.item2") }}</router-link>
                       </h6>
                       <h6 class="sitemap-link">
-                        <router-link to="/article">{{ $t("message.footer.link.col1.item3") }}</router-link>
-                      </h6>
-                      <h6 class="sitemap-link">
                         <router-link to="/team">{{ $t("message.footer.link.col1.item4") }}</router-link>
                       </h6>
                     </div>

@@ -14,9 +14,9 @@
         <megamenu
           :category="category2"
           :label1="group2_1"
-          link1="/"
+          link1="/research"
           :label2="group2_2"
-          link2="/"
+          link2="/news"
           :label3="group2_3"
           link3="/"
         />
