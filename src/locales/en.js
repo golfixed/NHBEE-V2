@@ -168,23 +168,13 @@ export default {
         }
       }
     },
-    page5_research: {
-      title: 'RESEARCH',
-      username: 'Username',
-      password: 'Password',
-      btn: {
-        back: 'Back',
-        enter: 'Log In'
-      }
-    },
-    page3_news: {
-      title: 'NEWS',
-      username: 'Username',
-      password: 'Password',
-      btn: {
-        back: 'Back',
-        enter: 'Log In'
-      }
+    news: {},
+    research: {
+      section: {
+        search: 'Search Research',
+        latest: 'Latest Researches',
+      },
+      placeholder: 'Enter search keyword'
     },
     about: {
       box1: {

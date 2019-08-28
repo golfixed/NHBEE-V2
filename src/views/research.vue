@@ -10,12 +10,15 @@
     </div>
     <div class="container page-start">
       <div class="page-body" style="overflow: hidden;">
-        <h3 class="section-text">Search Research</h3>
+        <h3 class="section-text">{{ $t("message.research.section.search") }}</h3>
         <div class="research-searchbar">
-          <input class="search-input" v-model="seachkey" placeholder="Search for Researches" />
+          <input class="search-input" v-model="seachkey" :placeholder="searchPlace" />
           <i class="fas fa-search search-icon"></i>
         </div>
-        <h3 class="section-text" style="margin-top: 20px;">Latest Researches</h3>
+        <h3
+          class="section-text"
+          style="margin-top: 20px;"
+        >{{ $t("message.research.section.latest") }}</h3>
         <div class="research-display">
           <a href class="research-item">
             <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
@@ -82,6 +85,11 @@ export default {
     return {
       searchKey: ""
     };
+  },
+  computed: {
+    searchPlace: function() {
+      return this.$t("message.research.placeholder");
+    }
   }
 };
 </script>
