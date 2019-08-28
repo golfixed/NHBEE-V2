@@ -23,49 +23,12 @@
         </div>
         <div class="staff-display">
           <teamcard
-            name="พีระพงษ์ ธรรมแก้ว"
-            position="นักวิจัย"
-            pictureURL="static/img/team/profile.png"
-          />
-          <teamcard
-            name="ดร.นิธิวดีย์ หวังวิบูรกิจย์"
-            position="ผู้อำนวยการศูนย์"
-            pictureURL="static/img/team/my.png"
-          />
-          <teamcard
-            name="พีระพงษ์ ธรรมแก้ว"
-            position="นักวิจัย"
-            pictureURL="static/img/team/profile.png"
-          />
-          <teamcard
-            name="ดร.นิธิวดีย์ หวังวิบูรกิจย์"
-            position="ผู้อำนวยการศูนย์"
-            pictureURL="static/img/team/my.png"
-          />
-          <teamcard
-            name="พีระพงษ์ ธรรมแก้ว"
-            position="นักวิจัย"
-            pictureURL="static/img/team/profile.png"
-          />
-          <teamcard
-            name="ดร.นิธิวดีย์ หวังวิบูรกิจย์"
-            position="ผู้อำนวยการศูนย์"
-            pictureURL="static/img/team/my.png"
-          />
-          <teamcard
-            name="พีระพงษ์ ธรรมแก้ว"
-            position="นักวิจัย"
-            pictureURL="static/img/team/profile.png"
-          />
-          <teamcard
-            name="ดร.นิธิวดีย์ หวังวิบูรกิจย์"
-            position="ผู้อำนวยการศูนย์"
-            pictureURL="static/img/team/my.png"
-          />
-          <teamcard
-            name="พีระพงษ์ ธรรมแก้ว"
-            position="นักวิจัย"
-            pictureURL="static/img/team/profile.png"
+            v-for="(team, i) in teamList"
+            :key="i"
+            :value="i"
+            :name="team['name']"
+            :position="team['position']"
+            :pictureURL="team['pictureURL']"
           />
         </div>
       </div>
@@ -83,6 +46,68 @@ export default {
   },
   components: {
     teamcard
+  },
+  data() {
+    return {
+      teamList: [
+        {
+          name: "Assist. Prof. Dr. Orawan Duangphakdee",
+          position: "Ph.D. (Biological Science)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Mr.Preecha Rod-in",
+          position: "M.Sc. (Natural Resource Management)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Assoc Prof. Dr. Soontorngun",
+          position: "",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Assist. Prof. Dr. Winyu",
+          position: "(Chemistry)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Dr. Nongrat Phoka",
+          position: "Ph.D. (Genetic Engineering)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Dr. Panutda Yodsang",
+          position: "Ph.D. (Biochemistry)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Prof. Dr. Tirenee Atchalakul",
+          position: "",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Asisst Prof. Dr. Panuthat",
+          position: "Ph.D. (Engineering)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Dr.Kanteera Soontharapirakku",
+          position: "Ph.D. (Biochemistry)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Assist. Prof. Dr. Teeraphan Laomettachit",
+          position:
+            "Ph.D. (Genetics, Bioinformatics and Computational Biology)",
+          pictureURL: "static/img/team/profile.png"
+        },
+        {
+          name: "Dr. Teerasit Termsaithong",
+          position: "Ph.D. (Information Science and Technology)",
+          pictureURL: "static/img/team/profile.png"
+        }
+      ]
+    };
   }
 };
 </script>

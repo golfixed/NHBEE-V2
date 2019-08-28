@@ -90,9 +90,17 @@ export default {
       }
     },
     page2_about: {
-      title: 'เกี่ยวกับเรา',
-      paragraph: 'ยังไม่มีข้อมูลภาษาไทย',
-      paragraph_start: 'ยังไม่มีข้อมูลภาษาไทย'
+      title: 'ABOUT US',
+      paragraph1title: 'Native Honeybee Research Laboratory',
+      paragraph1: ' Deep tech researches of honeybees for multidisciplinary approach to create an invigorative economy and support resilient communities. Led by Assistant Professor Dr.Orawan Duangphakdee, NHBEE consists of 8 researchers (equivalent 2 FTEs), 1 BSc research assistant and 1 beekeeping technician. Our group, gathering from different disciplines e.g. Biology, Agricultural Technology, Biochemistry, Mathematic Modeling, Control System and Instrumental Engineering and Analytical Chemistry, works together as a team to achieve goals of NHBEE.',
+      paragraph2: '	Since its establishment in 2008, bee research group at King Mongkut\'s University of Technology Thonburi (KMUTT), Ratchaburi Campus has continually enjoyed many visits and research collaborations from several foreign honeybee scientists. We have performed research activities and internationalized our bee research group in terms of actual collaborations and networking at all levels. These collaborations consist of famous senior scientists, up to 10 young Asian research scientists including Thailand and 10 others from other foreign countries e.g. Germany, U.S.A and South Africa mentoring by more than 10 honeybee senior scientists from all over the world.',
+      paragraph3title: 'The goal of the NHBEE',
+      paragraph3: 'is to become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators using technological innovations that create an invigorative economy and support resilient communities in Thailand and Southeast Asia.',
+      paragraph4title: 'Our specialization',
+      paragraph4: 'is research on adaptive behavioral ecology and sociobiology in honeybees and stingless bees focusing on dance languages and signal communications. Then, we apply the integrative and multidisciplinary approaches to realization on native pollinator efficiency and beekeeping industry both for ecological and economical services. This could extend to be our 3 main distinct research areas:',
+      paragraph4_item1: 'Adaptive behaviors of bee for pollinations and ecological services',
+      paragraph4_item2: 'Economical utilization and value added products of native bees',
+      paragraph4_item3: 'Smart bee farming',
     },
     page6_contact: {
       title: 'ติดต่อเรา',
@@ -230,7 +238,7 @@ export default {
         search: 'ค้นหางานวิจัย',
         latest: 'งานวิจัยล่าสุด',
       },
-      placeholder: 'พิมพ์ข้อความที่ต้องการค้นหา เช่น ผึ้งหลวง'
+      placeholder: 'ป้อนคำที่ต้องการค้นหา เช่น ผึ้งหลวง'
     },
   }
 }

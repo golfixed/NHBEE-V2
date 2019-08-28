@@ -18,7 +18,7 @@
           <div class="d-flex align-items-center group-left">
             <div
               class="d-flex flex-row align-items-center align-items-center"
-              @click="menubarToggle()"
+              @click="menubarClose()"
             >
               <img id="logo" class="logo" src="/static/img/logo.png" />
               <div class="webname">
@@ -97,6 +97,9 @@ export default {
     },
     menubarToggle() {
       this.$store.commit("MENU_TOGGLE");
+    },
+    menubarClose() {
+      this.$store.commit("MENU_CLOSE");
     },
     searchbarToggle() {
       if (this.searchbarShow === true) {
