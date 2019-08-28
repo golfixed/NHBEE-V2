@@ -70,7 +70,7 @@
                     <img class="footer-logo" src="/static/img/logo.png" />
                     <img class="footer-logo" src="/static/img/logo-kmutt.png" />
                   </div>
-                  <div class="col-md-8 d-flex flex-column mb-center">
+                  <div class="col-md-8 d-flex flex-column mb-center" style="cursor: default;">
                     <h5 style="font-weight: bold;">NHBEE KMUTT</h5>
                     <h6 style="font-weight: bold;">Native Honeybee Research Laboratory</h6>
                     <h6 class="addressfont">{{ $t("message.footer.address.name") }}</h6>
@@ -110,7 +110,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row top-hr" style="padding: 20px 0px 20px 0px;">
+              <div class="row top-hr" style="padding: 20px 0px 20px 0px;cursor: default;">
                 <div class="col-md-6 d-flex justify-content-center align-items-center">
                   <mdb-icon
                     icon="envelope-open"
@@ -138,15 +138,13 @@
             <div class="row d-flex align-items-center">
               <div class="col-6">
                 <p
-                  style="color: white; font-size: 12px; padding: 10px 0px 10px 0px !important; margin: 0px 0px 0px 0px !important;"
+                  style="cursor: default;color: white; font-size: 12px; padding: 10px 0px 10px 0px !important; margin: 0px 0px 0px 0px !important;"
                 >Copyright © Native Honeybee Laboratory at KMUTT. All rights reserved.</p>
               </div>
               <div class="col-6 d-flex justify-content-end">
                 <p
-                  style="color: white !important; font-size: 12px; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
-                >
-                  <a href class="lng-btn">NHBEE KMUTT 2019</a>
-                </p>
+                  style="cursor: default;color: white !important; font-size: 12px; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
+                >NHBEE KMUTT 2019</p>
               </div>
             </div>
           </div>
