@@ -5,7 +5,7 @@
         class="col-lg-6 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center"
         style="padding: 30px;"
       >
-        <div class="d-flex flex-column text-box">
+        <div class="d-flex flex-column text-box" style="cursor: default;">
           <span class="line2">{{ $t("message.survey2.line1")}}</span>
           <span class="line1">{{ $t("message.survey2.line2")}}</span>
         </div>
@@ -39,7 +39,7 @@
                 style="grid-column: span 2;"
               >{{ $t("message.survey2.label.reason")}}</span>
             </div>
-            <div style="display:block;">
+            <div style="display:block;cursor: default;">
               <div>
                 <input type="checkbox" name="reason" value="research" />
                 {{ $t("message.survey2.reason.research")}}

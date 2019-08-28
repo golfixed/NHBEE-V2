@@ -31,7 +31,11 @@
         />
       </div>
       <div class="col-lg-3 col-sm-3 col-xs-12">
-        <megamenu :category="category4" :label1="group4_1" link1="/" :label2="group4_2" link2="/" />
+        <megamenu :category="category4" :label1="group4_1" link1="/" />
+        <button
+          @click="switchLocal();menubarToggle();"
+          class="change-language"
+        >{{$t("message.navbar.group4.link2")}}</button>
       </div>
     </div>
   </div>
@@ -43,6 +47,15 @@ export default {
   name: "menubar",
   components: {
     megamenu
+  },
+  methods: {
+    switchLocal() {
+      if (this.$i18n.locale === "th") this.$i18n.locale = "en";
+      else this.$i18n.locale = "th";
+    },
+    menubarToggle() {
+      this.$store.commit("MENU_TOGGLE");
+    }
   },
   computed: {
     category1: function() {
@@ -80,15 +93,24 @@ export default {
     },
     group4_1: function() {
       return this.$t("message.navbar.group4.link1");
-    },
-    group4_2: function() {
-      return this.$t("message.navbar.group4.link2");
     }
   }
 };
 </script>
 
 <style scoped>
+.change-language {
+  padding: 10px;
+  background: none;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  outline: none;
+}
+.change-language:hover {
+  color: #e5b764;
+}
 .maindiv {
   color: white;
   padding: 20px;
