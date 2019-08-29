@@ -11,85 +11,13 @@
     <div class="container page-start">
       <div class="page-body" style="overflow: hidden;">
         <div class="news-display">
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
+          <a href class="news-item" v-for="news in news_list" :key="'news_' + news.id">
+            <img class="news-img" :src="news.pictureURL" />
             <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
-            </div>
-          </a>
-          <a href class="news-item">
-            <img class="news-img" src="/static/img/news/news5.jpg" />
-            <div class="news-detail">
-              <h4 class="news-title">This is a mock up news. News' name will be only single line.</h4>
-              <h5
-                class="news-desc"
-              >This is a news' mocked up description just to test if the word spliting css is worked perfectly.</h5>
+              <h4 class="news-title" v-if="currentLang === 'th'">{{ news.th.title }}</h4>
+              <h4 class="news-title" v-if="currentLang === 'en'">{{ news.en.title }}</h4>
+              <h5 class="news-desc" v-if="currentLang === 'th'">{{ news.th.description }}</h5>
+              <h5 class="news-desc" v-if="currentLang === 'en'">{{ news.en.description }}</h5>
             </div>
           </a>
         </div>
@@ -102,14 +30,49 @@
 import { mdbIcon } from "mdbvue";
 import teamcard from "@/components/team/teamcard.vue";
 import layout_default from "@/layouts/main.vue";
+import axios from "axios";
 export default {
   name: "aboutuspage",
   created() {
     this.$emit(`update:layout`, layout_default);
+    this.fetchNewsList();
   },
   components: {
     teamcard,
     mdbIcon
+  },
+  data() {
+    return {
+      currentPage: 1,
+      news_data: [],
+      news_list: [],
+      count_current: "",
+      count_all: "",
+      status: 1
+    };
+  },
+  methods: {
+    fetchNewsList: function() {
+      axios
+        .get(
+          "http://10.35.30.140/api/news?page=" +
+            this.currentPage +
+            "?status=" +
+            this.status
+        )
+        .then(res => {
+          this.news_data = res.data;
+          this.news_list = this.news_data.description.data;
+          this.count_current = this.news_data.page.now;
+          this.count_all = this.news_data.page.all;
+          console.log(this.news_data);
+        });
+    }
+  },
+  computed: {
+    currentLang: function() {
+      return this.$i18n.locale;
+    }
   }
 };
 </script>

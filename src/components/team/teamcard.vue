@@ -51,11 +51,11 @@ export default {
 .detail-div {
   padding: 10px;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .profile-img {
     /* width: 100%; */
     width: auto !important; /*Keep the aspect ratio of the image*/
-    height: 100px !important;
+    height: 90px !important;
     /* border-radius: 50%; */
   }
 }

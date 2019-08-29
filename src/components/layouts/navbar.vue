@@ -196,6 +196,7 @@ export default {
   font-weight: bold;
   margin-left: 10px;
   transition: all 0.3s;
+  width: 100%;
 }
 .shrink .webname-txt {
   font-size: 1.15rem;
@@ -210,6 +211,9 @@ export default {
 @media (min-width: 769px) {
   .lanbtn {
     display: inherit !important;
+  }
+  .webname-txt2 {
+    display: none !important;
   }
 }
 @media (max-width: 425px) {

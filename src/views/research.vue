@@ -21,43 +21,31 @@
         >{{ $t("message.research.section.latest") }}</h3>
         <div class="research-display">
           <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
+            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลอง</h4>
             <span class="research-item-open-btn">
               <i class="fas fa-external-link-alt"></i>
             </span>
           </a>
           <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
+            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลอง</h4>
             <span class="research-item-open-btn">
               <i class="fas fa-external-link-alt"></i>
             </span>
           </a>
           <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
+            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลอง</h4>
             <span class="research-item-open-btn">
               <i class="fas fa-external-link-alt"></i>
             </span>
           </a>
           <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
+            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลอง</h4>
             <span class="research-item-open-btn">
               <i class="fas fa-external-link-alt"></i>
             </span>
           </a>
           <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
-            <span class="research-item-open-btn">
-              <i class="fas fa-external-link-alt"></i>
-            </span>
-          </a>
-          <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
-            <span class="research-item-open-btn">
-              <i class="fas fa-external-link-alt"></i>
-            </span>
-          </a>
-          <a href class="research-item">
-            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลองเด้อจ้า</h4>
+            <h4 class="research-item-title">นี่คือหัวข้อวิจัยแบบจำลอง</h4>
             <span class="research-item-open-btn">
               <i class="fas fa-external-link-alt"></i>
             </span>
