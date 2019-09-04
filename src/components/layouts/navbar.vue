@@ -260,6 +260,7 @@ export default {
   padding-left: 11px;
   padding-right: 11px;
   height: 30px;
+  outline: none;
 }
 .hamburger {
   border: solid;
