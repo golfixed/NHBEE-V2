@@ -14,14 +14,28 @@
         class="col-lg-6 col-sm-6 col-xs-12"
         style="padding: 30px;border: 1px solid #6b5842;border-width: 0 0 0 1px;"
       >
-        <form class="form2-display">
+        <form method="post" class="form2-display">
           <div class="form-item">
             <span class="form-item-label">{{ $t("message.survey2.label.name")}}</span>
-            <input class="survey2-input-box" type="text" name="name" placeholder="กมลวรรณ งานดี" />
+            <input
+              class="survey2-input-box"
+              type="text"
+              name="name"
+              v-model="form_name"
+              required
+              placeholder="กมลวรรณ งานดี"
+            />
           </div>
           <div class="form-item">
             <span class="form-item-label">{{ $t("message.survey2.label.country")}}</span>
-            <input class="survey2-input-box" type="text" name="country" placeholder="ไทย" />
+            <input
+              class="survey2-input-box"
+              type="text"
+              name="country"
+              v-model="form_country"
+              required
+              placeholder="ไทย"
+            />
           </div>
           <div class="form-item">
             <span class="form-item-label">{{ $t("message.survey2.label.province")}}</span>
@@ -29,6 +43,8 @@
               class="survey2-input-box"
               type="text"
               name="province"
+              v-model="form_city"
+              required
               placeholder="กรุงเทพมหานครฯ"
             />
           </div>
@@ -41,25 +57,53 @@
             </div>
             <div style="display:block;cursor: default;">
               <div>
-                <input type="checkbox" name="reason" value="research" />
-                {{ $t("message.survey2.reason.research")}}
+                <input
+                  id="reason0"
+                  type="checkbox"
+                  name="reason"
+                  value="research"
+                  v-model="form_reason[0]"
+                />
+                <label style="margin:0;" for="reason0">{{ $t("message.survey2.reason.research")}}</label>
               </div>
               <div>
-                <input type="checkbox" name="reason" value="training" />
-                {{ $t("message.survey2.reason.beekeep")}}
+                <input
+                  type="checkbox"
+                  id="reason1"
+                  name="reason"
+                  value="training"
+                  v-model="form_reason[1]"
+                />
+                <label style="margin:0;" for="reason1">{{ $t("message.survey2.reason.beekeep")}}</label>
               </div>
               <div>
-                <input type="checkbox" name="reason" value="pollination" />
-                {{ $t("message.survey2.reason.pollservice")}}
+                <input
+                  type="checkbox"
+                  id="reason2"
+                  name="reason"
+                  value="pollination"
+                  v-model="form_reason[2]"
+                />
+                <label style="margin:0;" for="reason2">{{ $t("message.survey2.reason.pollservice")}}</label>
               </div>
               <div>
-                <input type="checkbox" name="reason" value="others" />
-                {{ $t("message.survey2.reason.other")}}
+                <input
+                  type="checkbox"
+                  id="reason3"
+                  name="reason"
+                  value="others"
+                  v-model="form_reason[3]"
+                />
+                <label style="margin:0;" for="reason3">{{ $t("message.survey2.reason.other")}}</label>
               </div>
             </div>
           </div>
           <div style="display:flex;justify-content: flex-end;">
-            <button class="survey2-btn" type="submit">{{ $t("message.survey2.btn")}}</button>
+            <button
+              @click="submitForm();"
+              type="submit"
+              class="survey2-btn"
+            >{{ $t("message.survey2.btn")}}</button>
           </div>
         </form>
       </div>
@@ -69,10 +113,37 @@
 
 <script>
 import { mdbIcon } from "mdbvue";
+import axios from "axios";
 export default {
   name: "survey",
   components: {
     mdbIcon
+  },
+  data() {
+    return {
+      form_name: "",
+      form_country: "",
+      form_city: "",
+      form_reason: [false, false, false, false],
+      isSubmitted: false
+    };
+  },
+  methods: {
+    submitForm: function() {
+      axios
+        .post("http://10.35.30.140/api/survey/mini", {
+          name: this.form_name,
+          country: this.form_country,
+          city: this.form_city,
+          reason: this.form_reason.map(val => (val ? "1" : "0")).join("|")
+        })
+        .then(res => {
+          if (res.Status === 200) {
+            this.isSubmitted = true;
+            alert("Form is submitted");
+          } else this.isSubmitted = this.isSubmitted;
+        });
+    }
   }
 };
 </script>
