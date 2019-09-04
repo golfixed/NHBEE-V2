@@ -134,11 +134,13 @@ export default {
   color: #e5b865;
   font-weight: bold;
   font-family: "Chakra Petch";
+  cursor: default;
 }
 .abt-paragraph {
   color: rgb(194, 194, 194);
   font-family: "Sarabun";
   font-size: 14px;
+  cursor: default;
 }
 
 @media screen and (max-width: 425px) {
