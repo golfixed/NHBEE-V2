@@ -48,7 +48,8 @@ export default {
       news_list: [],
       count_current: "",
       count_all: "",
-      status: 1
+      status: 1,
+      range: 6
     };
   },
   methods: {
@@ -57,15 +58,14 @@ export default {
         .get(
           "http://10.35.30.140/api/news?page=" +
             this.currentPage +
-            "?status=" +
-            this.status
+            "&limit=" +
+            this.range
         )
         .then(res => {
           this.news_data = res.data;
           this.news_list = this.news_data.description.data;
           this.count_current = this.news_data.page.now;
           this.count_all = this.news_data.page.all;
-          console.log(this.news_data);
         });
     }
   },
@@ -112,6 +112,8 @@ export default {
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-weight: 600;
+  line-height: 20px;
+  max-height: 18px;
 }
 .news-desc {
   font-size: 1em;
@@ -121,6 +123,8 @@ export default {
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
+  line-height: 20px;
+  max-height: 40px;
 }
 .team-title {
   text-align: left;
