@@ -9,13 +9,14 @@
       </div>
       <div class="row ud-bar">
         <div class="ud-box" v-for="(item, i) in news_data" :key="i" :value="i">
-          <h5 class="ud-topic">{{item['PublishedDate']}}</h5>
-          <p class="ud-paragraph" v-if=" changeLang === 'th' ">" {{item['Title_TH']}} "</p>
-          <p class="ud-paragraph" v-if=" changeLang === 'en' ">" {{item['Title_EN']}} "</p>
+          <h5 class="ud-date" v-if=" changeLang === 'en' ">{{item.en.date}}</h5>
+          <h5 class="ud-date" v-if=" changeLang === 'th' ">{{item.th.date}}</h5>
+          <p class="ud-title" v-if=" changeLang === 'th' ">" {{item.th.title}} "</p>
+          <p class="ud-title" v-if=" changeLang === 'en' ">" {{item.en.title}} "</p>
         </div>
       </div>
       <div class="navigate-icon" @click="nextPage()">
-        <i class="fas fa-chevron-right arrow-color" v-if="onPage != 3"></i>
+        <i class="fas fa-chevron-right arrow-color" v-if="onPage != 2"></i>
       </div>
     </div>
   </div>
@@ -31,16 +32,18 @@ export default {
   data() {
     return {
       currentPage: 1,
-      news_data: []
+      news_tmp: [],
+      news_data3: [],
+      news_data6: []
     };
   },
   methods: {
     fetchNewsList: function() {
-      axios
-        .get("http://5d623ea826d62d0014a38805.mockapi.io/NewsAndUpdate")
-        .then(res => {
-          this.news_data = res.data;
-        });
+      axios.get("http://10.35.30.140/api/news/home?limit=6").then(res => {
+        this.news_tmp = res.data;
+        this.news_data3 = this.news_tmp.slice(0, 3);
+        this.news_data6 = this.news_tmp.slice(3, 6);
+      });
     },
     prevPage: function() {
       if (this.currentPage <= 1) {
@@ -50,7 +53,7 @@ export default {
       }
     },
     nextPage: function() {
-      if (this.currentPage >= 3) {
+      if (this.currentPage >= 2) {
         this.currentPage = this.currentPage;
       } else {
         this.currentPage = this.currentPage + 1;
@@ -68,6 +71,10 @@ export default {
     },
     onPage: function() {
       return this.currentPage;
+    },
+    news_data: function() {
+      if (this.currentPage === 1) return this.news_data3;
+      else return this.news_data6;
     }
   }
 };
@@ -97,6 +104,7 @@ export default {
   text-align: left;
   width: 33.33%;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .ud-box:hover {
   background-color: #292929;
@@ -121,13 +129,15 @@ export default {
   display: block;
   padding: 0 0 30px 0;
 }
-.ud-topic {
+.ud-date {
   color: rgb(150, 150, 150);
   margin-bottom: 20px;
+  cursor: default;
 }
-.ud-paragraph {
+.ud-title {
   color: rgb(220, 220, 220);
   font-weight: bold;
+  cursor: default;
 }
 
 @media screen and (max-width: 425px) {
