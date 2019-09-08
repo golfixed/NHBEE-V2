@@ -21,6 +21,23 @@
             </div>
           </a>
         </div>
+        <div class="news-home-pagination" style="margin-top: 20px;">
+          <button
+            class="pagination-btn prev-btn"
+            v-if="this.page.now != 1"
+            @click="changePage('previous');"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <div class="pagination-current">{{page.now}} จาก {{page.all}} หน้า</div>
+          <button
+            class="pagination-btn next-btn"
+            v-if="this.page.now != this.page.all"
+            @click="changePage('next');"
+          >
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -43,7 +60,10 @@ export default {
   },
   data() {
     return {
-      currentPage: 1,
+      page: {
+        now: 1,
+        all: ""
+      },
       news_data: [],
       news_list: [],
       count_current: "",
@@ -57,16 +77,34 @@ export default {
       axios
         .get(
           "http://10.35.30.140/api/news?page=" +
-            this.currentPage +
+            this.page.now +
             "&limit=" +
             this.range
         )
         .then(res => {
           this.news_data = res.data;
           this.news_list = this.news_data.description.data;
-          this.count_current = this.news_data.page.now;
-          this.count_all = this.news_data.page.all;
+          this.page.all = this.news_data.page.all;
         });
+    },
+    changePage: function(direction) {
+      if (direction === "previous") {
+        if (this.page.now < this.page.all) {
+          this.page.now = this.page.now;
+        } else {
+          this.page.now = this.page.now - 1;
+          this.fetchNewsList();
+        }
+      } else if (direction === "next") {
+        if (this.page.now >= this.page.all) {
+          this.page.now = this.page.now;
+        } else {
+          this.page.now = this.page.now + 1;
+          this.fetchNewsList();
+        }
+      } else {
+        this.page.now = 1;
+      }
     }
   },
   computed: {
@@ -78,6 +116,44 @@ export default {
 </script>
 
 <style scoped>
+.prev-btn,
+.next-btn {
+  border: 0;
+  background-color: #e8e8e8;
+  border-radius: 0;
+  outline: none;
+  padding: 9px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  transform: scale(1.1);
+  transition: all 0.1s;
+}
+.prev-btn:focus,
+.next-btn:focus {
+  transform: scale(1);
+  transition: all 0.1s;
+}
+.prev-btn {
+  position: absolute;
+  left: 0;
+}
+.next-btn {
+  position: absolute;
+  right: 0;
+}
+.news-home-pagination {
+  grid-column: span 5;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 .news-item {
   width: 100%;
   height: 240px;
