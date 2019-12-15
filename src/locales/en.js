@@ -72,6 +72,9 @@ export default {
       }
     },
     searchbar: 'Search in web',
+    searchpage: {
+      placeholder: 'Type your keyword here',
+    },
     quicklink: {
       link1: 'Research',
       link1sub: 'Explore our researched',

@@ -75,12 +75,7 @@ export default {
   methods: {
     fetchNewsList: function() {
       axios
-        .get(
-          "http://10.35.30.140/api/news?page=" +
-            this.page.now +
-            "&limit=" +
-            this.range
-        )
+        .get("/api/news?page=" + this.page.now + "&limit=" + this.range)
         .then(res => {
           this.news_data = res.data;
           this.news_list = this.news_data.description.data;

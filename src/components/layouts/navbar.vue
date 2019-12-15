@@ -21,7 +21,7 @@
               @click="menubarClose()"
             >
               <img id="logo" class="logo" src="/static/img/logo.png" />
-              <div class="webname">
+              <div class="webname" style="user-select: none;  ">
                 <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
                 <h1 id="webname" class="webname-txt2">NHBEE</h1>
               </div>
@@ -33,7 +33,7 @@
             <button
               class="lanbtn"
               @click="switchLocal()"
-              style=" padding-bottom: 0px; padding-top: 0px; align-items:center;"
+              style=" padding-bottom: 0px; padding-top: 0px; align-items:center;user-select: none;"
             >
               <i class="fas fa-globe" style=" font-size: 20px;margin-right: 5px;"></i>
               {{ displayLocal }}
@@ -43,13 +43,7 @@
             class="d-flex align-items-center justify-content-start nav-searchbar2"
             style="color:#707070; height: 30px; padding: 0px 15px; border-right: 1px solid rgba(255, 255, 255, 0.253);"
           >
-            <input
-              v-if="searchbarShow === true"
-              style="margin-right:15px;border: 0;border-radius: 5px;padding-left: 15px;"
-              type="text"
-              placeholder="Search in web"
-            />
-            <div @click="searchbarToggle();">
+            <div v-on:click="searchPageToggle(true);">
               <i class="fas fa-search"></i>
             </div>
           </div>
@@ -59,7 +53,9 @@
             style="color: white; padding: 0px 0px 0px 15px; align-items:center;"
           >
             <i class="fas fa-bars"></i>
-            <p style="padding: 0px 0px 0px 15px;margin:0px;">{{ $t("message.navbar.menubtn") }}</p>
+            <p
+              style="padding: 0px 0px 0px 15px;margin:0px;cursor:pointer;user-select: none;"
+            >{{ $t("message.navbar.menubtn") }}</p>
           </div>
         </div>
       </div>
@@ -67,9 +63,25 @@
     <div class="menubar-box" :class="{show:$store.state.menubarShow}">
       <menubar />
     </div>
-    <!-- <div class="menubar-box" v-if="$store.state.menubarShow === true">
-      <menubar/>
-    </div>-->
+    <div class="searchpage-container" v-if="searchbarShow == true">
+      <div class="page-close-box" v-on:click="searchPageToggle(false);">
+        <label>
+          <i class="fas fa-times"></i>
+        </label>
+      </div>
+      <div class="inner-container">
+        <div class="searchbar-top">
+          <label>{{ $t('message.searchbar')}}</label>
+          <div class="set">
+            <input :placeholder="this.inputPlaceholder" />
+            <label>
+              <i class="fas fa-search"></i>
+            </label>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -101,21 +113,20 @@ export default {
     menubarClose() {
       this.$store.commit("MENU_CLOSE");
     },
-    searchbarToggle() {
-      if (this.searchbarShow === true) {
-        this.searchbarShow = false;
-      } else {
-        this.searchbarShow = true;
-      }
+    searchPageToggle: function(param) {
+      this.searchbarShow = param;
     }
   },
   computed: {
     displayLocal() {
       if (this.$i18n.locale === "th") return "EN";
-      else return "TH";
+      else return "ไทย";
     },
     searchbar: function() {
       return this.$t("message.searchbar");
+    },
+    inputPlaceholder: function() {
+      return this.$t("message.searchpage.placeholder");
     }
   },
   mounted() {
@@ -143,6 +154,59 @@ export default {
 </script>
 
 <style scoped>
+.page-close-box {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.page-close-box > label {
+  font-size: 20px;
+  user-select: none;
+}
+.inner-container {
+  width: 100%;
+  height: fit-content;
+  padding: 50px 20% 0 20%;
+}
+.inner-container > div.searchbar-top > label {
+  font-size: 30px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+.inner-container > div.searchbar-top > div.set {
+  position: relative;
+}
+.inner-container > div.searchbar-top > div.set > input {
+  font-size: 24px;
+  width: 100%;
+  outline: none;
+  border: solid #d2d2d2;
+  border-width: 0 0 1px 0;
+}
+.inner-container > div.searchbar-top > div.set > label {
+  font-size: 20px;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: grey;
+}
+.inner-container > div.searchbar-top {
+  display: flex;
+  flex-direction: column;
+}
+.searchpage-container {
+  z-index: 100;
+  background-color: #fff;
+  position: absolute;
+  overflow: scroll;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
 .show {
   max-height: 300px !important;
   transition: all 0.3s;

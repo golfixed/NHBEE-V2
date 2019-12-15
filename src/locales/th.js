@@ -35,6 +35,9 @@ export default {
       }
     },
     searchbar: 'ค้นหาในเว็บ',
+    searchpage: {
+      placeholder: 'ป้อนคำค้นหาของคุณที่นี่',
+    },
     quicklink: {
       link1: 'งานวิจัย',
       link1sub: 'สำรวจงานวิจัยของเรา',
