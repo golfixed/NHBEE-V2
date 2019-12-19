@@ -1,9 +1,9 @@
 <template>
-  <div class="container-fluid bg">
+  <div class="container bg">
     <div class="row" style="width:100%;margin:0;padding:0;">
       <div
         class="col-lg-6 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center"
-        style="padding: 30px;"
+        style="padding-top: 30px;"
       >
         <div class="d-flex flex-column text-box" style="cursor: default;">
           <span class="line2">{{ $t("message.survey2.line1")}}</span>
@@ -98,7 +98,7 @@
               </div>
             </div>
           </div>
-          <div style="display:flex;justify-content: flex-end;">
+          <div class="button-layout">
             <button
               @click="submitForm();"
               type="submit"
@@ -149,6 +149,10 @@ export default {
 </script>
 
 <style scoped>
+.button-layout {
+  display: flex;
+  justify-content: flex-end;
+}
 .survey2-input-box {
   color: #ffffff;
   background-color: #282828;
@@ -248,6 +252,11 @@ export default {
   }
   .text-box {
     padding-bottom: 0px;
+  }
+  .button-layout {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
   }
 }
 </style>

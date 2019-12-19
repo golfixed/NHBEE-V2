@@ -5,7 +5,7 @@
     </div>
     <div class="update-display">
       <div class="navigate-icon" @click="prevPage()">
-        <i class="fas fa-chevron-left arrow-color" v-if="onPage != 1"></i>
+        <i class="fas fa-chevron-left arrow-color" v-if="onPage > 1 || news_tmp.length > 0"></i>
       </div>
       <div class="row ud-bar">
         <div class="ud-box" v-for="(item, i) in news_data" :key="i" :value="i">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="navigate-icon" @click="nextPage()">
-        <i class="fas fa-chevron-right arrow-color" v-if="onPage != 2"></i>
+        <i class="fas fa-chevron-right arrow-color" v-if="onPage <= 1 || news_tmp.length > 0"></i>
       </div>
     </div>
   </div>
@@ -84,6 +84,7 @@ export default {
 .update-display {
   display: grid;
   grid-template-columns: 7% 86% 7%;
+  padding-bottom: 20px;
 }
 .navigate-icon {
   display: flex;
@@ -95,7 +96,7 @@ export default {
   margin-bottom: 0px;
   font-weight: bold;
   font-size: 1.8rem;
-  padding: 30px;
+  padding: 20px;
 }
 .ud-box {
   color: #ffffff;
@@ -127,7 +128,7 @@ export default {
   background-color: #1d1d1d;
   width: 100%;
   display: block;
-  padding: 0 0 30px 0;
+  padding: 0;
 }
 .ud-date {
   color: rgb(150, 150, 150);

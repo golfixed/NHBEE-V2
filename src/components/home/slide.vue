@@ -1,12 +1,29 @@
 <template>
-  <mdb-carousel style="background-color:white;" :interval="8000" showControls showIndicators>
-    <mdb-carousel-item img src="/static/img/homeslide/02.jpg" mask="black-slight" alt="First slide">
-      <!-- <button @click="test();">Click test</button> -->
-    </mdb-carousel-item>
-    <mdb-carousel-item img src="/static/img/homeslide/03.jpg" mask="black-slight" alt="Third slide"></mdb-carousel-item>
-    <mdb-carousel-item img src="/static/img/homeslide/04.jpg" mask="black-slight" alt="forth slide"></mdb-carousel-item>
-  </mdb-carousel>
-  <!-- <carousel :data="slide" :controls="true" :autoplay="false"></carousel> -->
+  <div class="container">
+    <mdb-carousel style="background-color:white;" :interval="8000" showControls showIndicators>
+      <mdb-carousel-item
+        img
+        src="/static/img/homeslide/02.jpg"
+        mask="black-slight"
+        alt="First slide"
+      >
+        <!-- <button @click="test();">Click test</button> -->
+      </mdb-carousel-item>
+      <mdb-carousel-item
+        img
+        src="/static/img/homeslide/03.jpg"
+        mask="black-slight"
+        alt="Third slide"
+      ></mdb-carousel-item>
+      <mdb-carousel-item
+        img
+        src="/static/img/homeslide/04.jpg"
+        mask="black-slight"
+        alt="forth slide"
+      ></mdb-carousel-item>
+    </mdb-carousel>
+    <!-- <carousel :data="slide" :controls="true" :autoplay="false"></carousel> -->
+  </div>
 </template>
 
 <script>
@@ -42,4 +59,7 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  padding: 0;
+}
 </style>

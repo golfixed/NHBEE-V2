@@ -29,7 +29,7 @@
           </div>
         </router-link>
         <div class="d-flex align-items-center group-right">
-          <div style=" border-right: 1px solid rgba(255, 255, 255, 0.253);  height:30px;">
+          <div style="height:30px;">
             <button
               class="lanbtn"
               @click="switchLocal()"
@@ -39,10 +39,7 @@
               {{ displayLocal }}
             </button>
           </div>
-          <div
-            class="d-flex align-items-center justify-content-start nav-searchbar2"
-            style="color:#707070; height: 30px; padding: 0px 15px; border-right: 1px solid rgba(255, 255, 255, 0.253);"
-          >
+          <div class="d-flex align-items-center justify-content-start nav-searchbar2">
             <div v-on:click="searchPageToggle(true);">
               <i class="fas fa-search"></i>
             </div>
@@ -54,6 +51,7 @@
           >
             <i class="fas fa-bars"></i>
             <p
+              class="menu-btn-text"
               style="padding: 0px 0px 0px 15px;margin:0px;cursor:pointer;user-select: none;"
             >{{ $t("message.navbar.menubtn") }}</p>
           </div>
@@ -131,19 +129,23 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener("scroll", function() {
-        var navbar = document.getElementById("navbarbox");
-        var nav_classes = navbar.classList;
-        if (document.documentElement.scrollTop >= 150) {
-          if (nav_classes.contains("shrink") === false) {
-            nav_classes.toggle("shrink");
+      if (this.$store.state.menubarShow == true) {
+        console.log("not shrink");
+      } else {
+        window.addEventListener("scroll", function() {
+          var navbar = document.getElementById("navbarbox");
+          var nav_classes = navbar.classList;
+          if (document.documentElement.scrollTop >= 150) {
+            if (nav_classes.contains("shrink") === false) {
+              nav_classes.toggle("shrink");
+            }
+          } else {
+            if (nav_classes.contains("shrink") === true) {
+              nav_classes.toggle("shrink");
+            }
           }
-        } else {
-          if (nav_classes.contains("shrink") === true) {
-            nav_classes.toggle("shrink");
-          }
-        }
-      });
+        });
+      }
     });
     this.$root.$on(""),
       () => {
@@ -246,6 +248,7 @@ export default {
 }
 .logo-col {
   border-right: 1px solid rgba(255, 255, 255, 0.253);
+  border-left: 1px solid rgba(255, 255, 255, 0.253);
 }
 .webname-txt2 {
   display: none;
@@ -272,6 +275,13 @@ export default {
 .group-left {
   padding-left: 0px;
 }
+.nav-searchbar2 {
+  color: #707070;
+  height: 30px;
+  padding: 0px 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.253);
+  border-left: 1px solid rgba(255, 255, 255, 0.253);
+}
 @media (min-width: 769px) {
   .lanbtn {
     display: inherit !important;
@@ -281,10 +291,17 @@ export default {
   }
 }
 @media (max-width: 425px) {
-  .lanbtn {
-    display: none !important;
-  }
   .nav-searchbar2 {
+    color: #707070;
+    height: 30px;
+    padding: 0px 15px;
+    border-left: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.253);
+  }
+  .menu-btn-text {
+    display: none;
+  }
+  .lanbtn {
     display: none !important;
   }
   #navbar-nav li {

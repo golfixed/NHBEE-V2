@@ -1,68 +1,22 @@
 <template>
   <div class="container bg">
-    <div class="row">
-      <span class="section-text">{{ $t("message.section.about")}}</span>
+    <div class="section-topic">
+      <label class="section-text">{{ $t("message.section.about")}}</label>
     </div>
-    <div class="row about-bar">
+    <div class="about-bar">
       <div class="about-box">
-        <!-- <div class="about-icon-div">
-          <i class="fas fa-bullseye about-icon"></i>
-        </div>-->
         <h5 class="abt-topic">{{ $t("message.about.box1.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box1.paragraph")}}</p>
       </div>
       <div class="about-box">
-        <!-- <div class="about-icon-div">
-          <i class="fas fa-flask about-icon"></i>
-        </div>-->
         <h5 class="abt-topic">{{ $t("message.about.box2.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box2.paragraph")}}</p>
       </div>
       <div class="about-box">
-        <!-- <div class="about-icon-div">
-          <i class="fas fa-directions about-icon"></i>
-        </div>-->
         <h5 class="abt-topic">{{ $t("message.about.box3.title")}}</h5>
         <p class="abt-paragraph">{{ $t("message.about.box3.paragraph")}}</p>
       </div>
     </div>
-
-    <!-- <div class="row" style="width:100%;margin-bottom:20px;">
-      <h3
-        style="color: white;padding-left: 50px;margin-bottom:0px;font-weight:bold;"
-      >About Native Honeybee Laboratory</h3>
-    </div>-->
-    <!-- <div class="row bar" style=" text-align: start; overflow:hidden;">
-      <div class="col-lg-4 col-sm-4 col-xs-12 abt-hover" v-bind:class="{'open': about1}" @click="click(1)">
-        <div class="leftbox">
-          <h5 class="abt-topic">The goal of NHBEE 1</h5>
-          <p
-            class="abt-paragraph"
-          >To become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators.</p>
-        </div>
-        <div class="rightbox img1"></div>
-      </div>
-      <div class="col-lg-4 col-sm-4 col-xs-12 abt-hover" v-bind:class="{'open': about1}" @click="click(1)">
-        <div class="leftbox">
-          <h5 class="abt-topic">The goal of NHBEE 1</h5>
-          <p
-            class="abt-paragraph"
-          >To become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators.</p>
-        </div>
-        <div class="rightbox img1"></div>
-      </div>
-      <div class="col-lg-4 col-sm-4 col-xs-12 abt-hover" v-bind:class="{'open': about1}" @click="click(1)">
-        <div class="leftbox">
-          <h5 class="abt-topic">The goal of NHBEE 1</h5>
-          <p
-            class="abt-paragraph"
-          >To become a center of excellence in research and extension of developing and implementing the utilization of native honeybees and pollinators.</p>
-        </div>
-        <div class="rightbox img1"></div>
-      </div>
-
-
-    </div>-->
   </div>
 </template>
 
@@ -94,29 +48,36 @@ export default {
 </script>
 
 <style scoped>
+.section-topic {
+  width: 100%;
+  padding: 20px;
+}
+.container {
+  padding: 0;
+}
 .section-text {
   color: rgb(194, 194, 194);
   margin-bottom: 0px;
   font-weight: bold;
   font-size: 1.8rem;
-  padding: 30px;
 }
 .about-box {
   color: #ffffff;
   padding: 50px 30px;
   display: block;
   text-align: center;
-  width: 33.33%;
   transition: all 0.3s;
 }
 .about-box:hover {
   background-color: #292929;
   transition: all 0.3s;
 }
+
 .about-bar {
-  display: flex;
-  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
+
 .about-icon-div {
   display: flex;
   justify-content: center;
@@ -144,6 +105,10 @@ export default {
 }
 
 @media screen and (max-width: 425px) {
+  .about-bar {
+    display: flex;
+    overflow-y: scroll;
+  }
   .section-text {
     font-size: 1.5rem;
     padding: 30px 10px;
@@ -168,54 +133,4 @@ export default {
     padding-bottom: 15px;
   }
 }
-
-/*
-.left-box {
-  border-left: 5px solid green;
-}
-.bar {
-  position: relative;
-  display: flex;
-  transition: all 0.3s;
-}
-.abt-hover {
-  background-color: transparent;
-  padding: 50px 40px;
-  width: 33.33%;
-  transition: all 0.7s;
-  height: 200px;
-}
-.abt-hover.open {
-  background-color: #2e2e2e;
-  transition: all 0.3s;
-  padding: 50px 40px;
-  width: 100%;
-  height: 270px;
-}
-.abt-hover .leftbox{
-    width: 100% !important;
-    max-width: 100% !important;
-    padding:30px;
-}
-.abt-hover.open .leftbox {
-    width: 50% !important;
-    max-width: 50% !important;
-    padding:30px;
-}
-.abt-hover .rightbox {
-    width: 0% !important;
-    max-width: 0% !important;
-}
-.abt-hover.open .rightbox {
-    width: 50% !important;
-    max-width: 50% !important;
-}
-.img1 {
-  background-image: url("/static/img/about/pic3.jpg");
-  background-position: center;
-  background-size: cover;
-  height: auto;
-  width: 100%;
-  transition: all 0s;
-} */
 </style>

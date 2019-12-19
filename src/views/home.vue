@@ -5,29 +5,29 @@
     pointer-events="none"
   >
     <div class="header-bg-home d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+      <div class="container" style="margin-top: -65px;padding: 0 15px 0 15px;">
         <div class="d-flex flex-column">
           <span class="page-title">{{ $t("message.pageheader.home.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.home.subtitle") }}</span>
         </div>
       </div>
     </div>
-    <div class="container page-start">
+    <div class="home-block page-start">
       <homeslide />
     </div>
-    <div style="width: 100vw;">
+    <div class="home-block">
       <homeabout />
     </div>
-    <div class="container" style="padding:0px;">
+    <div class="home-block">
       <survey />
     </div>
-    <div class="container" style="padding:0px;display: flex;justify-content: center;">
+    <div class="home-block">
       <feature />
     </div>
-    <div class="container" style="width:100vw;padding:0;">
+    <div class="home-block">
       <update />
     </div>
-    <div class="container" style="padding:0px;">
+    <div class="home-block">
       <survey2 />
     </div>
   </div>

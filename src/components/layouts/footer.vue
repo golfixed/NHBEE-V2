@@ -1,72 +1,19 @@
 <template>
-  <div class="container-fluid bg" style>
-    <!-- <div class="container">
-      <div class="row sub-class">
-        <div class="col-lg-6 col-sm-6 col-xs-12" style="padding: 0px;">
-          <h4 class="topic" style="padding: 10px 0px;">{{ $t("message.connect.connect_text") }}</h4>
-          <div class="d-flex flex-row justify-content-start" style="margin-top: 10px;">
-            <div class="p-2">
-              <a href="https://www.facebook.com/nhbeekmutt" target="_blank">
-                <mdb-icon fab icon="facebook-square" class="socialicon fb" />
-              </a>
-            </div>
-            <div class="p-2">
-              <a href="https://www.twitter.com/nhbeekmutt" target="_blank">
-                <mdb-icon fab icon="twitter" class="socialicon twitter" />
-              </a>
-            </div>
-            <div class="p-2">
-              <a href="https://www.youtube.com/nhbeekmutt" target="_blank">
-                <mdb-icon fab icon="youtube" class="socialicon youtube" />
-              </a>
-            </div>
-            <div class="p-2">
-              <a href="https://www.youtube.com/nhbeekmutt" target="_blank">
-                <mdb-icon fab icon="line" class="socialicon line" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-xs-12" style="padding: 0px;">
-          <h4 class="topic" style="padding: 10px 0px;">{{ $t("message.connect.email_text") }}</h4>
-          <div class="d-flex flex-row" style="margin-top: 10px;">
-            <div class="col" style="padding: 0px 0px 0px 0px;">
-              <form class="example" action="/action_page.php">
-                <input
-                  style="border: 1px solid white;background-color: #212121;padding: 10px;width: 90%;color:#fff;"
-                  type="text"
-                  :placeholder="emailsubph"
-                  name="search"
-                />
-                <button
-                  type="submit"
-                  style="padding: 10px;border: 1px solid white;width: 10%; float: right;"
-                >
-                  <mdb-icon icon="arrow-right" />
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-    <div class="container-fluid" style="padding: 30px 0 0 0;">
+  <div class="container-fluid bg">
+    <div class="container-fluid">
       <div style="color: white;">
         <div class="container-fluid footer-bg" style="padding:0;">
           <div class="container" style="padding:0;">
             <div class="container">
               <div
                 class="row"
-                style="display: flex;justify-content: center;    padding-bottom: 20px;"
+                style="display: flex;justify-content: center;    padding-bottom: 20px;margin:0;"
               >
                 <div
                   class="col-md-8 address-fix d-flex align-items-center row"
                   style=" padding-right: 0px; padding-left: 0px;"
                 >
-                  <div
-                    class="col-md-4 d-flex flex-row justify-content-center"
-                    style=" padding: 20px 0px 40px 0px;"
-                  >
+                  <div class="logo-col col-md-4 d-flex flex-row justify-content-center">
                     <img class="footer-logo" src="/static/img/logo.png" />
                     <img class="footer-logo" src="/static/img/logo-kmutt.png" />
                   </div>
@@ -134,18 +81,19 @@
           </div>
         </div>
         <div class="container-fluid right-bg" style="background-color: #1d1d1d;">
-          <div class="container">
-            <div class="row d-flex align-items-center">
-              <div class="col-6">
-                <p
-                  style="cursor: default;color: white; font-size: 12px; padding: 10px 0px 10px 0px !important; margin: 0px 0px 0px 0px !important;"
-                >Copyright © Native Honeybee Laboratory at KMUTT. All rights reserved.</p>
-              </div>
-              <div class="col-6 d-flex justify-content-end">
-                <p
-                  style="cursor: default;color: white !important; font-size: 12px; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
-                >NHBEE KMUTT 2019</p>
-              </div>
+          <div class="container copyrightbar">
+            <div>
+              <p
+                style="cursor: default;color: white; font-size: 12px; padding: 10px 0px 10px 0px !important; margin: 0px 0px 0px 0px !important;"
+              >
+                Copyright © Native Honeybee Laboratory at KMUTT.
+                <br />All rights reserved.
+              </p>
+            </div>
+            <div>
+              <p
+                style="cursor: default;color: white !important; font-size: 12px; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
+              >NHBEE KMUTT 2019</p>
             </div>
           </div>
         </div>
@@ -170,6 +118,17 @@ export default {
 </script>
 
 <style scoped>
+.copyrightbar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.copyrightbar > div {
+  display: flex;
+  align-items: center;
+}
+.copyrightbar > div:last-child {
+  justify-content: flex-end;
+}
 .sub-class {
   padding: 20px 0 30px 0;
 }
@@ -179,6 +138,19 @@ export default {
   color: #cbcbcb;
 }
 @media screen and (max-width: 425px) {
+  .copyrightbar > div {
+    justify-content: center;
+    text-align: center;
+  }
+  .copyrightbar > div:last-child {
+    justify-content: center;
+  }
+  .copyrightbar {
+    display: block;
+  }
+  .logo-col {
+    padding: 30px 0;
+  }
   .socialicon {
     font-size: 35px !important;
     margin: 0px 20px;
@@ -244,8 +216,11 @@ export default {
 }
 .bg {
   background-color: #292929;
-  margin-top: -70px;
-  padding: 70px 0 0 0;
+  /* margin-top: -70px; */
+  padding: 0;
+}
+.bg > div.container-fluid {
+  padding: 30px 0 0 0;
 }
 .topic {
   color: white;
@@ -279,6 +254,9 @@ export default {
   .ftlinkmb {
     display: none;
   }
+  .bg > div.container-fluid {
+    padding: 0;
+  }
 }
 .addressfont {
   color: rgb(179, 179, 179);
@@ -287,5 +265,6 @@ export default {
   border: solid;
   border-width: 1px 0px 0px 0px;
   border-color: rgb(80, 80, 80);
+  margin: 0;
 }
 </style>

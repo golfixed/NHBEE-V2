@@ -1,8 +1,8 @@
 <template>
-  <div style="margin: 0px; padding: 0px;">
-    <navbar/>
-    <slot/>
-    <footerall/>
+  <div class="main-layout">
+    <navbar />
+    <slot />
+    <footerall />
   </div>
 </template>
 
@@ -19,6 +19,14 @@ export default {
 </script>
 
 <style>
+.home-block {
+  width: 100vw;
+}
+.main-layout {
+  width: 100vw;
+  max-width: 100vw;
+  display: grid;
+}
 a,
 li,
 ul {
@@ -41,8 +49,17 @@ a:hover {
   margin-top: -70px;
 }
 .home-display {
+  width: 100vw;
+  max-width: 100vw;
+  padding-bottom: 40px;
   display: grid;
   grid-template-rows: auto auto auto auto auto auto;
+}
+
+@media screen and (max-width: 425px) {
+  .home-display {
+    padding-bottom: 0px;
+  }
 }
 .page-title {
   color: #e3b800;

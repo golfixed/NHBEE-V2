@@ -1,5 +1,5 @@
 <template>
-  <div class="container maindiv">
+  <div class="container maindiv panel-height">
     <div class="row">
       <div class="col-lg-3 col-sm-3 col-xs-12">
         <megamenu
@@ -114,8 +114,17 @@ export default {
 .maindiv {
   color: white;
   padding: 20px;
+  height: fit-content;
 }
 .menu-img {
   max-width: 100%;
+}
+@media screen and (max-width: 425px) {
+  .panel-height {
+    height: calc(100vh - 80px);
+  }
+  .panel-height.shrink {
+    height: calc(100vh - 50px);
+  }
 }
 </style>

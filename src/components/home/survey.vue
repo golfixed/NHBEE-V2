@@ -1,11 +1,11 @@
 <template>
-  <div class="container-fluid bg d-flex align-items-center justify-content-center flex-column">
+  <div class="container bg d-flex align-items-center justify-content-center flex-column">
     <div class="d-flex flex-column text-box">
       <span class="line1">{{ $t("message.survey.line1")}}</span>
       <span class="line2">{{ $t("message.survey.line2")}}</span>
     </div>
     <router-link to="/survey">
-      <button class="d-flex align-items-center light-btn" style="padding: 0px 20px;">
+      <button class="d-flex align-items-center light-btn">
         {{ $t("message.survey.btn")}}
         <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
       </button>
@@ -35,7 +35,8 @@ export default {
   background-color: black;
   height: 45px;
   font-size: 22px;
-  margin: 20px 0px;
+  margin-top: 20px;
+  padding: 0px 20px;
 }
 .line1 {
   color: white;
@@ -53,7 +54,7 @@ export default {
 }
 @media screen and (max-width: 425px) {
   .bg {
-    padding: 20px;
+    padding: 50px 20px;
   }
   .line1 {
     font-size: 1.5rem;
