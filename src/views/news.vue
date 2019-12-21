@@ -1,5 +1,9 @@
 <template>
-  <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
+  <div
+    class="home-display"
+    style="padding-top:80px;background-color: rgb(51, 51, 51);"
+    v-if="this.news_data.length > 0"
+  >
     <div class="header-bg-contact d-flex align-items-center">
       <div class="container" style="margin-top: -65px;">
         <div class="d-flex flex-column">

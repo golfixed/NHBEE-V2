@@ -3,7 +3,7 @@
     <div class="header-bg-contact d-flex align-items-center">
       <div class="container" style="margin-top: -65px;">
         <div class="d-flex flex-column">
-          <span class="page-title">{{ $t("message.pageheader.contact.title") }}</span>
+          <span class="page-title">{{ $t("message.pageheader.contacttle") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.contact.subtitle") }}</span>
         </div>
       </div>
@@ -41,7 +41,7 @@
           <div>
             <p class="topic">{{ $t("message.page6_contact.contact.title") }}</p>
           </div>
-          <div d-flex>
+          <div>
             <div class="d-flex flex-row p-2 align-items-center">
               <mdb-icon icon="phone" style="margin-right: 10px;" />
               <p style="margin-bottom: 0px;">{{ $t("message.page6_contact.contact.detail.line1") }}</p>
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div style="border-radius: 5px;overflow: hidden;background-color: #eff0f2;">
+        <div style="border-radius: 5px;overflow: hidden;background-color: rgb(248, 249, 250);">
           <div class="mapdiv">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1939.0583564645842!2d99.5063870585839!3d13.589680794078491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e3470848eda061%3A0xeb298b44171d0ed3!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lie4Lij4Liw4LiI4Lit4Lih4LmA4LiB4Lil4LmJ4Liy4LiY4LiZ4Lia4Li44Lij4Li1ICjguKPguLLguIrguJrguLjguKPguLUp!5e0!3m2!1sth!2sth!4v1548934623823"
@@ -71,7 +71,6 @@
 
 <script>
 import { mdbIcon } from "mdbvue";
-import teamcard from "@/components/team/teamcard.vue";
 import layout_default from "@/layouts/main.vue";
 export default {
   name: "aboutuspage",
@@ -79,7 +78,6 @@ export default {
     this.$emit(`update:layout`, layout_default);
   },
   components: {
-    teamcard,
     mdbIcon
   }
 };

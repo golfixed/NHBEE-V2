@@ -7,6 +7,7 @@ const Contact = () => import('@/views/contact.vue');
 const Social = () => import('@/views/social.vue');
 const News = () => import('@/views/news.vue');
 const Research = () => import('@/views/research.vue');
+const Survey = () => import('@/views/survey.vue');
 
 
 Vue.use(Router)
@@ -46,6 +47,11 @@ export default new Router({
       path: '/research',
       name: 'Research',
       component: Research
+    },
+    {
+      path: '/survey',
+      name: 'Survey',
+      component: Survey
     },
   ],
   scrollBehavior(to, from, savedPosition) {

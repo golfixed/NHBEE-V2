@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <mdb-carousel style="background-color:white;" :interval="8000" showControls showIndicators>
+  <div class="container slide-mb">
+    <mdb-carousel :interval="8000" showControls showIndicators>
       <mdb-carousel-item
         img
         src="/static/img/homeslide/02.jpg"
@@ -59,7 +59,23 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.slide-mb {
   padding: 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  -khtml-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+@media screen and (max-width: 425px) {
+  .container {
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .slide-mb {
+    border-radius: 5px;
+    overflow: hidden;
+  }
 }
 </style>

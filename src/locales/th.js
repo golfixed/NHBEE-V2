@@ -14,8 +14,8 @@ export default {
         subtitle: 'มีอะไรมาใหม่'
       },
       survey: {
-        title: 'แบบทดสอบ',
-        subtitle: 'ร่วมเป็นส่วนสำคัญของงานวิจัยเรา'
+        title: 'แบบสำรวจ',
+        subtitle: 'ร่วมเป็นส่วนหนึ่งที่ช่วยผลักดันเรา'
       },
       research: {
         title: 'งานวิจัย',
@@ -23,7 +23,7 @@ export default {
       },
       contact: {
         title: 'ติดต่อเรา',
-        subtitle: 'หากสงสัย อย่าลังเลที่จะติดต่อเรา'
+        subtitle: 'อย่าลังเลที่จะติดต่อเรา'
       },
       team: {
         title: 'ทีมงานคุณภาพ',
@@ -32,7 +32,7 @@ export default {
       social: {
         title: 'ติดตามเรา',
         subtitle: 'บน Social Media'
-      }
+      },
     },
     searchbar: 'ค้นหาในเว็บ',
     searchpage: {
@@ -209,17 +209,17 @@ export default {
     },
     feature: {
       item1: {
-        title: 'ติดต่อเรา',
+        title: 'ต้องการความช่วยเหลือ',
         description: 'กรุณาใส่ข้อความบรรยายข้อมูลของ link นี้ภายในกล่องนี้',
         btn: 'ไปหน้าติดต่อเรา'
       },
       item2: {
-        title: 'งานวิจัย',
+        title: 'สำรวจ และค้นพบงานวิจัย',
         description: 'To become a center of excellence in oneybees and pollinators.',
         btn: 'สำรวจงานวิจัย'
       },
       item3: {
-        title: 'ทีมงานคุณภาพ',
+        title: 'ทำความรู้จักทีมงานคุณภาพ',
         description: 'To become a center of excellence in oneybees and pollinators.',
         btn: 'ทำความรู้จักทีมงาน'
       }

@@ -5,7 +5,7 @@
     pointer-events="none"
   >
     <div class="header-bg-home d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;padding: 0 15px 0 15px;">
+      <div class="container page-title-header">
         <div class="d-flex flex-column">
           <span class="page-title">{{ $t("message.pageheader.home.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.home.subtitle") }}</span>
@@ -63,6 +63,10 @@ export default {
 </script>
 
 <style scoped>
+.page-title-header {
+  margin-top: -65px;
+  padding: 0 15px 0 15px;
+}
 .header-bg-home {
   height: 280px;
   background-image: url("/static/img/home.jpg");
@@ -84,6 +88,23 @@ export default {
 @media screen and (max-width: 425px) {
   .res-height {
     height: 150px;
+  }
+  .header-bg-home {
+    background-color: #1c1c1c;
+    height: 350px;
+    background-position: 70%;
+  }
+  .page-title-header {
+    margin-top: -40%;
+    padding: 0 15px 0 30px;
+  }
+  .page-start {
+    margin-top: -42%;
+    padding: 15px;
+  }
+  .page-title,
+  .page-subtitle {
+    text-align: left;
   }
 }
 </style>

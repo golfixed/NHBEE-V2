@@ -56,11 +56,6 @@ a:hover {
   grid-template-rows: auto auto auto auto auto auto;
 }
 
-@media screen and (max-width: 425px) {
-  .home-display {
-    padding-bottom: 0px;
-  }
-}
 .page-title {
   color: #e3b800;
   font-size: 2.5rem;
@@ -70,5 +65,19 @@ a:hover {
   color: #5d5d5d;
   font-size: 1.8rem;
   font-weight: bold;
+}
+
+.page-title,
+.page-subtitle {
+  text-align: left;
+}
+@media screen and (max-width: 425px) {
+  .home-display {
+    padding-bottom: 0px;
+  }
+  .page-start {
+    padding: 0;
+    margin-top: 0;
+  }
 }
 </style>

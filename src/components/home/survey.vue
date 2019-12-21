@@ -54,7 +54,11 @@ export default {
 }
 @media screen and (max-width: 425px) {
   .bg {
-    padding: 50px 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
   }
   .line1 {
     font-size: 1.5rem;

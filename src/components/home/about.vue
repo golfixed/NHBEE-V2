@@ -91,6 +91,9 @@ export default {
   background-color: #1d1d1d;
   width: 100%;
 }
+.bg::-webkit-scrollbar {
+  display: none;
+}
 .abt-topic {
   color: #e5b865;
   font-weight: bold;
@@ -111,26 +114,41 @@ export default {
   }
   .section-text {
     font-size: 1.5rem;
-    padding: 30px 10px;
+    padding: 10px 0px;
     text-align: center;
   }
   .about-box {
     color: #ffffff;
-    width: 300px;
-    border: 1px solid #e5b865;
-    /* border-radius: 5px; */
+    width: 90%;
+    height: 180px;
+    background-color: #333;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     padding: 20px 20px 5px 20px;
     margin: 0 15px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
   }
   .about-bar {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 0 15px 15px 15px;
+    padding: 35px 15px 35px 35px;
   }
   .about-icon-div {
     padding-bottom: 15px;
+  }
+  .section-topic {
+    padding: 20px 20px 0 20px;
+  }
+  .section-topic > label.section-text {
+    padding-bottom: 0px;
   }
 }
 </style>

@@ -23,7 +23,7 @@
               <img id="logo" class="logo" src="/static/img/logo.png" />
               <div class="webname" style="user-select: none;  ">
                 <h1 id="webname" class="webname-txt">NHBEE KMUTT</h1>
-                <h1 id="webname" class="webname-txt2">NHBEE</h1>
+                <h1 id="webname" class="webname-txt-mb">NHBEE</h1>
               </div>
             </div>
           </div>
@@ -250,11 +250,11 @@ export default {
   border-right: 1px solid rgba(255, 255, 255, 0.253);
   border-left: 1px solid rgba(255, 255, 255, 0.253);
 }
-.webname-txt2 {
+.webname-txt-mb {
   display: none;
 }
 .webname-txt,
-.webname-txt2 {
+.webname-txt-mb {
   font-family: "Kanit", sans-serif;
   font-size: 1.5rem;
   color: #e5b865;
@@ -286,11 +286,16 @@ export default {
   .lanbtn {
     display: inherit !important;
   }
-  .webname-txt2 {
+  .webname-txt-mb {
     display: none !important;
   }
 }
 @media (max-width: 425px) {
+  .inner-container {
+    width: 100%;
+    height: fit-content;
+    padding: 50px 20px 0 20px;
+  }
   .nav-searchbar2 {
     color: #707070;
     height: 30px;
@@ -320,7 +325,7 @@ export default {
   .webname-txt {
     display: none;
   }
-  .webname-txt2 {
+  .webname-txt-mb {
     display: inherit;
   }
   .show {

@@ -83,17 +83,13 @@
         <div class="container-fluid right-bg" style="background-color: #1d1d1d;">
           <div class="container copyrightbar">
             <div>
-              <p
-                style="cursor: default;color: white; font-size: 12px; padding: 10px 0px 10px 0px !important; margin: 0px 0px 0px 0px !important;"
-              >
+              <p>
                 Copyright © Native Honeybee Laboratory at KMUTT.
                 <br />All rights reserved.
               </p>
             </div>
             <div>
-              <p
-                style="cursor: default;color: white !important; font-size: 12px; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
-              >NHBEE KMUTT 2019</p>
+              <p>NHBEE KMUTT 2019</p>
             </div>
           </div>
         </div>
@@ -126,6 +122,13 @@ export default {
   display: flex;
   align-items: center;
 }
+.copyrightbar > div > p {
+  cursor: default;
+  color: white;
+  font-size: 12px;
+  padding: 10px 0px 10px 0px;
+  margin: 0px;
+}
 .copyrightbar > div:last-child {
   justify-content: flex-end;
 }
@@ -138,6 +141,10 @@ export default {
   color: #cbcbcb;
 }
 @media screen and (max-width: 425px) {
+  .copyrightbar > div:last-child {
+    display: none;
+  }
+
   .copyrightbar > div {
     justify-content: center;
     text-align: center;

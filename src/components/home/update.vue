@@ -1,9 +1,9 @@
 <template>
   <div class="container bg">
-    <div class="row" style="margin:0;">
+    <div class="section-topic" v-if="news_tmp.length > 0">
       <span class="section-text">{{ $t("message.section.news")}}</span>
     </div>
-    <div class="update-display">
+    <div class="update-display" v-if="news_tmp.length > 0">
       <div class="navigate-icon" @click="prevPage()">
         <i class="fas fa-chevron-left arrow-color" v-if="onPage > 1 || news_tmp.length > 0"></i>
       </div>
@@ -81,6 +81,17 @@ export default {
 </script>
 
 <style scoped>
+.section-topic {
+  width: 100%;
+  padding: 20px;
+}
+@media screen and (max-width: 425px) {
+  .section-topic {
+    font-size: 1.5rem;
+    padding: 30px 10px;
+    text-align: center;
+  }
+}
 .update-display {
   display: grid;
   grid-template-columns: 7% 86% 7%;

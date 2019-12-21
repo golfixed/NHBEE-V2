@@ -149,6 +149,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+}
 .button-layout {
   display: flex;
   justify-content: flex-end;
@@ -257,6 +261,9 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+  }
+  .container {
+    border-radius: 0;
   }
 }
 </style>
