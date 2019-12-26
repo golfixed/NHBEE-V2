@@ -156,6 +156,7 @@ export default {
     padding: 20px 0;
     margin: 0 -30px;
     width: 100vw;
+    justify-content: flex-start;
   }
   .about-slide > .slide-imgcard:first-child {
     margin-left: 30px;
