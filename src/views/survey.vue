@@ -1,7 +1,7 @@
 <template>
   <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
-    <div class="header-bg-survey d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+    <div class="header-bg-survey page-header d-flex align-items-center">
+      <div class="container page-header-title" style="margin-top: -65px;">
         <div class="d-flex flex-column">
           <span class="page-title">{{ $t("message.pageheader.survey.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.survey.subtitle") }}</span>
@@ -9,6 +9,7 @@
       </div>
     </div>
     <div class="container page-start">
+      <!-- PAGE 1 -->
       <div
         class="page-body survey-display"
         style="overflow: hidden;"
@@ -22,12 +23,7 @@
             <h3>แบบสัมภาษณ์ในงานวิจัยผึ้ง</h3>
             <h5>แลบวิจัยผึ้งพื้นเมือง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี วิทยาเขตราชบุรี</h5>
           </div>
-          <div
-            style="    padding: 30px;
-    border: 1px solid #ffc107;
-    background-color: #ffc1070a;
-    border-radius: 5px;"
-          >
+          <div class="des-text">
             <p class="topic-2" style=" margin: 10px 0px 20px 0px !important;">คำชี้แจง</p>
             <p style=" margin-top: 0px !important; margin-bottom:0px;">
               1.&nbsp;&nbsp;&nbsp;แบบสอบถามชุดนี้มีจุดมุ่งหมายที่จะทราบข้อมูลเกี่ยวกับข้อมูลพื้นฐานของผึ้งโพรงและชันโรง
@@ -49,17 +45,13 @@
           </div>
         </div>
       </div>
+
+      <!-- PAGE 2 -->
       <div class="page-body survey-display" style="overflow: hidden;" v-if="isSuveyOpen == true">
         <div class="body-padding">
           <div
-            class="d-flex flex-column"
-            style="text-align:center; width: 100%; padding: 30px 0px 40px 0px;"
-          >
-            <h3>แบบสัมภาษณ์ในงานวิจัยผึ้ง</h3>
-            <h5>แลบวิจัยผึ้งพื้นเมือง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี วิทยาเขตราชบุรี</h5>
-          </div>
-          <div
-            style="width: 100%;padding: 20px; border: 1px solid #2125294a; background-color: #6c757d00; border-radius: 5px;"
+            v-if="isPart1Open == true"
+            style="width: 100%;background-color: #6c757d00; border-radius: 5px;"
           >
             <p
               class="topic-2"
@@ -492,7 +484,8 @@
           </div>
 
           <div
-            style="width: 100%;padding: 20px; border: 1px solid #2125294a; background-color: #6c757d00; border-radius: 5px; margin-top: 20px;"
+            v-if="isPart2Open == true"
+            style="width: 100%;background-color: #6c757d00; border-radius: 5px;"
           >
             <p
               class="topic-2"
@@ -879,14 +872,38 @@
             </div>
           </div>
 
-          <div class="d-flex justify-content-center" style="padding-top: 30px; width: 100%;">
-            <button
-              v-on:click="submittedData = blank"
-              class="clear-btn"
-              style="margin:0px 10px;"
-            >ลบทั้งหมด</button>
-            <button v-on:clivk="submitForm();" class="submit-btn" style="margin:0px 10px;">ส่งข้อมูล</button>
+          <div
+            class="d-flex justify-content-center"
+            style="padding-top: 30px; width: 100%;"
+            v-if="isPart1Open == true"
+          >
+            <button v-on:click="prePart();" class="clear-btn" style="margin:0px 10px;">ย้อนกลับ</button>
+            <button v-on:click="nextPart();" class="submit-btn" style="margin:0px 10px;">ต่อไป</button>
           </div>
+          <div
+            class="d-flex justify-content-center"
+            style="padding-top: 30px; width: 100%;"
+            v-if="isPart2Open == true"
+          >
+            <button v-on:click="prePart2();" class="clear-btn" style="margin:0px 10px;">ย้อนกลับ</button>
+            <button v-on:click="submitForm();" class="submit-btn" style="margin:0px 10px;">ส่งข้อมูล</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 3 -->
+      <div class="page-body survey-display" style="overflow: hidden;" v-if="isSubmitted == true">
+        <div
+          class="d-flex flex-column"
+          style="text-align:center; width: 100%; padding: 30px 0px 40px 0px;"
+        >
+          <h3>เราได้รับคำตอบของคุณแล้ว</h3>
+          <h5>ขอบคุณที่ร่วมเป็นส่วนหนึ่งกับเรา</h5>
+        </div>
+        <div class="d-flex justify-content-center" style="padding-top: 30px; width: 100%;">
+          <router-link to="/">
+            <button class="clear-btn" style="margin:0px 10px;">กลับไปหน้าแรก</button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -895,6 +912,7 @@
 
 <script>
 import layout_default from "@/layouts/main.vue";
+import axios from "axios";
 export default {
   name: "surveypage",
   created() {
@@ -905,98 +923,8 @@ export default {
       isDescriptionOpen: true,
       isSuveyOpen: false,
       isSubmitted: false,
-      blank: {
-        firstname: "",
-        lastname: "",
-        farmname: "",
-        other: {
-          personalInfo: {
-            social: {
-              submittedDate: "",
-              address: {
-                houseNo: "",
-                moo: "",
-                district: "",
-                subDistrict: "",
-                province: "",
-                postcode: ""
-              },
-              sex: "",
-              age: 0,
-              houseMemberCount: 0,
-              education: "",
-              argriGroup: {
-                isMember: true,
-                ifYesWhy: "",
-                memberCount: 0
-              },
-              leaderGroup: {
-                isMember: true,
-                rank: ""
-              },
-              isBeeKeepingTrained: true
-            },
-            economic: {
-              career: [
-                {
-                  title: "",
-                  incomePerArea: 0,
-                  incomePerAnnual: 0,
-                  incomePerYear: 0
-                },
-                {
-                  title: "",
-                  incomePerArea: 0,
-                  incomePerAnnual: 0,
-                  incomePerYear: 0
-                }
-              ],
-              familyNetIncome: 0
-            }
-          },
-          beekeeping: {
-            q1: "",
-            q2: "",
-            q3: "",
-            q4: "",
-            q5: "",
-            q6: "",
-            q7: "",
-            q8: "",
-            q9: "",
-            q10: "",
-            q11: {
-              c1: false,
-              c2: false,
-              c3: false,
-              c4: false
-            },
-            q12: "",
-            q13: "",
-            q14: {
-              c1: false,
-              c2: false,
-              c3: false,
-              c4: false
-            },
-            q15: "",
-            q16: "",
-            q17: {
-              c1: false,
-              c2: false,
-              c3: false,
-              c4: false
-            },
-            q18: "",
-            q19: "",
-            q20: "",
-            q21: "",
-            q22: "",
-            q23: "",
-            add: ""
-          }
-        }
-      },
+      isPart1Open: false,
+      isPart2Open: false,
       submittedData: {
         firstname: "",
         lastname: "",
@@ -1092,15 +1020,32 @@ export default {
     };
   },
   methods: {
+    prePart() {
+      this.isSuveyOpen = false;
+      this.isDescriptionOpen = true;
+      window.scrollTo(0, 0);
+    },
+    prePart2() {
+      this.isSuveyOpen = true;
+      this.isPart1Open = true;
+      this.isPart2Open = false;
+      window.scrollTo(0, 0);
+    },
+    nextPart() {
+      this.isSuveyOpen = true;
+      this.isPart1Open = false;
+      this.isPart2Open = true;
+      window.scrollTo(0, 0);
+    },
     acceptButton() {
       this.isDescriptionOpen = false;
       this.isSuveyOpen = true;
+      this.isPart1Open = true;
+      window.scrollTo(0, 0);
     },
     submitForm() {
       axios
-        .post("/api/survey/full", {
-          body: this.submittedData
-        })
+        .post("http://nhbee.kmutt.ac.th/api/survey/full", this.submittedData)
         .then(res => {
           this.isSuveyOpen = false;
           this.isSubmitted = true;
@@ -1111,8 +1056,16 @@ export default {
 </script>
 
 <style scoped>
+.des-text {
+  padding: 30px;
+  border: 1px solid #ffc107;
+  background-color: #ffc1070a;
+  border-radius: 5px;
+}
+button {
+  outline: none;
+}
 .header-bg-survey {
-  height: 280px;
   background-image: url("/static/img/home-survey-bg.png");
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -1230,8 +1183,8 @@ export default {
   padding: 8px 15px;
 }
 .clear-btn {
-  background: #ff35471a;
-  border: 1px solid #ff354796;
+  background: #6868681a;
+  border: 1px solid #5a5a5a96;
   border-radius: 5px;
   padding: 8px 15px;
 }

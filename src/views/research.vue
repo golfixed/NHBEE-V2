@@ -1,7 +1,7 @@
 <template>
   <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
-    <div class="header-bg-research d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+    <div class="header-bg-research page-header d-flex align-items-center">
+      <div class="container page-header-title" style="margin-top: -65px;">
         <div class="d-flex flex-column">
           <span class="page-title">{{ $t("message.pageheader.research.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.research.subtitle") }}</span>
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="container page-start">
-      <div class="page-body" style="overflow: hidden;">
+      <div class="page-body" style="overflow: hidden;" v-if="this.researchData.length > 0">
         <h3 class="section-text">{{ $t("message.research.section.search") }}</h3>
         <div class="research-searchbar">
           <input class="search-input" v-model="searchKey" :placeholder="searchPlace" />
@@ -46,6 +46,20 @@
           >
             <i class="fas fa-arrow-right"></i>
           </button>
+        </div>
+      </div>
+      <div class="page-body" style="overflow: hidden;" v-if="this.researchData.length <=0">
+        <label class="no-news-text">
+          <i class="fas fa-meh-blank"></i>
+          {{ $t("message.system.noResearch") }}
+        </label>
+        <div class="btn-container">
+          <router-link to="/">
+            <button class="back-home-btn">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
+              {{ $t("message.system.back") }}
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -120,6 +134,35 @@ export default {
 </script>
 
 <style scoped>
+button {
+  outline: none;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+.back-home-btn {
+  background-color: #d2d2d2;
+  border-radius: 5px;
+  border: 0;
+  padding: 5px 15px;
+  color: #4e4e4e;
+}
+.no-news-text {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  color: grey;
+  padding: 100px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.no-news-text > i {
+  font-size: 60px;
+  margin-bottom: 30px;
+  color: gainsboro;
+}
 .prev-btn,
 .next-btn {
   border: 0;
@@ -209,7 +252,6 @@ export default {
   margin: 0;
 }
 .header-bg-research {
-  height: 280px;
   background-image: url("/static/img/research/bg.jpg");
   background-position: center top;
   background-repeat: no-repeat;
@@ -239,7 +281,6 @@ export default {
 /* TABLET */
 @media screen and (max-width: 1024px) {
   .page-body {
-    border-radius: 0;
     padding: 20px;
   }
 }

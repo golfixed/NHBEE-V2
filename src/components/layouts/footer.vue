@@ -1,97 +1,82 @@
 <template>
-  <div class="container-fluid bg">
-    <div class="container-fluid">
-      <div style="color: white;">
-        <div class="container-fluid footer-bg" style="padding:0;">
-          <div class="container" style="padding:0;">
-            <div class="container">
-              <div
-                class="row"
-                style="display: flex;justify-content: center;    padding-bottom: 20px;margin:0;"
-              >
-                <div
-                  class="col-md-8 address-fix d-flex align-items-center row"
-                  style=" padding-right: 0px; padding-left: 0px;"
-                >
-                  <div class="logo-col col-md-4 d-flex flex-row justify-content-center">
-                    <img class="footer-logo" src="/static/img/logo.png" />
-                    <img class="footer-logo" src="/static/img/logo-kmutt.png" />
-                  </div>
-                  <div class="col-md-8 d-flex flex-column mb-center" style="cursor: default;">
-                    <h5 style="font-weight: bold;">NHBEE KMUTT</h5>
-                    <h6 style="font-weight: bold;">Native Honeybee Research Laboratory</h6>
-                    <h6 class="addressfont">{{ $t("message.footer.address.name") }}</h6>
-                    <h6 class="addressfont">{{ $t("message.footer.address.add") }}</h6>
-                  </div>
-                </div>
-                <div class="col-md-4 left-hr quicklink-fix ftlinkmb">
-                  <div class="row">
-                    <div class="col-6 more-left-space">
-                      <h6 class="sitemap-link">
-                        <router-link to="/research">{{ $t("message.footer.link.col1.item1") }}</router-link>
-                      </h6>
-                      <h6 class="sitemap-link">
-                        <router-link to="/news">{{ $t("message.footer.link.col1.item2") }}</router-link>
-                      </h6>
-                      <h6 class="sitemap-link">
-                        <router-link to="/team">{{ $t("message.footer.link.col1.item4") }}</router-link>
-                      </h6>
-                    </div>
-                    <div class="col-6" style>
-                      <h6 class="sitemap-link">
-                        <router-link to="/about">{{ $t("message.footer.link.col2.item1") }}</router-link>
-                      </h6>
-                      <h6 class="sitemap-link">
-                        <router-link to="/contact">{{ $t("message.footer.link.col2.item2") }}</router-link>
-                      </h6>
-                      <h6 class="sitemap-link">
-                        <a
-                          href="http://www2.kmutt.ac.th/"
-                          target="_blank"
-                        >{{ $t("message.footer.link.col2.item3") }}</a>
-                      </h6>
-                      <h6 class="sitemap-link">
-                        <router-link to="/social">{{ $t("message.footer.link.col2.item4") }}</router-link>
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row top-hr" style="padding: 20px 0px 20px 0px;cursor: default;">
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                  <mdb-icon
-                    icon="envelope-open"
-                    style="margin-right: 10px; color: rgb(165, 165, 165) !important; font-size: 14px !important;"
-                  />
-                  <h6
-                    style=" text-align: center; color: rgb(165, 165, 165) !important; font-size: 14px !important; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
-                  >{{ $t("message.footer.contact.email") }}</h6>
-                </div>
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                  <mdb-icon
-                    icon="phone"
-                    style="margin-right: 10px; color: rgb(165, 165, 165) !important; font-size: 14px !important;"
-                  />
-                  <h6
-                    style="text-align: center; color: rgb(165, 165, 165) !important; font-size: 14px !important; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
-                  >{{ $t("message.footer.contact.phone") }}</h6>
-                </div>
-              </div>
-            </div>
+  <div class="container-fluid footer-bg">
+    <div class="container">
+      <!-- ADDRESS AND LINKS -->
+      <div class="address-link-display">
+        <div class="left-side">
+          <div class="logo-col">
+            <img class="footer-logo" src="/static/img/logo.png" />
+            <img class="footer-logo" src="/static/img/logo-kmutt.png" />
+          </div>
+          <div style="cursor: default;">
+            <h5 style="color:#fff;font-weight: bold;">NHBEE KMUTT</h5>
+            <h6 style="color:#fff;font-weight: bold;">Native Honeybee Research Laboratory</h6>
+            <h6 class="addressfont">{{ $t("message.footer.address.name") }}</h6>
+            <h6 class="addressfont">{{ $t("message.footer.address.add") }}</h6>
           </div>
         </div>
-        <div class="container-fluid right-bg" style="background-color: #1d1d1d;">
-          <div class="container copyrightbar">
-            <div>
-              <p>
-                Copyright © Native Honeybee Laboratory at KMUTT.
-                <br />All rights reserved.
-              </p>
-            </div>
-            <div>
-              <p>NHBEE KMUTT 2019</p>
-            </div>
-          </div>
+        <div class="right-side">
+          <h6 class="sitemap-link">
+            <router-link to="/research">{{ $t("message.footer.link.col1.item1") }}</router-link>
+          </h6>
+          <h6 class="sitemap-link">
+            <router-link to="/news">{{ $t("message.footer.link.col1.item2") }}</router-link>
+          </h6>
+          <h6 class="sitemap-link">
+            <router-link to="/team">{{ $t("message.footer.link.col1.item4") }}</router-link>
+          </h6>
+          <h6 class="sitemap-link">
+            <router-link to="/about">{{ $t("message.footer.link.col2.item1") }}</router-link>
+          </h6>
+          <h6 class="sitemap-link">
+            <router-link to="/contact">{{ $t("message.footer.link.col2.item2") }}</router-link>
+          </h6>
+          <h6 class="sitemap-link">
+            <a
+              href="http://www2.kmutt.ac.th/"
+              target="_blank"
+            >{{ $t("message.footer.link.col2.item3") }}</a>
+          </h6>
+          <h6 class="sitemap-link">
+            <router-link to="/social">{{ $t("message.footer.link.col2.item4") }}</router-link>
+          </h6>
+        </div>
+      </div>
+
+      <!-- CONTACT AREA -->
+      <div class="row top-hr" style="padding: 20px 0px 20px 0px;cursor: default;">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <mdb-icon
+            icon="envelope-open"
+            style="margin-right: 10px; color: rgb(165, 165, 165) !important; font-size: 14px !important;"
+          />
+          <h6
+            style=" text-align: center; color: rgb(165, 165, 165) !important; font-size: 14px !important; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
+          >{{ $t("message.footer.contact.email") }}</h6>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <mdb-icon
+            icon="phone"
+            style="margin-right: 10px; color: rgb(165, 165, 165) !important; font-size: 14px !important;"
+          />
+          <h6
+            style="text-align: center; color: rgb(165, 165, 165) !important; font-size: 14px !important; padding: 10px 0px 10px 10px !important; margin: 0px 0px 0px 0px !important;"
+          >{{ $t("message.footer.contact.phone") }}</h6>
+        </div>
+      </div>
+    </div>
+
+    <!-- COPY RIGHT BAR -->
+    <div class="right-bg" style="background-color: #1d1d1d;">
+      <div class="container copyrightbar">
+        <div>
+          <p>
+            Copyright © Native Honeybee Laboratory at KMUTT.
+            <br />All rights reserved.
+          </p>
+        </div>
+        <div>
+          <p>NHBEE KMUTT 2019</p>
         </div>
       </div>
     </div>
@@ -114,6 +99,32 @@ export default {
 </script>
 
 <style scoped>
+.left-side {
+  display: grid;
+  grid-template-columns: 230px auto;
+}
+.right-side {
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border: solid;
+  border-width: 0px 0px 0px 1px;
+  border-color: rgb(80, 80, 80);
+  padding-left: 40px;
+}
+.address-link-display {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin-bottom: 15px;
+}
+.address-area {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  margin: 0;
+  color: #fff;
+}
 .copyrightbar {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -140,39 +151,9 @@ export default {
   padding: 0px 10px;
   color: #cbcbcb;
 }
-@media screen and (max-width: 425px) {
-  .copyrightbar > div:last-child {
-    display: none;
-  }
-
-  .copyrightbar > div {
-    justify-content: center;
-    text-align: center;
-  }
-  .copyrightbar > div:last-child {
-    justify-content: center;
-  }
-  .copyrightbar {
-    display: block;
-  }
-  .logo-col {
-    padding: 30px 0;
-  }
-  .socialicon {
-    font-size: 35px !important;
-    margin: 0px 20px;
-  }
-  .sub-class {
-    padding: 20px 15px 30px 15px;
-  }
-  .left-hr {
-    border: solid;
-    border-width: 1px 0px 0px 0px;
-    border-color: rgb(80, 80, 80);
-  }
-  .more-left-space {
-    padding-left: 15px;
-  }
+.logo-col {
+  display: flex;
+  justify-content: center;
 }
 .more-left-space {
   padding-left: 30px !important;
@@ -221,16 +202,58 @@ export default {
   transition-duration: 0.2s;
   transform: scale(1.1);
 }
-.bg {
+.footer-bg {
   background-color: #292929;
-  /* margin-top: -70px; */
   padding: 0;
+  max-width: 100vw;
+  width: 100vw;
 }
-.bg > div.container-fluid {
+.footer-bg > div.container {
   padding: 30px 0 0 0;
 }
 .topic {
   color: white;
+}
+.sitemap-link {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-logo {
+  margin: 10px;
+  width: 70px;
+  height: 70px;
+}
+.addressfont {
+  color: rgb(179, 179, 179);
+}
+.top-hr {
+  border: solid;
+  border-width: 1px 0px 0px 0px;
+  border-color: rgb(80, 80, 80);
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .right-side {
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .left-side {
+    display: block;
+  }
+  .left-side > div.logo-col {
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  .left-side > div:last-child {
+    text-align: center;
+  }
+  .address-link-display {
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
 }
 @media screen and (max-width: 425px) {
   .topic {
@@ -239,13 +262,6 @@ export default {
   .p-2 {
     width: 25%;
   }
-}
-.footer-logo {
-  margin: 0px 20px 0px 0px;
-  width: 70px;
-  height: 70px;
-}
-@media screen and (max-width: 425px) {
   .addressfont {
     font-size: 14px;
     color: rgb(179, 179, 179);
@@ -261,17 +277,61 @@ export default {
   .ftlinkmb {
     display: none;
   }
-  .bg > div.container-fluid {
+  .footer-bg > div.container {
     padding: 0;
   }
-}
-.addressfont {
-  color: rgb(179, 179, 179);
-}
-.top-hr {
-  border: solid;
-  border-width: 1px 0px 0px 0px;
-  border-color: rgb(80, 80, 80);
-  margin: 0;
+  .address-link-display {
+    display: block;
+    margin-bottom: 25px;
+  }
+  .left-side {
+    display: block;
+  }
+  .left-side > div:last-child {
+    padding: 0 15px;
+    text-align: center;
+  }
+  .top-hr {
+    margin: 0 25px;
+  }
+  .right-side {
+    display: none;
+  }
+  .copyrightbar > div:last-child {
+    display: none;
+  }
+
+  .copyrightbar > div {
+    justify-content: center;
+    text-align: center;
+  }
+  .copyrightbar > div:last-child {
+    justify-content: center;
+  }
+  .copyrightbar {
+    display: block;
+  }
+  .logo-col {
+    padding: 30px 0;
+  }
+  .socialicon {
+    font-size: 35px !important;
+    margin: 0px 20px;
+  }
+  .sub-class {
+    padding: 20px 15px 30px 15px;
+  }
+  .left-hr {
+    border: solid;
+    border-width: 1px 0px 0px 0px;
+    border-color: rgb(80, 80, 80);
+  }
+  .more-left-space {
+    padding-left: 15px;
+  }
+  .left-side > div.logo-col {
+    justify-content: center;
+    padding-bottom: 20px;
+  }
 }
 </style>

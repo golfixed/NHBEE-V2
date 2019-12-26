@@ -1,7 +1,7 @@
 <template>
   <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
-    <div class="header-bg-about d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+    <div class="header-bg-team page-header d-flex align-items-center">
+      <div class="container page-header-title" style="margin-top: -65px;">
         <div class="d-flex flex-column">
           <span class="page-title" style="color: #232323;">{{ $t("message.pageheader.team.title") }}</span>
           <span
@@ -131,10 +131,9 @@ export default {
 .team-title-para {
   color: #6b6b6b;
 }
-.header-bg-about {
-  height: 280px;
-  background-image: url("/static/img/team-bg.png");
-  background-position: center top;
+.header-bg-team {
+  background-image: url("/static/img/team/bg.jpg");
+  background-position: center 20%;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -152,13 +151,6 @@ export default {
   border-color: #e3b800;
   border: solid;
   border-width: 0px 0px 0px 3px;
-}
-.about-header-bg {
-  height: 280px;
-  background-image: url("/static/img/about/bg.jpg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .col-style {
   overflow: hidden;
@@ -203,7 +195,6 @@ export default {
     grid-row-gap: 20px;
   }
   .page-body {
-    border-radius: 0;
     padding: 20px;
   }
 }

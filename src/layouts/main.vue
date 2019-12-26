@@ -71,6 +71,9 @@ a:hover {
 .page-subtitle {
   text-align: left;
 }
+.page-header {
+  height: 280px;
+}
 @media screen and (max-width: 425px) {
   .home-display {
     padding-bottom: 0px;
@@ -78,6 +81,13 @@ a:hover {
   .page-start {
     padding: 0;
     margin-top: 0;
+  }
+  .page-header-title {
+    padding-left: 30px;
+    margin-top: 0 !important;
+  }
+  .page-header {
+    height: 150px;
   }
 }
 </style>

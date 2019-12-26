@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     fetchNewsList: function() {
-      axios.get("/api/news/home?limit=6").then(res => {
+      axios.get("http://nhbee.kmutt.ac.th/api/news/home?limit=6").then(res => {
         this.news_tmp = res.data;
         this.news_data3 = this.news_tmp.slice(0, 3);
         this.news_data6 = this.news_tmp.slice(3, 6);

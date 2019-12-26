@@ -1,11 +1,7 @@
 <template>
-  <div
-    class="home-display"
-    style="padding-top:80px;background-color: rgb(51, 51, 51);"
-    v-if="this.news_data.length > 0"
-  >
-    <div class="header-bg-contact d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+  <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
+    <div class="header-bg-contact page-header d-flex align-items-center">
+      <div class="container page-header-title" style="margin-top: -65px;">
         <div class="d-flex flex-column">
           <span class="page-title">{{ $t("message.pageheader.news.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.news.subtitle") }}</span>
@@ -13,7 +9,7 @@
       </div>
     </div>
     <div class="container page-start">
-      <div class="page-body" style="overflow: hidden;">
+      <div class="page-body" style="overflow: hidden;" v-if="this.news_data.length > 0">
         <div class="news-display">
           <a href class="news-item" v-for="news in news_list" :key="'news_' + news.id">
             <img class="news-img" :src="news.pictureURL" />
@@ -41,6 +37,20 @@
           >
             <i class="fas fa-arrow-right"></i>
           </button>
+        </div>
+      </div>
+      <div class="page-body" style="overflow: hidden;" v-if="this.news_data.length <=0">
+        <label class="no-news-text">
+          <i class="fas fa-meh-blank"></i>
+          {{ $t("message.system.noNews") }}
+        </label>
+        <div class="btn-container">
+          <router-link to="/">
+            <button class="back-home-btn">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
+              {{ $t("message.system.back") }}
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -115,6 +125,35 @@ export default {
 </script>
 
 <style scoped>
+button {
+  outline: none;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+.back-home-btn {
+  background-color: #d2d2d2;
+  border-radius: 5px;
+  border: 0;
+  padding: 5px 15px;
+  color: #4e4e4e;
+}
+.no-news-text {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  color: grey;
+  padding: 100px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.no-news-text > i {
+  font-size: 60px;
+  margin-bottom: 30px;
+  color: gainsboro;
+}
 .prev-btn,
 .next-btn {
   border: 0;
@@ -220,7 +259,6 @@ export default {
   color: #c0c0c0;
 }
 .header-bg-contact {
-  height: 280px;
   background-image: url("/static/img/news/bg.jpg");
   background-position: center top;
   background-repeat: no-repeat;
@@ -287,7 +325,6 @@ export default {
     grid-gap: 30px;
   }
   .page-body {
-    border-radius: 0;
     padding: 20px;
   }
 }
@@ -298,7 +335,6 @@ export default {
     grid-gap: 30px;
   }
   .page-body {
-    border-radius: 0;
     padding: 20px;
   }
 }

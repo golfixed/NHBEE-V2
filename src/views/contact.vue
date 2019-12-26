@@ -1,9 +1,9 @@
 <template>
   <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
-    <div class="header-bg-contact d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+    <div class="header-bg-contact page-header d-flex align-items-center">
+      <div class="container page-header-title" style="margin-top: -65px;">
         <div class="d-flex flex-column">
-          <span class="page-title">{{ $t("message.pageheader.contacttle") }}</span>
+          <span class="page-title">{{ $t("message.pageheader.contact.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.contact.subtitle") }}</span>
         </div>
       </div>
@@ -103,7 +103,6 @@ export default {
   color: #c0c0c0;
 }
 .header-bg-contact {
-  height: 280px;
   background-image: url("/static/img/contact/bg.jpg");
   background-position: center top;
   background-repeat: no-repeat;
@@ -164,7 +163,6 @@ export default {
 /* TABLET */
 @media screen and (max-width: 1024px) {
   .page-body {
-    border-radius: 0;
     padding: 20px;
   }
 }

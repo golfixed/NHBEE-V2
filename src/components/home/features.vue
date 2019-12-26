@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="padding: 0;">
     <div class="row" style="width:100%;margin:0;padding:0;">
       <div
         class="col-lg-4 col-sm-4 col-xs-12 feature f1 d-flex align-items-center justify-content-center flex-column"
@@ -52,9 +52,10 @@ export default {
 </script>
 
 <style scpoed>
-.container {
-  padding: 0;
+button {
+  outline: none;
 }
+
 .light-btn {
   border: 0;
   color: white;

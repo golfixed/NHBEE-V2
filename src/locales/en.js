@@ -243,6 +243,11 @@ export default {
         description: 'A place where you can ask question about our laboratory or any, add we as your friend and get contacting even easier.',
         btn: 'Add LINE Friend'
       }
+    },
+    system: {
+      back: 'Back to Home',
+      noResearch: 'No research here. Please come back later.',
+      noNews: 'No news here. Please come back later.'
     }
   }
 }

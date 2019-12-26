@@ -14,7 +14,7 @@
         class="col-lg-6 col-sm-6 col-xs-12"
         style="padding: 30px;border: 1px solid #6b5842;border-width: 0 0 0 1px;"
       >
-        <form method="post" class="form2-display">
+        <div class="form2-display">
           <div class="form-item">
             <span class="form-item-label">{{ $t("message.survey2.label.name")}}</span>
             <input
@@ -101,11 +101,11 @@
           <div class="button-layout">
             <button
               @click="submitForm();"
-              type="submit"
               class="survey2-btn"
+              style="outline: none;"
             >{{ $t("message.survey2.btn")}}</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@ export default {
   methods: {
     submitForm: function() {
       axios
-        .post("http://10.35.30.140/api/survey/mini", {
+        .post("http://nhbee.kmutt.ac.th/api/survey/mini", {
           name: this.form_name,
           country: this.form_country,
           city: this.form_city,

@@ -1,7 +1,7 @@
 <template>
   <div class="home-display" style="padding-top:80px;background-color: rgb(51, 51, 51);">
-    <div class="header-bg-contact d-flex align-items-center">
-      <div class="container" style="margin-top: -65px;">
+    <div class="header-bg-contact page-header d-flex align-items-center">
+      <div class="container page-header-title" style="margin-top: -65px;">
         <div class="d-flex flex-column">
           <span class="page-title">{{ $t("message.pageheader.social.title") }}</span>
           <span class="page-subtitle">{{ $t("message.pageheader.social.subtitle") }}</span>
@@ -170,35 +170,7 @@ export default {
   justify-content: space-evenly;
   align-items: center;
 }
-@media screen and (max-width: 768px) {
-  .social-div {
-    display: block;
-    margin-bottom: 30px;
-  }
-  .social-div-pic,
-  .social-div-text {
-    width: 100%;
-    padding: 15px 0;
-  }
-  .line-img-mb {
-    display: block;
-    max-height: 230px;
-    overflow: hidden;
-    text-align: center;
-  }
-  .line-img-dsk {
-    display: none;
-  }
-  .link-btn {
-    width: fit-content;
-    margin: 0 auto;
-  }
-}
-@media screen and (max-width: 425px) {
-  .social-pic-fb {
-    width: 100%;
-  }
-}
+
 .team-title {
   text-align: left;
   border: solid #ffffff61;
@@ -218,7 +190,6 @@ export default {
   color: #c0c0c0;
 }
 .header-bg-contact {
-  height: 280px;
   background-image: url("/static/img/social/bg.png");
   background-position: left top;
   background-repeat: no-repeat;
@@ -259,11 +230,6 @@ export default {
   -webkit-box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
   box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
 }
-@media screen and (max-width: 425px) {
-  .page-body {
-    width: 100vw;
-  }
-}
 .contact-display {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -289,12 +255,40 @@ export default {
     grid-row-gap: 20px;
   }
   .page-body {
-    border-radius: 0;
     padding: 20px;
   }
 }
+/* TABLET */
+@media screen and (max-width: 768px) {
+  .social-div {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .social-div-pic,
+  .social-div-text {
+    width: 100%;
+    padding: 15px 0;
+  }
+  .line-img-mb {
+    display: block;
+    max-height: 230px;
+    overflow: hidden;
+    text-align: center;
+  }
+  .line-img-dsk {
+    display: none;
+  }
+  .link-btn {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
 /* MOBILE */
 @media screen and (max-width: 425px) {
+  .social-pic-fb {
+    width: 100%;
+  }
   .staff-display {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -303,6 +297,7 @@ export default {
   .page-body {
     border-radius: 0;
     padding: 20px;
+    width: 100vw;
   }
   .team-title {
     margin: 30px 0 40px 0px;
