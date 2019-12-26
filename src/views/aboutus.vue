@@ -128,7 +128,7 @@ export default {
 .about-slide {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px 0;
 }
 .slide-imgcard {
