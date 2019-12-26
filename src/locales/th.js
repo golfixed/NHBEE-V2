@@ -150,7 +150,7 @@ export default {
       },
       group4: {
         link1: 'เข้าสู่ระบบผู้ดูแลระบบ',
-        link2: 'เปลี่ยนภาษา'
+        link2: 'Change to English (US)'
       },
       col1: 'เกี่ยวกับเรา',
       col2: 'ทีมงาน',

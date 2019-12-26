@@ -54,7 +54,7 @@ export default {
       },
       group4: {
         link1: 'Log in to Admin Mode',
-        link2: 'Change Language'
+        link2: 'เปลี่ยนเป็น ภาษาไทย'
       },
       col1: 'เกี่ยวกับเรา',
       col2: 'ทีมงาน',
