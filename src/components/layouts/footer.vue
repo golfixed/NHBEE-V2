@@ -70,10 +70,8 @@
     <div class="right-bg" style="background-color: #1d1d1d;">
       <div class="container copyrightbar">
         <div>
-          <p>
-            Copyright © Native Honeybee Laboratory at KMUTT.
-            <br />All rights reserved.
-          </p>
+          <p>Copyright © Native Honeybee Laboratory at KMUTT. &nbsp;</p>
+          <p>All rights reserved.</p>
         </div>
         <div>
           <p>NHBEE KMUTT 2019</p>
@@ -256,6 +254,12 @@ export default {
   }
 }
 @media screen and (max-width: 425px) {
+  .copyrightbar > div:first-child {
+    display: block;
+  }
+  .copyrightbar > div:first-child > p:last-child {
+    padding-top: 0;
+  }
   .topic {
     text-align: center;
   }
