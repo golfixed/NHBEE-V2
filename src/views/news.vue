@@ -43,15 +43,15 @@
         <label class="no-news-text">
           <i class="fas fa-meh-blank"></i>
           {{ $t("message.system.noNews") }}
+          <div class="btn-container">
+            <router-link to="/">
+              <button class="back-home-btn">
+                <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
+                {{ $t("message.system.back") }}
+              </button>
+            </router-link>
+          </div>
         </label>
-        <div class="btn-container">
-          <router-link to="/">
-            <button class="back-home-btn">
-              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
-              {{ $t("message.system.back") }}
-            </button>
-          </router-link>
-        </div>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@ button {
 .btn-container {
   display: flex;
   justify-content: center;
-  padding-bottom: 30px;
+  margin-top: 20px;
 }
 .back-home-btn {
   background-color: #d2d2d2;
