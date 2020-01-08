@@ -139,7 +139,7 @@ export default {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 35px 15px 35px 35px;
+    padding: 35px 15px 35px 30px;
   }
   .about-icon-div {
     padding-bottom: 15px;

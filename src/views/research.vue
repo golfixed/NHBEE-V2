@@ -102,13 +102,11 @@ export default {
   },
   methods: {
     fetchResearchList: function() {
-      axios
-        .get("http://10.35.30.140/api/research?page=" + this.page.now)
-        .then(res => {
-          this.researchData = res.data;
-          this.researchList = this.researchData.research.data;
-          this.page.all = this.researchData.page.all;
-        });
+      axios.get("/api/research?page=" + this.page.now).then(res => {
+        this.researchData = res.data;
+        this.researchList = this.researchData.research.data;
+        this.page.all = this.researchData.page.all;
+      });
     },
     changePage: function(direction) {
       if (direction === "previous") {
