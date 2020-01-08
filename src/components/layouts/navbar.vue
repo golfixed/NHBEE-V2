@@ -35,8 +35,8 @@
               @click="switchLocal()"
               style=" padding-bottom: 0px; padding-top: 0px; align-items:center;user-select: none;"
             >
-              <i class="fas fa-globe" style=" font-size: 20px;margin-right: 5px;"></i>
-              {{ displayLocal }}
+              <img src="/static/img/langs/us.svg" v-if="this.$i18n.locale == 'th'" />
+              <img src="/static/img/langs/th.svg" v-if="this.$i18n.locale == 'en'" />
             </button>
           </div>
           <div class="d-flex align-items-center justify-content-start nav-searchbar2">
@@ -282,14 +282,109 @@ export default {
   border-right: 1px solid rgba(255, 255, 255, 0.253);
   border-left: 1px solid rgba(255, 255, 255, 0.253);
 }
-@media (min-width: 769px) {
+
+.lanbtn {
+  border: solid;
+  color: #707070;
+  border-width: 1px;
+  border-color: transparent;
+  border-radius: 4px;
+  background-color: transparent;
+  width: auto;
+  padding-left: 11px;
+  padding-right: 11px;
+  height: 30px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+}
+.lanbtn > img {
+  height: 25px;
+  margin: 0 15px;
+}
+.hamburger {
+  border: solid;
+  color: #707070;
+  border-width: 1px;
+  border-color: #707070;
+  border-radius: 4px;
+  background-color: white;
+  height: 38px;
+  width: 42px;
+  -webkit-box-shadow: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  display: none !important;
+}
+
+.navbar-div {
+  background-color: transparent;
+  width: 100% !important;
+  margin: 0px 0px 0px 0px !important;
+  padding: 0px 0px 0px 0px !important;
+}
+#navbar-nav {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 0px !important;
+}
+
+#navbar-nav li {
+  display: block;
+  width: 100px;
+  float: left;
+  margin-left: 2px;
+  height: 38px;
+}
+
+#navbar-nav a {
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  padding: 0px 5px;
+  text-decoration: none;
+  color: #ffffff;
+  /* height: 38px; */
+  line-height: 31px;
+}
+
+#navbar-nav a:hover {
+  font-weight: bold;
+  background-color: #e5b864;
+  color: #212529;
+  /* height: 38px; */
+  border-radius: 3px;
+}
+
+/* TABLET */
+@media screen and (max-width: 768px) {
   .lanbtn {
-    display: inherit !important;
+    display: none;
   }
   .webname-txt-mb {
-    display: none !important;
+    display: none;
+  }
+  .nav-display.show {
+    display: block;
+  }
+
+  #navbar-nav li {
+    display: block;
+    width: 100%;
+    border-width: 0px 0px 1px 0px !important;
+    border: solid;
+    border-color: rgb(228, 228, 228);
+    margin-top: 15px;
+    margin-left: 0px !important ;
+  }
+  .ham-page {
+    height: 100vh !important;
+  }
+  .hamburger {
+    display: inherit !important;
   }
 }
+
+/* MOBILE */
 @media (max-width: 425px) {
   .inner-container {
     width: 100%;
@@ -334,90 +429,5 @@ export default {
     border: solid #e3b800;
     border-width: 0 0 2px 0;
   }
-}
-.lanbtn {
-  border: solid;
-  color: #707070;
-  border-width: 1px;
-  border-color: transparent;
-  border-radius: 4px;
-  background-color: transparent;
-  width: auto;
-  padding-left: 11px;
-  padding-right: 11px;
-  height: 30px;
-  outline: none;
-}
-.hamburger {
-  border: solid;
-  color: #707070;
-  border-width: 1px;
-  border-color: #707070;
-  border-radius: 4px;
-  background-color: white;
-  height: 38px;
-  width: 42px;
-  -webkit-box-shadow: 0 0 0 0 !important;
-  box-shadow: 0 0 0 0 !important;
-  display: none !important;
-}
-@media screen and (max-width: 768px) {
-  .nav-display.show {
-    display: block;
-  }
-
-  #navbar-nav li {
-    display: block;
-    width: 100%;
-    border-width: 0px 0px 1px 0px !important;
-    border: solid;
-    border-color: rgb(228, 228, 228);
-    margin-top: 15px;
-    margin-left: 0px !important ;
-  }
-  .ham-page {
-    height: 100vh !important;
-  }
-  .hamburger {
-    display: inherit !important;
-  }
-}
-.navbar-div {
-  background-color: transparent;
-  width: 100% !important;
-  margin: 0px 0px 0px 0px !important;
-  padding: 0px 0px 0px 0px !important;
-}
-#navbar-nav {
-  margin-bottom: 0px !important;
-  padding-bottom: 0px !important;
-  padding-left: 0px !important;
-}
-
-#navbar-nav li {
-  display: block;
-  width: 100px;
-  float: left;
-  margin-left: 2px;
-  height: 38px;
-}
-
-#navbar-nav a {
-  font-size: 15px;
-  text-align: center;
-  display: block;
-  padding: 0px 5px;
-  text-decoration: none;
-  color: #ffffff;
-  /* height: 38px; */
-  line-height: 31px;
-}
-
-#navbar-nav a:hover {
-  font-weight: bold;
-  background-color: #e5b864;
-  color: #212529;
-  /* height: 38px; */
-  border-radius: 3px;
 }
 </style>
