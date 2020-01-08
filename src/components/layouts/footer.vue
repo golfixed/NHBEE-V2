@@ -252,6 +252,9 @@ export default {
     display: grid;
     grid-template-columns: 60% 40%;
   }
+  .copyrightbar {
+    grid-template-columns: 70% 30%;
+  }
 }
 @media screen and (max-width: 425px) {
   .copyrightbar > div:first-child {
