@@ -43,11 +43,11 @@
           </div>
           <div>
             <div class="d-flex flex-row p-2 align-items-center">
-              <mdb-icon icon="phone" style="margin-right: 10px;" />
+              <mdb-icon icon="envelope-open" style="margin-right: 10px;" />
               <p style="margin-bottom: 0px;">{{ $t("message.page6_contact.contact.detail.line1") }}</p>
             </div>
             <div class="d-flex flex-row p-2 align-items-center">
-              <mdb-icon icon="envelope-open" style="margin-right: 10px;" />
+              <mdb-icon icon="phone" style="margin-right: 10px;" />
               <p style="margin-bottom: 0px;">{{ $t("message.page6_contact.contact.detail.line2") }}</p>
             </div>
           </div>
