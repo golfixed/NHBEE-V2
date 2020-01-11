@@ -149,6 +149,7 @@ export default {
 
 .slide-imgcard > div > img {
   width: 300px;
+  margin: 0;
 }
 .section-about {
   display: grid;
@@ -174,6 +175,10 @@ export default {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
+
+  /* .slide-imgcard > div:last-child {
+    padding-right: 30px;
+  } */
   .slide-imgcard > div {
     padding-right: 20px;
     display: flex;
