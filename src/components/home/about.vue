@@ -5,16 +5,22 @@
     </div>
     <div class="about-bar">
       <div class="about-box">
-        <h5 class="abt-topic">{{ $t("message.about.box1.title")}}</h5>
-        <p class="abt-paragraph">{{ $t("message.about.box1.paragraph")}}</p>
+        <div class="about-box-card">
+          <h5 class="abt-topic">{{ $t("message.about.box1.title")}}</h5>
+          <p class="abt-paragraph">{{ $t("message.about.box1.paragraph")}}</p>
+        </div>
       </div>
       <div class="about-box">
-        <h5 class="abt-topic">{{ $t("message.about.box2.title")}}</h5>
-        <p class="abt-paragraph">{{ $t("message.about.box2.paragraph")}}</p>
+        <div class="about-box-card">
+          <h5 class="abt-topic">{{ $t("message.about.box2.title")}}</h5>
+          <p class="abt-paragraph">{{ $t("message.about.box2.paragraph")}}</p>
+        </div>
       </div>
       <div class="about-box">
-        <h5 class="abt-topic">{{ $t("message.about.box3.title")}}</h5>
-        <p class="abt-paragraph">{{ $t("message.about.box3.paragraph")}}</p>
+        <div class="about-box-card">
+          <h5 class="abt-topic">{{ $t("message.about.box3.title")}}</h5>
+          <p class="abt-paragraph">{{ $t("message.about.box3.paragraph")}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -68,6 +74,7 @@ export default {
   text-align: center;
   transition: all 0.3s;
 }
+
 .about-box:hover {
   background-color: #292929;
   transition: all 0.3s;
@@ -118,15 +125,19 @@ export default {
     text-align: center;
   }
   .about-box {
-    color: #ffffff;
-    width: 90%;
-    height: 180px;
-    background-color: #333;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
+    width: 100%;
+    padding: 0;
+    padding-right: 20px;
+  }
+  .about-box-card {
     padding: 20px 20px 5px 20px;
-    margin: 0 15px 0 0;
+    color: #ffffff;
+    width: 100%;
+    height: 180px;
+    background-color: #333;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,12 +145,13 @@ export default {
     -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
     -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
+    margin: 0 15px 0 0;
   }
   .about-bar {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 35px 15px 35px 30px;
+    padding: 35px 30px;
   }
   .about-icon-div {
     padding-bottom: 15px;
