@@ -1,8 +1,12 @@
 <template>
   <div class="container bg">
-    <div class="section-topic" v-if="news_tmp.length > 0">
+    <!-- <div class="section-topic" v-if="news_tmp.length > 0"> -->
+    <div class="section-topic">
       <span class="section-text">{{ $t("message.section.news")}}</span>
     </div>
+
+    <!-- NORNAL CASE -->
+    <!-- <div class="update-display"> -->
     <div class="update-display" v-if="news_tmp.length > 0">
       <div class="navigate-icon" @click="prevPage()">
         <i class="fas fa-chevron-left arrow-color" v-if="onPage > 1 || news_tmp.length > 0"></i>
@@ -17,6 +21,14 @@
       </div>
       <div class="navigate-icon" @click="nextPage()">
         <i class="fas fa-chevron-right arrow-color" v-if="onPage <= 1 || news_tmp.length > 0"></i>
+      </div>
+    </div>
+
+    <!-- IN CASE OF NO UPDATES -->
+    <div class="update-display-none">
+      <!-- <div class="update-display" v-if="news_tmp.length > 0"> -->
+      <div>
+        <label>{{ $t("message.system.noNewsHome")}}</label>
       </div>
     </div>
   </div>
@@ -81,6 +93,17 @@ export default {
 </script>
 
 <style scoped>
+.update-display-none {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.update-display-none > div > label {
+  color: rgb(194, 194, 194);
+  font-size: 16px;
+  text-align: center;
+}
 .section-topic {
   width: 100%;
   padding: 20px;

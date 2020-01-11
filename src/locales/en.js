@@ -247,7 +247,8 @@ export default {
     system: {
       back: 'Back to Home',
       noResearch: 'No research here. Please come back later.',
-      noNews: 'No news here. Please come back later.'
+      noNews: 'No news here. Please come back later.',
+      noNewsHome: 'There is currently no news updated. Please come back later.'
     }
   }
 }
