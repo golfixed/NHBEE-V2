@@ -2,18 +2,6 @@
   <div class="container" style="padding: 0;">
     <div class="row" style="width:100%;margin:0;padding:0;">
       <div
-        class="col-lg-4 col-sm-4 col-xs-12 feature f1 d-flex align-items-center justify-content-center flex-column"
-      >
-        <h4 class="fea-topic d-flex justify-content-center">{{ $t("message.feature.item1.title") }}</h4>
-        <!-- <p class="fea-paragraph">{{ $t("message.feature.item1.description") }}</p> -->
-        <router-link to="/contact">
-          <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
-            {{ $t("message.feature.item1.btn") }}
-            <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
-          </button>
-        </router-link>
-      </div>
-      <div
         class="col-lg-4 col-sm-4 col-xs-12 feature f2 d-flex align-items-center justify-content-center flex-column"
       >
         <h4 class="fea-topic d-flex justify-content-center">{{ $t("message.feature.item2.title") }}</h4>
@@ -33,6 +21,18 @@
         <router-link to="/team">
           <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
             {{ $t("message.feature.item3.btn") }}
+            <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
+          </button>
+        </router-link>
+      </div>
+      <div
+        class="col-lg-4 col-sm-4 col-xs-12 feature f1 d-flex align-items-center justify-content-center flex-column"
+      >
+        <h4 class="fea-topic d-flex justify-content-center">{{ $t("message.feature.item1.title") }}</h4>
+        <!-- <p class="fea-paragraph">{{ $t("message.feature.item1.description") }}</p> -->
+        <router-link to="/contact">
+          <button class="d-flex align-items-center light-btn fea-btn" style="padding: 0px 20px;">
+            {{ $t("message.feature.item1.btn") }}
             <mdb-icon style="margin-left: 20px;" icon="arrow-right" />
           </button>
         </router-link>

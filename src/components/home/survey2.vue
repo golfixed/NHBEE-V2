@@ -1,6 +1,20 @@
 <template>
   <div class="container bg">
-    <div class="row survey-section">
+    <div class="row survey-section" v-if="isSubmitted == true && thankYou == true">
+      <div class="thankyou-msg-div">
+        <label class="line2">เราได้รับคำตอบของคุณแล้ว</label>
+        <label class="line1">ขอบคุณค่ะ</label>
+        <div class="btn-container">
+          <router-link to="/">
+            <button class="survey2-btn" v-on:click="closeThankYou();" style="margin-top: 20px;">
+              <i class="fas fa-times" style="margin-right: 5px;"></i>
+              ปิด
+            </button>
+          </router-link>
+        </div>
+      </div>
+    </div>
+    <div class="row survey-section" v-if="isSubmitted == false">
       <div
         class="col-lg-6 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center"
         style="padding-top: 30px;"
@@ -99,11 +113,10 @@
             </div>
           </div>
           <div class="button-layout">
-            <button
-              @click="submitForm();"
-              class="survey2-btn"
-              style="outline: none;"
-            >{{ $t("message.survey2.btn")}}</button>
+            <button @click="submitForm();" class="survey2-btn" style="outline: none;">
+              <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
+              {{ $t("message.survey2.btn")}}
+            </button>
           </div>
         </div>
       </div>
@@ -125,10 +138,14 @@ export default {
       form_country: "",
       form_city: "",
       form_reason: [false, false, false, false],
-      isSubmitted: false
+      isSubmitted: false,
+      thankYou: false
     };
   },
   methods: {
+    closeThankYou: function() {
+      this.thankYou = false;
+    },
     submitForm: function() {
       axios
         .post("/api/survey/mini", {
@@ -140,7 +157,7 @@ export default {
         .then(res => {
           if (res.Status === 200) {
             this.isSubmitted = true;
-            alert("Form is submitted");
+            this.thankYou = true;
           } else this.isSubmitted = this.isSubmitted;
         });
     }
@@ -149,6 +166,15 @@ export default {
 </script>
 
 <style scoped>
+.thankyou-msg-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+}
+
 #reason0,
 #reason1,
 #reason2,
@@ -182,7 +208,7 @@ export default {
   cursor: pointer;
 }
 .survey2-btn {
-  padding: 0 20px;
+  padding: 0 10px;
   color: #ffffff;
   background-color: #282828;
   border: 5px solid #282828;

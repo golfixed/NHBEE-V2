@@ -33,7 +33,7 @@
             <div class="social-div-pic line-pic-bg line-img-mb">
               <img class="social-pic-line" src="/static/img/social/line.png" />
             </div>
-            <div class="social-div-text" style="padding-right: 30px;">
+            <div class="social-div-text">
               <h3 class="social-title-line">{{ $t("message.socialmedia.line.title") }}</h3>
               <p class="social-paragraph">{{ $t("message.socialmedia.line.description") }}</p>
               <a href="https://line.me/R/ti/p/%40759tqrim" class="link-btn">
@@ -158,6 +158,7 @@ export default {
 }
 .social-div-text {
   padding-left: 30px;
+  padding-right: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,7 +277,7 @@ export default {
     text-align: center;
   }
   .line-img-dsk {
-    display: none;
+    display: none !important;
   }
   .link-btn {
     width: fit-content;
@@ -301,6 +302,13 @@ export default {
   }
   .team-title {
     margin: 30px 0 40px 0px;
+  }
+  .social-div-pic {
+    display: block;
+  }
+  .social-div-text {
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 </style>
