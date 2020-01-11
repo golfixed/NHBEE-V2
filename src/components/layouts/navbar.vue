@@ -37,6 +37,7 @@
             >
               <img src="/static/img/langs/us.svg" v-if="this.$i18n.locale == 'th'" />
               <img src="/static/img/langs/th.svg" v-if="this.$i18n.locale == 'en'" />
+              {{displayLocal}}
             </button>
           </div>
           <div class="d-flex align-items-center justify-content-start nav-searchbar2">
