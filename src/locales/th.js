@@ -60,7 +60,7 @@ export default {
     },
     section: {
       about: 'เกี่ยวกับ Native Honeybee Research Laboratory',
-      news: 'ข่าวสาร - ใหม่ล่าสุด',
+      news: 'ข่าวสารใหม่',
       news2: 'เลือกอ่านข่าวสารมาใหม่',
       research: 'งานวิจัยล่าสุด',
       research2: 'สำรวจงานวิจัยล่าสุดของเรา'

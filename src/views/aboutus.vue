@@ -26,13 +26,19 @@
             </div>
             <div class="about-slide" style="grid-column: span 3;">
               <div class="slide-imgcard">
-                <img src="/static/img/about/pic2.jpg" class="about-pic" />
+                <div class="inner-card">
+                  <img src="/static/img/about/pic2.jpg" class="about-pic" />
+                </div>
               </div>
               <div class="slide-imgcard">
-                <img src="/static/img/about/pic3.jpg" class="about-pic" />
+                <div class="inner-card">
+                  <img src="/static/img/about/pic3.jpg" class="about-pic" />
+                </div>
               </div>
               <div class="slide-imgcard">
-                <img src="/static/img/about/pic4.jpg" class="about-pic" />
+                <div class="inner-card">
+                  <img src="/static/img/about/pic4.jpg" class="about-pic" />
+                </div>
               </div>
             </div>
             <div style="grid-column: span 3;">
@@ -132,12 +138,16 @@ export default {
   padding: 20px 0;
 }
 .slide-imgcard {
+  padding: 0;
+}
+.slide-imgcard > div {
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.slide-imgcard > img {
+
+.slide-imgcard > div > img {
   width: 300px;
 }
 .section-about {
@@ -157,20 +167,20 @@ export default {
     margin: 0 -30px;
     width: 100vw;
     justify-content: flex-start;
-  }
-  .about-slide > .slide-imgcard:first-child {
-    margin-left: 30px;
+    padding-left: 30px;
   }
   .slide-imgcard {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
+  }
+  .slide-imgcard > div {
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 15px;
   }
-  .slide-imgcard > img {
+  .slide-imgcard > div > img {
     width: 300px;
   }
   .about-logo {
