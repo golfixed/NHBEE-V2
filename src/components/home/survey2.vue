@@ -1,6 +1,6 @@
 <template>
   <div class="container bg">
-    <div class="row" style="width:100%;margin:0;padding:0;">
+    <div class="row survey-section">
       <div
         class="col-lg-6 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center"
         style="padding-top: 30px;"
@@ -149,6 +149,19 @@ export default {
 </script>
 
 <style scoped>
+#reason0,
+#reason1,
+#reason2,
+#reason3 {
+  margin-right: 5px;
+}
+.survey-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid #e5b865;
+  border-width: 1px 0 0 0; */
+}
 .container {
   border-radius: 0 0 5px 5px;
   overflow: hidden;
@@ -162,6 +175,7 @@ export default {
   background-color: #282828;
   border: 5px solid #282828;
   border-radius: 5px;
+  padding-left: 5px;
 }
 .survey2-select-box {
   border-radius: 0;
