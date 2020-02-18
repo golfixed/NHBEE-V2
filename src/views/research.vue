@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="container page-start">
-      <div class="page-body" style="overflow: hidden;" v-if="this.researchData.length > 0">
+      <div class="page-body" style="overflow: hidden;" v-if="this.researchList.length > 0">
         <h3 class="section-text">{{ $t("message.research.section.search") }}</h3>
         <div class="research-searchbar">
           <input class="search-input" v-model="searchKey" :placeholder="searchPlace" />
@@ -48,7 +48,7 @@
           </button>
         </div>
       </div>
-      <div class="page-body" style="overflow: hidden;" v-if="this.researchData.length <=0">
+      <div class="page-body" style="overflow: hidden;" v-if="this.researchList.length <=0">
         <label class="no-news-text">
           <i class="fas fa-meh-blank"></i>
           {{ $t("message.system.noResearch") }}
@@ -102,11 +102,13 @@ export default {
   },
   methods: {
     fetchResearchList: function() {
-      axios.get("/api/research?page=" + this.page.now).then(res => {
-        this.researchData = res.data;
-        this.researchList = this.researchData.research.data;
-        this.page.all = this.researchData.page.all;
-      });
+      axios
+        .get("http://nhbee.kmutt.ac.th/api/research?page=" + this.page.now)
+        .then(res => {
+          this.researchData = res.data;
+          this.researchList = this.researchData.research.data;
+          this.page.all = this.researchData.page.all;
+        });
     },
     changePage: function(direction) {
       if (direction === "previous") {
