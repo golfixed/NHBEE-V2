@@ -5,11 +5,10 @@
       <span class="section-text">{{ $t("message.section.news")}}</span>
     </div>
 
-    <!-- NORNAL CASE -->
-    <!-- <div class="update-display"> -->
-    <div class="update-display" v-if="news_tmp.length > 0">
+    <!-- Desktop View -->
+    <div class="update-display display-desktop" v-if="news_tmp.length > 0">
       <div class="navigate-icon" @click="prevPage()">
-        <i class="fas fa-chevron-left arrow-color" v-if="onPage > 1 || news_tmp.length > 0"></i>
+        <i class="fas fa-chevron-left arrow-color" v-if="onPage > 1"></i>
       </div>
       <div class="row ud-bar">
         <div class="ud-box" v-for="(item, i) in news_data" :key="i" :value="i">
@@ -20,12 +19,26 @@
         </div>
       </div>
       <div class="navigate-icon" @click="nextPage()">
-        <i class="fas fa-chevron-right arrow-color" v-if="onPage <= 1 || news_tmp.length > 0"></i>
+        <i class="fas fa-chevron-right arrow-color" v-if="onPage <= 1 && news_data6.length > 0"></i>
+      </div>
+    </div>
+
+    <!-- Mobile View -->
+    <div class="update-display display-mobile" v-if="news_tmp.length > 0">
+      <div class="mobile-bar">
+        <div class="ud-box-mb" v-for="(item, i) in news_tmp" :key="i" :value="i">
+          <div class="ud-box-card">
+            <h5 class="ud-date" v-if=" changeLang === 'en' ">{{item.en.date}}</h5>
+            <h5 class="ud-date" v-if=" changeLang === 'th' ">{{item.th.date}}</h5>
+            <p class="ud-title" v-if=" changeLang === 'th' ">" {{item.th.title}} "</p>
+            <p class="ud-title" v-if=" changeLang === 'en' ">" {{item.en.title}} "</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- IN CASE OF NO UPDATES -->
-    <div class="update-display-none">
+    <div class="update-display-none" v-if="news_tmp.length == 0">
       <!-- <div class="update-display" v-if="news_tmp.length > 0"> -->
       <div>
         <label>{{ $t("message.system.noNewsHome")}}</label>
@@ -51,7 +64,7 @@ export default {
   },
   methods: {
     fetchNewsList: function() {
-      axios.get("/api/news/home?limit=6").then(res => {
+      axios.get("http://nhbee.kmutt.ac.th/api/news/home?limit=6").then(res => {
         this.news_tmp = res.data;
         this.news_data3 = this.news_tmp.slice(0, 3);
         this.news_data6 = this.news_tmp.slice(3, 6);
@@ -93,6 +106,9 @@ export default {
 </script>
 
 <style scoped>
+.display-mb {
+  display: block;
+}
 .update-display-none {
   height: 150px;
   display: flex;
@@ -107,13 +123,6 @@ export default {
 .section-topic {
   width: 100%;
   padding: 20px;
-}
-@media screen and (max-width: 425px) {
-  .section-topic {
-    font-size: 1.5rem;
-    padding: 30px 10px;
-    text-align: center;
-  }
 }
 .update-display {
   display: grid;
@@ -134,7 +143,7 @@ export default {
 }
 .ud-box {
   color: #ffffff;
-  padding: 0px 30px;
+  padding: 10px 30px;
   display: block;
   text-align: left;
   width: 33.33%;
@@ -168,32 +177,76 @@ export default {
   color: rgb(150, 150, 150);
   margin-bottom: 20px;
   cursor: default;
+  font-size: 16px;
 }
 .ud-title {
   color: rgb(220, 220, 220);
   font-weight: bold;
   cursor: default;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.display-mobile {
+  display: none;
 }
 
 @media screen and (max-width: 425px) {
+  .section-topic {
+    font-size: 1.5rem;
+    padding: 20px 20px 0 20px;
+    text-align: center;
+  }
+  .display-desktop {
+    display: none;
+  }
+  .display-mobile {
+    display: block;
+    padding-bottom: 0;
+  }
   .section-text {
     font-size: 1.5rem;
     padding: 30px 10px;
     text-align: center;
   }
-  .ud-box {
+  .ud-box-card {
     color: #ffffff;
-    width: 290px;
-    border: 1px solid #e5b865;
-    flex: 0 0 auto;
-    padding: 20px 20px 5px 20px;
+    width: 100%;
+    height: 180px;
+    background-color: #333;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.43);
     margin: 0 15px 0 0;
+    padding: 20px;
+  }
+  .ud-box-mb {
+    flex: 0 0 auto;
+    padding: 20px 0px 40px 30px;
+    width: 80%;
+  }
+  .ud-box-mb:last-child {
+    padding-right: 30px;
   }
   .ud-bar {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     padding: 0 15px 15px 15px;
+  }
+  .mobile-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 }
 </style>

@@ -31,7 +31,10 @@
         />
       </div>
       <div class="col-lg-3 col-sm-3 col-xs-12">
-        <megamenu :category="category4" :label1="group4_1" link1="/" />
+        <megamenu :category="category4" />
+        <a href="/admin/">
+          <div class="menubar-item">{{group4_1}}</div>
+        </a>
         <button
           @click="switchLocal();menubarToggle();"
           class="change-language"
@@ -118,6 +121,13 @@ export default {
 }
 .menu-img {
   max-width: 100%;
+}
+.menubar-item {
+  padding: 10px;
+  transition: all 0.1s;
+}
+.menubar-item:hover {
+  color: #e5b764;
 }
 @media screen and (max-width: 425px) {
   .panel-height {

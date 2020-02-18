@@ -9,17 +9,27 @@
       </div>
     </div>
     <div class="container page-start">
-      <div class="page-body" style="overflow: hidden;" v-if="this.news_data.length > 0">
+      <div
+        class="page-body"
+        style="overflow: hidden;"
+        v-if="this.news_list.length > 0 && this.isSelected == false"
+      >
         <div class="news-display">
-          <a href class="news-item" v-for="news in news_list" :key="'news_' + news.id">
+          <div
+            href
+            class="news-item"
+            v-for="news in news_list"
+            :key="'news_' + news.id"
+            v-on:click="getNews(news.id);"
+          >
             <img class="news-img" :src="news.pictureURL" />
             <div class="news-detail">
-              <h4 class="news-title" v-if="currentLang === 'th'">{{ news.th.title }}</h4>
-              <h4 class="news-title" v-if="currentLang === 'en'">{{ news.en.title }}</h4>
-              <h5 class="news-desc" v-if="currentLang === 'th'">{{ news.th.description }}</h5>
-              <h5 class="news-desc" v-if="currentLang === 'en'">{{ news.en.description }}</h5>
+              <h4 class="all-news-title" v-if="currentLang === 'th'">{{ news.th.title }}</h4>
+              <h4 class="all-news-title" v-if="currentLang === 'en'">{{ news.en.title }}</h4>
+              <h5 class="all-news-desc" v-if="currentLang === 'th'">{{ news.th.description }}</h5>
+              <h5 class="all-news-desc" v-if="currentLang === 'en'">{{ news.en.description }}</h5>
             </div>
-          </a>
+          </div>
         </div>
         <div class="news-home-pagination" style="margin-top: 20px;">
           <button
@@ -29,7 +39,14 @@
           >
             <i class="fas fa-arrow-left"></i>
           </button>
-          <div class="pagination-current">{{page.now}} จาก {{page.all}} หน้า</div>
+          <div
+            v-if="currentLang == 'th'"
+            class="pagination-current"
+          >{{page.now}} จาก {{page.all}} หน้า</div>
+          <div
+            v-if="currentLang == 'en'"
+            class="pagination-current"
+          >{{page.now}} From {{page.all}} Page(s)</div>
           <button
             class="pagination-btn next-btn"
             v-if="this.page.now != this.page.all"
@@ -39,7 +56,7 @@
           </button>
         </div>
       </div>
-      <div class="page-body" style="overflow: hidden;" v-if="this.news_data.length <=0">
+      <div class="page-body" style="overflow: hidden;" v-if="this.news_list.length < 0">
         <label class="no-news-text">
           <i class="fas fa-meh-blank"></i>
           {{ $t("message.system.noNews") }}
@@ -53,6 +70,46 @@
           </router-link>
         </div>
       </div>
+      <div class="page-body" style="overflow: hidden;" v-if="this.isSelected == true">
+        <div class="selected-news-display">
+          <div class="back-news-div">
+            <button class="back-home-btn" v-on:click="backToNewsHome();" v-if="currentLang == 'th'">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>ย้อนกลับ
+            </button>
+            <button class="back-home-btn" v-on:click="backToNewsHome();" v-if="currentLang == 'en'">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>Back
+            </button>
+          </div>
+          <h3 class="select-news-title" v-if="currentLang == 'en'">{{this.selectedNews.en.title}}</h3>
+          <h3 class="select-news-title" v-if="currentLang == 'th'">{{this.selectedNews.th.title}}</h3>
+
+          <div class="select-news-div">
+            <img class="select-news-picture" :src="this.selectedNews.pictureURL" />
+          </div>
+
+          <p v-if="currentLang == 'en'">{{this.selectedNews.en.description}}</p>
+          <p v-if="currentLang == 'th'">{{this.selectedNews.th.description}}</p>
+
+          <hr />
+          <p
+            style="margin-bottom:10px;"
+            v-if="currentLang == 'en'"
+          >Author: {{this.selectedNews.author}}</p>
+          <p
+            style="margin-bottom:10px;"
+            v-if="currentLang == 'th'"
+          >เขียนโดย {{this.selectedNews.author}}</p>
+
+          <p
+            style="margin-bottom:0;"
+            v-if="currentLang == 'en'"
+          >Posted on {{this.selectedNews.publishDate}}</p>
+          <p
+            style="margin-bottom:0;"
+            v-if="currentLang == 'th'"
+          >เผยแพร่วันที่ {{this.selectedNews.publishDate}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -63,7 +120,7 @@ import teamcard from "@/components/team/teamcard.vue";
 import layout_default from "@/layouts/main.vue";
 import axios from "axios";
 export default {
-  name: "aboutuspage",
+  name: "newspage",
   created() {
     this.$emit(`update:layout`, layout_default);
     this.fetchNewsList();
@@ -83,13 +140,27 @@ export default {
       count_current: "",
       count_all: "",
       status: 1,
-      range: 6
+      range: 6,
+      selectedNews: {
+        en: {
+          title: "No selected news"
+        },
+        th: {
+          title: "ไม่มีข่าวที่เลือก"
+        }
+      },
+      isSelected: false
     };
   },
   methods: {
     fetchNewsList: function() {
       axios
-        .get("/api/news?page=" + this.page.now + "&limit=" + this.range)
+        .get(
+          "http://nhbee.kmutt.ac.th/api/news?page=" +
+            this.page.now +
+            "&limit=" +
+            this.range
+        )
         .then(res => {
           this.news_data = res.data;
           this.news_list = this.news_data.description.data;
@@ -114,6 +185,16 @@ export default {
       } else {
         this.page.now = 1;
       }
+    },
+    getNews: function(id) {
+      this.filteredNews = this.news_list.filter(e => e.id == id);
+      this.selectedNews = this.filteredNews[0];
+      console.log(this.filteredNews);
+      this.isSelected = true;
+    },
+    backToNewsHome: function() {
+      this.isSelected = false;
+      this.selectedNews = [];
     }
   },
   computed: {
@@ -125,6 +206,28 @@ export default {
 </script>
 
 <style scoped>
+.select-news-title {
+  margin-bottom: 15px;
+}
+.back-news-div {
+  margin-bottom: 30px;
+}
+.select-news-div {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  background-color: #d2d2d2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.select-news-picture {
+  height: 100%;
+}
+.selected-news-display {
+  display: block;
+}
 button {
   outline: none;
 }
@@ -218,8 +321,9 @@ button {
   bottom: 0;
   background-color: #fff;
   padding: 10px;
+  width: 100%;
 }
-.news-title {
+.all-news-title {
   font-size: 1em;
   color: #292929;
   display: -webkit-box;
@@ -230,7 +334,7 @@ button {
   line-height: 20px;
   max-height: 18px;
 }
-.news-desc {
+.all-news-desc {
   font-size: 1em;
   color: #585858;
   display: -webkit-box;
