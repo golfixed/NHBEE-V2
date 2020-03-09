@@ -2,7 +2,7 @@
   <div
     id="navbarbox"
     class="container-fluid navbarbox"
-    style="position: fixed; z-index: 999;padding:0px;"
+    style="position: fixed; z-index: 4;padding:0px;"
   >
     <div class="header-top-line"></div>
     <div
@@ -40,11 +40,11 @@
               {{displayLocal}}
             </button>
           </div>
-          <div class="d-flex align-items-center justify-content-start nav-searchbar2">
+          <!-- <div class="d-flex align-items-center justify-content-start nav-searchbar2">
             <div v-on:click="searchPageToggle(true);">
               <i class="fas fa-search"></i>
             </div>
-          </div>
+          </div>-->
           <div
             @click="menubarToggle();"
             class="d-flex flew-row"

@@ -148,14 +148,14 @@ export default {
     },
     submitForm: function() {
       axios
-        .post("/api/survey/mini", {
+        .post("http://nhbee.kmutt.ac.th/api/survey/mini", {
           name: this.form_name,
           country: this.form_country,
           city: this.form_city,
           reason: this.form_reason.map(val => (val ? "1" : "0")).join("|")
         })
         .then(res => {
-          if (res.Status === 200) {
+          if (res.status != 404 || res.status != 500) {
             this.isSubmitted = true;
             this.thankYou = true;
           } else this.isSubmitted = this.isSubmitted;

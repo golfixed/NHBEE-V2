@@ -56,7 +56,7 @@
           </button>
         </div>
       </div>
-      <div class="page-body" style="overflow: hidden;" v-if="this.news_list.length < 0">
+      <div class="page-body" style="overflow: hidden;" v-if="this.news_list.length <= 0">
         <label class="no-news-text">
           <i class="fas fa-meh-blank"></i>
           {{ $t("message.system.noNews") }}
@@ -70,44 +70,124 @@
           </router-link>
         </div>
       </div>
-      <div class="page-body" style="overflow: hidden;" v-if="this.isSelected == true">
-        <div class="selected-news-display">
-          <div class="back-news-div">
-            <button class="back-home-btn" v-on:click="backToNewsHome();" v-if="currentLang == 'th'">
-              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>ย้อนกลับ
-            </button>
-            <button class="back-home-btn" v-on:click="backToNewsHome();" v-if="currentLang == 'en'">
-              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>Back
-            </button>
+
+      <div
+        class="page-body selected-news-display"
+        style="overflow: hidden;"
+        v-if="this.isSelected == true"
+      >
+        <div class="selected-article-display">
+          <div class="cover-block-img">
+            <img :src="this.selectedNews.pictureURL" />
           </div>
           <h3 class="select-news-title" v-if="currentLang == 'en'">{{this.selectedNews.en.title}}</h3>
           <h3 class="select-news-title" v-if="currentLang == 'th'">{{this.selectedNews.th.title}}</h3>
+          <div class="published-date">
+            <p
+              style="margin-bottom:0;"
+              v-if="currentLang == 'en'"
+            >Posted on {{this.selectedNews.publishDate}}</p>
+            <p
+              style="margin-bottom:0;"
+              v-if="currentLang == 'th'"
+            >เผยแพร่วันที่ {{this.selectedNews.publishDate}}</p>
+          </div>
+          <hr />
+          <div v-if="currentLang == 'th'">
+            <div v-for="itemth in selectedNews_article_th" :key="'itemth' + itemth.id">
+              <div class="article-block">
+                <div class="article-img-div">
+                  <img
+                    class="article-block-img"
+                    v-on:click="previewImg(itemth.picture);"
+                    :src="itemth.picture"
+                    v-if="itemth.picture"
+                  />
+                </div>
+                <p class="article-block-text" v-if="itemth.text">{{ itemth.text }}</p>
+              </div>
 
-          <div class="select-news-div">
-            <img class="select-news-picture" :src="this.selectedNews.pictureURL" />
+              <div class="popup-mask" v-on:click="imgPreview = ''" v-if="imgPreview">
+                <button class="popup-button" v-on:click="imgPreview = ''">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="popup-container" v-if="imgPreview">
+                <div class="popup-img-container">
+                  <img :src="imgPreview" />
+                </div>
+              </div>
+            </div>
           </div>
 
-          <p v-if="currentLang == 'en'">{{this.selectedNews.en.description}}</p>
-          <p v-if="currentLang == 'th'">{{this.selectedNews.th.description}}</p>
+          <div v-if="currentLang == 'en'">
+            <div v-for="itemen in selectedNews_article_en" :key="'itemen' + itemen.id">
+              <div class="article-block">
+                <div class="article-img-div">
+                  <img
+                    class="article-block-img"
+                    v-on:click="previewImg(itemen.picture);"
+                    :src="itemen.picture"
+                    v-if="itemen.picture"
+                  />
+                </div>
+                <p class="article-block-text" v-if="itemen.text">{{ itemen.text }}</p>
+              </div>
+              <div class="popup-mask" v-on:click="imgPreview = ''" v-if="imgPreview">
+                <button class="popup-button" v-on:click="imgPreview = ''">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="popup-container" v-if="imgPreview">
+                <div class="popup-img-container">
+                  <img :src="imgPreview" />
+                </div>
+              </div>
+            </div>
+          </div>
 
           <hr />
-          <p
-            style="margin-bottom:10px;"
-            v-if="currentLang == 'en'"
-          >Author: {{this.selectedNews.author}}</p>
-          <p
-            style="margin-bottom:10px;"
-            v-if="currentLang == 'th'"
-          >เขียนโดย {{this.selectedNews.author}}</p>
+          <div class="author-name">
+            <p
+              style="margin-bottom:10px;"
+              v-if="currentLang == 'en'"
+            >Author: {{this.selectedNews.author}}</p>
+            <p
+              style="margin-bottom:10px;"
+              v-if="currentLang == 'th'"
+            >เขียนโดย {{this.selectedNews.author}}</p>
+          </div>
+        </div>
 
-          <p
-            style="margin-bottom:0;"
-            v-if="currentLang == 'en'"
-          >Posted on {{this.selectedNews.publishDate}}</p>
-          <p
-            style="margin-bottom:0;"
-            v-if="currentLang == 'th'"
-          >เผยแพร่วันที่ {{this.selectedNews.publishDate}}</p>
+        <!-- <div class="other-news-list">
+
+          //////NEXT UPDDATE//////
+          <h4>ข่าวอื่น ๆ</h4>
+          <div class="other-news-display">
+            <div
+              href
+              class="news-item other-news-item"
+              v-for="news in otherNews"
+              :key="'news_' + news.id"
+              v-on:click="getNews(news.id);"
+            >
+              <img class="news-img" :src="news.pictureURL" />
+              <div class="news-detail">
+                <h4 class="all-news-title" v-if="currentLang === 'th'">{{ news.th.title }}</h4>
+                <h4 class="all-news-title" v-if="currentLang === 'en'">{{ news.en.title }}</h4>
+                <h5 class="all-news-desc" v-if="currentLang === 'th'">{{ news.th.description }}</h5>
+                <h5 class="all-news-desc" v-if="currentLang === 'en'">{{ news.en.description }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>-->
+        <div class="back-news-div">
+          <button class="back-home-btn" v-on:click="backToNewsHome();" v-if="currentLang == 'th'">
+            <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>ย้อนกลับ
+          </button>
+          <button class="back-home-btn" v-on:click="backToNewsHome();" v-if="currentLang == 'en'">
+            <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>Back
+          </button>
         </div>
       </div>
     </div>
@@ -141,18 +221,18 @@ export default {
       count_all: "",
       status: 1,
       range: 6,
-      selectedNews: {
-        en: {
-          title: "No selected news"
-        },
-        th: {
-          title: "ไม่มีข่าวที่เลือก"
-        }
-      },
-      isSelected: false
+      selectedNews: {},
+      isSelected: false,
+      selectedNews_article_th: [],
+      selectedNews_article_en: [],
+      imgPreview: "",
+      otherNews: []
     };
   },
   methods: {
+    previewImg(url) {
+      this.imgPreview = url;
+    },
     fetchNewsList: function() {
       axios
         .get(
@@ -187,12 +267,15 @@ export default {
       }
     },
     getNews: function(id) {
-      this.filteredNews = this.news_list.filter(e => e.id == id);
-      this.selectedNews = this.filteredNews[0];
-      console.log(this.filteredNews);
-      this.isSelected = true;
+      axios.get("http://nhbee.kmutt.ac.th/api/news/" + id).then(res => {
+        this.selectedNews = res.data;
+        this.selectedNews_article_th = this.selectedNews.th.article;
+        this.selectedNews_article_en = this.selectedNews.en.article;
+        this.isSelected = true;
+      });
     },
     backToNewsHome: function() {
+      window.scrollTo(500, 0);
       this.isSelected = false;
       this.selectedNews = [];
     }
@@ -206,13 +289,61 @@ export default {
 </script>
 
 <style scoped>
+.popup-mask {
+  position: absolute;
+  background-color: black;
+  opacity: 0.75;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+.popup-container {
+  background-color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+.popup-img-container {
+  max-height: 90vh;
+  max-width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-img-container > img {
+  height: 100%;
+  width: 100%;
+}
+.popup-button {
+  position: absolute;
+  color: #fff;
+  top: 20px;
+  right: 20px;
+  z-index: 6;
+  border: 0;
+  background: none;
+  user-select: none;
+  outline: none;
+}
 .select-news-title {
-  margin-bottom: 15px;
+  font-size: 35px;
+  margin: 20px 0 10px 0;
+}
+.published-date > p {
+  color: grey;
 }
 .back-news-div {
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
 }
-.select-news-div {
+.cover-block-img {
   width: 100%;
   height: 300px;
   border-radius: 5px;
@@ -221,11 +352,34 @@ export default {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  overflow: hidden;
 }
-.select-news-picture {
-  height: 100%;
+.cover-block-img > img {
+  width: 100%;
 }
-.selected-news-display {
+.article-block {
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article-block-img {
+  border: 5px solid #fff;
+  height: 300px;
+  margin: 20px 0;
+}
+.article-block-img:hover {
+  border: 5px solid #707070;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+.article-block-text {
+  text-indent: 20px;
+  margin-top: 1rem;
+}
+.selected-article-display {
   display: block;
 }
 button {
@@ -303,6 +457,15 @@ button {
   transition: all 0.3s;
   border-radius: 5px;
   overflow: hidden;
+}
+.other-news-item {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  transition: all 0.3s;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
 }
 .news-item:hover {
   -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.22);
@@ -404,12 +567,23 @@ button {
   -webkit-box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
   box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
 }
+.selected-news-display {
+  overflow: hidden;
+  /* display: grid;
+  ///THIS WILL COME WITH SELECTED NEWS///
+  grid-template-columns: calc(100% - 300px) 300px; */
+}
 .news-display {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
-
+.other-news-display {
+  display: block;
+}
+.other-news-display > div.other-news-item:first-child {
+  margin-top: 0;
+}
 .aboutimg-div {
   border-radius: 5px;
   width: 100%;
@@ -420,6 +594,17 @@ button {
 }
 .top-fix {
   margin-top: -310px;
+}
+.other-news-list {
+  padding-left: 30px;
+}
+.other-news-list > h4 {
+  width: 100%;
+  font-size: 22px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+  border-width: 0 0 1px 0;
+  padding-bottom: 10px;
 }
 
 /* TABLET */
@@ -445,6 +630,9 @@ button {
 }
 /* MOBILE */
 @media screen and (max-width: 425px) {
+  .cover-block-img {
+    height: 150px;
+  }
   .news-display {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -453,9 +641,14 @@ button {
   .page-body {
     border-radius: 0;
     padding: 20px;
+    width: 100vw;
   }
   .team-title {
     margin: 30px 0 40px 0px;
+  }
+  .article-block-img {
+    height: 150px;
+    max-width: 100vw;
   }
 }
 </style>
