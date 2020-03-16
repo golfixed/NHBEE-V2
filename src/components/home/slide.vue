@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "@/axios.js";
 export default {
   name: "HomeSlide",
   created() {
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     getImageSlide: function() {
-      axios.get("http://nhbee.kmutt.ac.th/api/carousel").then(res => {
+      axios.get("/carousel").then(res => {
         if (res.status != 404 || res.status != 500) {
           this.imageList = res.data;
         } else {

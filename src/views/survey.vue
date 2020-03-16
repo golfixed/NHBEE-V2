@@ -912,7 +912,7 @@
 
 <script>
 import layout_default from "@/layouts/main.vue";
-import axios from "axios";
+import axios from "@/axios.js";
 export default {
   name: "surveypage",
   created() {
@@ -1044,14 +1044,12 @@ export default {
       window.scrollTo(0, 0);
     },
     submitForm() {
-      axios
-        .post("http://nhbee.kmutt.ac.th/api/survey/full", this.submittedData)
-        .then(res => {
-          if (res.status != 404 || res.status != 500) {
-            this.isSuveyOpen = false;
-            this.isSubmitted = true;
-          }
-        });
+      axios.post("/survey/full", this.submittedData).then(res => {
+        if (res.status != 404 || res.status != 500) {
+          this.isSuveyOpen = false;
+          this.isSubmitted = true;
+        }
+      });
     }
   }
 };

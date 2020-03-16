@@ -70,7 +70,7 @@
 import { mdbIcon } from "mdbvue";
 import teamcard from "@/components/team/teamcard.vue";
 import layout_default from "@/layouts/main.vue";
-import axios from "axios";
+import axios from "@/axios.js";
 export default {
   name: "aboutuspage",
   created() {
@@ -102,13 +102,11 @@ export default {
   },
   methods: {
     fetchResearchList: function() {
-      axios
-        .get("http://nhbee.kmutt.ac.th/api/research?page=" + this.page.now)
-        .then(res => {
-          this.researchData = res.data;
-          this.researchList = this.researchData.research.data;
-          this.page.all = this.researchData.page.all;
-        });
+      axios.get("/research?page=" + this.page.now).then(res => {
+        this.researchData = res.data;
+        this.researchList = this.researchData.research.data;
+        this.page.all = this.researchData.page.all;
+      });
     },
     changePage: function(direction) {
       if (direction === "previous") {

@@ -56,7 +56,11 @@
           </button>
         </div>
       </div>
-      <div class="page-body" style="overflow: hidden;" v-if="this.news_list.length <= 0">
+      <div
+        class="page-body"
+        style="overflow: hidden;"
+        v-if="this.news_list.length <= 0 && this.$store.state.selectedNews == ''"
+      >
         <label class="no-news-text">
           <i class="fas fa-meh-blank"></i>
           {{ $t("message.system.noNews") }}
@@ -94,7 +98,7 @@
           </div>
           <hr />
           <div v-if="currentLang == 'th'">
-            <div v-for="itemth in selectedNews_article_th" :key="'itemth' + itemth.id">
+            <div v-for="(itemth, index) in selectedNews_article_th" :key="index">
               <div class="article-block">
                 <div class="article-img-div">
                   <img
@@ -121,7 +125,7 @@
           </div>
 
           <div v-if="currentLang == 'en'">
-            <div v-for="itemen in selectedNews_article_en" :key="'itemen' + itemen.id">
+            <div v-for="(itemen, index) in selectedNews_article_en" :key="index">
               <div class="article-block">
                 <div class="article-img-div">
                   <img
@@ -198,12 +202,12 @@
 import { mdbIcon } from "mdbvue";
 import teamcard from "@/components/team/teamcard.vue";
 import layout_default from "@/layouts/main.vue";
-import axios from "axios";
+import axios from "@/axios.js";
 export default {
   name: "newspage",
   created() {
     this.$emit(`update:layout`, layout_default);
-    this.fetchNewsList();
+    this.fetchStart();
   },
   components: {
     teamcard,
@@ -235,12 +239,7 @@ export default {
     },
     fetchNewsList: function() {
       axios
-        .get(
-          "http://nhbee.kmutt.ac.th/api/news?page=" +
-            this.page.now +
-            "&limit=" +
-            this.range
-        )
+        .get("/news?page=" + this.page.now + "&limit=" + this.range)
         .then(res => {
           this.news_data = res.data;
           this.news_list = this.news_data.description.data;
@@ -266,17 +265,35 @@ export default {
         this.page.now = 1;
       }
     },
+    fetchStart() {
+      if (this.$store.state.selectedNews >= 0) {
+        this.getNews();
+      } else if (this.$store.state.selectedNews == "") {
+        this.fetchNewsList();
+      }
+    },
     getNews: function(id) {
-      axios.get("http://nhbee.kmutt.ac.th/api/news/" + id).then(res => {
-        this.selectedNews = res.data;
-        this.selectedNews_article_th = this.selectedNews.th.article;
-        this.selectedNews_article_en = this.selectedNews.en.article;
-        this.isSelected = true;
-      });
+      if (this.$store.state.selectedNews >= 0) {
+        var newsID = this.$store.state.selectedNews;
+        axios.get("/news/" + newsID).then(res => {
+          this.selectedNews = res.data;
+          this.selectedNews_article_th = this.selectedNews.th.article;
+          this.selectedNews_article_en = this.selectedNews.en.article;
+          this.isSelected = true;
+        });
+      } else {
+        axios.get("/news/" + id).then(res => {
+          this.selectedNews = res.data;
+          this.selectedNews_article_th = this.selectedNews.th.article;
+          this.selectedNews_article_en = this.selectedNews.en.article;
+          this.isSelected = true;
+        });
+      }
     },
     backToNewsHome: function() {
       window.scrollTo(500, 0);
       this.isSelected = false;
+      this.$store.commit("SELECT_NEWS", "");
       this.selectedNews = [];
     }
   },

@@ -126,7 +126,7 @@
 
 <script>
 import { mdbIcon } from "mdbvue";
-import axios from "axios";
+import axios from "@/axios.js";
 export default {
   name: "survey",
   components: {
@@ -148,7 +148,7 @@ export default {
     },
     submitForm: function() {
       axios
-        .post("http://nhbee.kmutt.ac.th/api/survey/mini", {
+        .post("/survey/mini", {
           name: this.form_name,
           country: this.form_country,
           city: this.form_city,

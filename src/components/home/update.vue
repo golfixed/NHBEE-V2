@@ -12,10 +12,14 @@
       </div>
       <div class="row ud-bar">
         <div class="ud-box" v-for="(item, i) in news_data" :key="i" :value="i">
-          <h5 class="ud-date" v-if=" changeLang === 'en' ">{{item.en.date}}</h5>
-          <h5 class="ud-date" v-if=" changeLang === 'th' ">{{item.th.date}}</h5>
-          <p class="ud-title" v-if=" changeLang === 'th' ">" {{item.th.title}} "</p>
-          <p class="ud-title" v-if=" changeLang === 'en' ">" {{item.en.title}} "</p>
+          <router-link to="/news">
+            <div v-on:click="selectNews(item.id)">
+              <h5 class="ud-date" v-if=" changeLang === 'en' ">{{item.en.date}}</h5>
+              <h5 class="ud-date" v-if=" changeLang === 'th' ">{{item.th.date}}</h5>
+              <p class="ud-title" v-if=" changeLang === 'th' ">" {{item.th.title}} "</p>
+              <p class="ud-title" v-if=" changeLang === 'en' ">" {{item.en.title}} "</p>
+            </div>
+          </router-link>
         </div>
       </div>
       <div class="navigate-icon" @click="nextPage()">
@@ -27,12 +31,14 @@
     <div class="update-display display-mobile" v-if="news_tmp.length > 0">
       <div class="mobile-bar">
         <div class="ud-box-mb" v-for="(item, i) in news_tmp" :key="i" :value="i">
-          <div class="ud-box-card">
-            <h5 class="ud-date" v-if=" changeLang === 'en' ">{{item.en.date}}</h5>
-            <h5 class="ud-date" v-if=" changeLang === 'th' ">{{item.th.date}}</h5>
-            <p class="ud-title" v-if=" changeLang === 'th' ">" {{item.th.title}} "</p>
-            <p class="ud-title" v-if=" changeLang === 'en' ">" {{item.en.title}} "</p>
-          </div>
+          <router-link to="/news">
+            <div class="ud-box-card" v-on:click="selectNews(item.id)">
+              <h5 class="ud-date" v-if=" changeLang === 'en' ">{{item.en.date}}</h5>
+              <h5 class="ud-date" v-if=" changeLang === 'th' ">{{item.th.date}}</h5>
+              <p class="ud-title" v-if=" changeLang === 'th' ">" {{item.th.title}} "</p>
+              <p class="ud-title" v-if=" changeLang === 'en' ">" {{item.en.title}} "</p>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -48,7 +54,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "@/axios.js";
 export default {
   name: "homeupdate",
   created() {
@@ -59,12 +65,17 @@ export default {
       currentPage: 1,
       news_tmp: [],
       news_data3: [],
-      news_data6: []
+      news_data6: [],
+      selectedNews: ""
     };
   },
   methods: {
+    selectNews: function(item) {
+      this.selectedNews = item;
+      this.$store.commit("SELECT_NEWS", this.selectedNews);
+    },
     fetchNewsList: function() {
-      axios.get("http://nhbee.kmutt.ac.th/api/news/home?limit=6").then(res => {
+      axios.get("/news/home?limit=6").then(res => {
         this.news_tmp = res.data;
         this.news_data3 = this.news_tmp.slice(0, 3);
         this.news_data6 = this.news_tmp.slice(3, 6);
@@ -148,11 +159,11 @@ export default {
   text-align: left;
   width: 33.33%;
   transition: all 0.3s;
-  cursor: pointer;
 }
 .ud-box:hover {
   background-color: #292929;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .ud-bar {
   display: flex;
@@ -178,6 +189,7 @@ export default {
   margin-bottom: 20px;
   cursor: default;
   font-size: 16px;
+  cursor: pointer;
 }
 .ud-title {
   color: rgb(220, 220, 220);
@@ -185,6 +197,7 @@ export default {
   cursor: default;
   font-size: 20px;
   margin-bottom: 0;
+  cursor: pointer;
 }
 .display-mobile {
   display: none;

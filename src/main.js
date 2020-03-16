@@ -5,6 +5,7 @@ import VueI18n from 'vue-i18n'
 import messages from './locales'
 import store from './store'
 import VueCarousel from '@chenfengyuan/vue-carousel';
+// import axios from '@/axios.js'
 
 Vue.config.productionTip = false
 Vue.use(VueI18n)

@@ -5,11 +5,13 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: () => ({
-    menubarShow: false
+    menubarShow: false,
+    selectedNews: '',
   }),
   mutations: {
     MENU_TOGGLE: (state) => state.menubarShow = !state.menubarShow,
-    MENU_CLOSE: (state) => state.menubarShow = false
+    MENU_CLOSE: (state) => state.menubarShow = false,
+    SELECT_NEWS: (state, payload) => state.selectedNews = payload,
   }
 })
 
