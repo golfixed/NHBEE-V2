@@ -67,7 +67,7 @@
         </label>
         <div class="btn-container">
           <router-link to="/">
-            <button class="back-home-btn">
+            <button class="back-home-btn" v-on:click="backHome();">
               <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
               {{ $t("message.system.back") }}
             </button>
@@ -207,7 +207,9 @@ export default {
   name: "newspage",
   created() {
     this.$emit(`update:layout`, layout_default);
-    this.fetchStart();
+    this.fetchNewsList();
+    if (this.$store.state.selectedNews >= 0)
+      this.getNews(this.$store.state.selectedNews);
   },
   components: {
     teamcard,
@@ -230,7 +232,8 @@ export default {
       selectedNews_article_th: [],
       selectedNews_article_en: [],
       imgPreview: "",
-      otherNews: []
+      otherNews: [],
+      selectedID: ""
     };
   },
   methods: {
@@ -244,6 +247,9 @@ export default {
           this.news_data = res.data;
           this.news_list = this.news_data.description.data;
           this.page.all = this.news_data.page.all;
+        })
+        .catch(error => {
+          console.error(error.response);
         });
     },
     changePage: function(direction) {
@@ -265,36 +271,23 @@ export default {
         this.page.now = 1;
       }
     },
-    fetchStart() {
-      if (this.$store.state.selectedNews >= 0) {
-        this.getNews();
-      } else if (this.$store.state.selectedNews == "") {
-        this.fetchNewsList();
-      }
-    },
     getNews: function(id) {
-      if (this.$store.state.selectedNews >= 0) {
-        var newsID = this.$store.state.selectedNews;
-        axios.get("/news/" + newsID).then(res => {
-          this.selectedNews = res.data;
-          this.selectedNews_article_th = this.selectedNews.th.article;
-          this.selectedNews_article_en = this.selectedNews.en.article;
-          this.isSelected = true;
-        });
-      } else {
-        axios.get("/news/" + id).then(res => {
-          this.selectedNews = res.data;
-          this.selectedNews_article_th = this.selectedNews.th.article;
-          this.selectedNews_article_en = this.selectedNews.en.article;
-          this.isSelected = true;
-        });
-      }
+      axios.get("/news/" + id).then(res => {
+        this.selectedNews = res.data;
+        this.selectedNews_article_th = this.selectedNews.th.article;
+        this.selectedNews_article_en = this.selectedNews.en.article;
+        this.isSelected = true;
+      });
     },
     backToNewsHome: function() {
+      this.$store.commit("SELECT_NEWS", "");
+      this.fetchNewsList();
       window.scrollTo(500, 0);
       this.isSelected = false;
-      this.$store.commit("SELECT_NEWS", "");
       this.selectedNews = [];
+    },
+    backHome: function() {
+      this.$store.commit("SELECT_NEWS", "");
     }
   },
   computed: {
