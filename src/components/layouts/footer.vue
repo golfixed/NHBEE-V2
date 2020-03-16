@@ -74,7 +74,7 @@
           <p>All rights reserved.</p>
         </div>
         <div>
-          <p>NHBEE KMUTT 2019</p>
+          <p>NHBEE KMUTT 2020</p>
         </div>
       </div>
     </div>
