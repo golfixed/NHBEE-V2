@@ -74,6 +74,15 @@ a:hover {
 .page-header {
   height: 280px;
 }
+.popup-mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 @media screen and (max-width: 425px) {
   .home-display {
     padding-bottom: 0px;

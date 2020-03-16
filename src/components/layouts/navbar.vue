@@ -48,7 +48,7 @@
           <div
             @click="menubarToggle();"
             class="d-flex flew-row"
-            style="color: white; padding: 0px 0px 0px 15px; align-items:center;"
+            style="color: white; padding: 0px 0px 0px 15px; align-items:center;cursor:pointer;"
           >
             <i class="fas fa-bars"></i>
             <p
@@ -59,6 +59,11 @@
         </div>
       </div>
     </div>
+    <div
+      class="popup-mask"
+      v-if="this.$store.state.menubarShow == true"
+      v-on:click="menubarToggle();"
+    ></div>
     <div class="menubar-box" :class="{show:$store.state.menubarShow}">
       <menubar />
     </div>
