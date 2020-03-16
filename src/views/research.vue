@@ -116,14 +116,16 @@ export default {
           this.page.now = this.page.now;
         } else {
           this.page.now = this.page.now - 1;
-          this.fetchNewsList();
+          this.fetchResearchList();
+          window.scrollTo(500, 0);
         }
       } else if (direction === "next") {
         if (this.page.now >= this.page.all) {
           this.page.now = this.page.now;
         } else {
           this.page.now = this.page.now + 1;
-          this.fetchNewsList();
+          this.fetchResearchList();
+          window.scrollTo(500, 0);
         }
       } else {
         this.page.now = 1;

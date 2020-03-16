@@ -310,15 +310,14 @@ export default {
   z-index: 6;
 }
 .popup-img-container {
-  max-height: 90vh;
-  max-width: 90vw;
+  max-height: 80vh;
+  max-width: 80vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .popup-img-container > img {
-  height: 100%;
-  width: 100%;
+  height: 80vh;
 }
 .popup-button {
   position: absolute;
