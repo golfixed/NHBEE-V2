@@ -166,6 +166,14 @@ export default {
 </script>
 
 <style scoped>
+button {
+  outline: none;
+}
+.btn-container {
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+}
 .thankyou-msg-div {
   display: flex;
   flex-direction: column;

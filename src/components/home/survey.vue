@@ -37,6 +37,9 @@ export default {
   font-size: 22px;
   margin-top: 20px;
   padding: 0px 20px;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
 }
 .line1 {
   color: white;

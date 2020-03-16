@@ -656,7 +656,8 @@ button {
     margin: 30px 0 40px 0px;
   }
   .article-block-img {
-    height: 150px;
+    width: 100%;
+    height: auto;
     max-width: 100vw;
   }
 }
